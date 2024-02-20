@@ -1,10 +1,13 @@
 <script lang="ts">
-  import '../app.pcss'
+	import '../app.pcss';
+	import Hero from './(components)/(hero)/Hero.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+  <title>Portfolio de Vincent LISITA</title>
+</svelte:head>
 
+<Hero />
 
 <!-- HERO SECTION -->
 
