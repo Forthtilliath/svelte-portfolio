@@ -2,7 +2,7 @@
 <script lang="ts">
 	export let letters: string[];
 	export let size: string;
-	export let delay: number = 0;
+	export let delay: string = "0";
 	export let translateY: string = "0";
 
 	$: [front, bottom, back, top] = letters;
@@ -36,21 +36,20 @@
 		will-change: transform;
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 
-		animation: flip 8s infinite;
-		animation-delay: var(--delay);
+		animation: flip 16s ease-in-out var(--delay, 0) infinite;
 	}
 
 	@keyframes flip {
-		0%,10% {
+		0%,20% {
 			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 		}
-		25%,35% {
+		25%,45% {
 			transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
 		}
-		50%,60% {
+		50%,70% {
 			transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
 		}
-		75%,85% {
+		75%,95% {
 			transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg);
 		}
 		100% {

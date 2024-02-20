@@ -14,7 +14,7 @@
 
 <div class="flip-wrapper">
 	{#each transposedWords as letters, i}
-		<FlipLetter {letters} size="100px" translateY="-4px" delay={i * 0.1} />
+		<FlipLetter {letters} size="100px" translateY="-4px" delay={`${i * 0.2}s`} />
 	{/each}
 </div>
 
