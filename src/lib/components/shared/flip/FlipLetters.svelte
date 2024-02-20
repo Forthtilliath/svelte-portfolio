@@ -1,21 +1,33 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
+	export let nth: number;
 	export let letters: string[];
 	export let size: string;
-	export let delay: string = "0";
-	export let translateY: string = "0";
+	export let delay: string;
+	export let delayFn: (i: number) => string = () => '0s';
+	export let translateY: string = '0px';
+	export let colors: string[] = [];
 
-	$: [front, bottom, back, top] = letters;
+	$: [front, top, back, bottom] = letters;
+	$: delay = delay ?? delayFn(nth);
 </script>
 
 <div class="dice-wrapper" style="--size: {size}">
 	<div class="dice" style="--delay: {delay}">
-		<div class="face front" style="--translateY: {translateY}"><p>{front}</p></div>
-		<div class="face back" style="--translateY: {translateY}"><p>{back}</p></div>
+		<div class="face front" style="--translateY: {translateY}; --bgColor: {colors[0]}">
+			<p>{front}</p>
+		</div>
+		<div class="face top" style="--translateY: {translateY}; --bgColor: {colors[1]}">
+			<p>{top}</p>
+		</div>
+		<div class="face back" style="--translateY: {translateY}; --bgColor: {colors[2]}">
+			<p>{back}</p>
+		</div>
+		<div class="face bottom" style="--translateY: {translateY}; --bgColor: {colors[3]}">
+			<p>{bottom}</p>
+		</div>
 		<div class="face left"></div>
 		<div class="face right"></div>
-		<div class="face top" style="--translateY: {translateY}"><p>{top}</p></div>
-		<div class="face bottom" style="--translateY: {translateY}"><p>{bottom}</p></div>
 	</div>
 </div>
 
@@ -40,16 +52,20 @@
 	}
 
 	@keyframes flip {
-		0%,20% {
+		0%,
+		20% {
 			transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 		}
-		25%,45% {
+		25%,
+		45% {
 			transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
 		}
-		50%,70% {
+		50%,
+		70% {
 			transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
 		}
-		75%,95% {
+		75%,
+		95% {
 			transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg);
 		}
 		100% {
@@ -77,12 +93,12 @@
 	}
 
 	.front {
-		background-color: #2962ff;
+		background-color: var(--bgColor, #2962ff);
 		transform: translateZ(calc(var(--size) / 2));
 	}
 
 	.back {
-		background-color: #00796b;
+		background-color: var(--bgColor, #00796b);
 		transform: translateZ(calc(var(--size) / -2)) rotateY(180deg) rotateZ(180deg);
 	}
 
@@ -97,12 +113,12 @@
 	}
 
 	.top {
-		background-color: #f57c00;
+		background-color: var(--bgColor, #f57c00);
 		transform: translateY(calc(var(--size) / 2)) rotateX(-90deg);
 	}
 
 	.bottom {
-		background-color: #283593;
+		background-color: var(--bgColor, #283593);
 		transform: translateY(calc(var(--size) / -2)) rotateX(90deg);
 	}
 </style>
