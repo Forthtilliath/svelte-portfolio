@@ -1,21 +1,20 @@
 declare module 'forth-flip-words' {
 	export namespace Flip {
-		type OptionsDelay =
-			| {
-					delay: string;
-					delayFn?: undefined;
-			  }
-			| {
-					delay?: undefined;
-					delayFn: (i: number) => string;
-			  }
-			| {
-					delay?: undefined;
-					delayFn?: undefined;
-			  };
-		type Options = {
+		type OtherOptions = {
 			translateY?: string;
 			colors?: string[];
-		} & OptionsDelay;
+		};
+
+		type OptionsWithDelay = {
+			delay: string;
+			delayFn?: never;
+		} & OtherOptions;
+
+		type OptionsWithDelayFn = {
+			delay?: never;
+			delayFn: (i: number) => string;
+		} & OtherOptions;
+
+		type Options = OptionsWithDelay | OptionsWithDelayFn;
 	}
 }

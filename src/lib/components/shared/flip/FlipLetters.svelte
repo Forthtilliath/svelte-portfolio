@@ -1,33 +1,35 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
-	export let nth: number;
+	import FlipFace from './FlipFace.svelte';
+
+	export let nth: number = 1;
 	export let letters: string[];
 	export let size: string;
-	export let delay: string;
+	export let delay = '';
 	export let delayFn: (i: number) => string = () => '0s';
 	export let translateY: string = '0px';
 	export let colors: string[] = [];
 
 	$: [front, top, back, bottom] = letters;
-	$: delay = delay ?? delayFn(nth);
+	$: delay = delay || delayFn(nth);
 </script>
 
 <div class="dice-wrapper" style="--size: {size}">
 	<div class="dice" style="--delay: {delay}">
-		<div class="face front" style="--translateY: {translateY}; --bgColor: {colors[0]}">
-			<p>{front}</p>
-		</div>
-		<div class="face top" style="--translateY: {translateY}; --bgColor: {colors[1]}">
-			<p>{top}</p>
-		</div>
-		<div class="face back" style="--translateY: {translateY}; --bgColor: {colors[2]}">
-			<p>{back}</p>
-		</div>
-		<div class="face bottom" style="--translateY: {translateY}; --bgColor: {colors[3]}">
-			<p>{bottom}</p>
-		</div>
-		<div class="face left"></div>
-		<div class="face right"></div>
+		<FlipFace face="front" bgColor={colors[0]} {translateY}>
+			{front}
+		</FlipFace>
+		<FlipFace face="top" bgColor={colors[1]} {translateY}>
+			{top}
+		</FlipFace>
+		<FlipFace face="back" bgColor={colors[2]} {translateY}>
+			{back}
+		</FlipFace>
+		<FlipFace face="bottom" bgColor={colors[3]} {translateY}>
+			{bottom}
+		</FlipFace>
+		<FlipFace face="left" {translateY} />
+		<FlipFace face="right" {translateY} />
 	</div>
 </div>
 
@@ -71,54 +73,5 @@
 		100% {
 			transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
 		}
-	}
-
-	.face {
-		position: absolute;
-		backface-visibility: hidden;
-		width: 100%;
-		height: 100%;
-		line-height: var(--size);
-		opacity: 0.9;
-		border-radius: 0.25rem;
-
-		p {
-			text-transform: uppercase;
-			font-size: 100px;
-			font-size: calc(var(--size) * 0.8);
-			color: #fff;
-			text-align: center;
-			transform: translateY(var(--translateY));
-		}
-	}
-
-	.front {
-		background-color: var(--bgColor, #2962ff);
-		transform: translateZ(calc(var(--size) / 2));
-	}
-
-	.back {
-		background-color: var(--bgColor, #00796b);
-		transform: translateZ(calc(var(--size) / -2)) rotateY(180deg) rotateZ(180deg);
-	}
-
-	.left {
-		background-color: #c62828;
-		transform: translateX(calc(var(--size) / 2)) rotateY(90deg);
-	}
-
-	.right {
-		background-color: #00e676;
-		transform: translateX(calc(var(--size) / -2)) rotateY(-90deg);
-	}
-
-	.top {
-		background-color: var(--bgColor, #f57c00);
-		transform: translateY(calc(var(--size) / 2)) rotateX(-90deg);
-	}
-
-	.bottom {
-		background-color: var(--bgColor, #283593);
-		transform: translateY(calc(var(--size) / -2)) rotateX(90deg);
 	}
 </style>

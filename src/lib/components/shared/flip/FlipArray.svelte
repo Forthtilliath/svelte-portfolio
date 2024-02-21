@@ -5,7 +5,9 @@
 
 	export let words: string[];
 	export let size: string;
-	export let options: Flip.Options = {}
+	export let options: Flip.Options = {
+		delay: '0s',
+	}
 
 	$: transposedWords = transposeWords(words);
 </script>
