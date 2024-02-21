@@ -3,6 +3,7 @@ declare module 'forth-flip-words' {
 		type OtherOptions = {
 			translateY?: string;
 			colors?: string[];
+			duration?: string;
 		};
 
 		type OptionsWithDelay = {

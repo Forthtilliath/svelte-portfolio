@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { transposeWords } from './transposeWords';
-	import FlipLetter from './FlipLetters.svelte';
+	import FlipDice from './FlipDice.svelte';
 	import type { Flip } from 'forth-flip-words';
 
 	export let words: string[];
@@ -14,7 +14,7 @@
 
 <div class="flip-wrapper">
 	{#each transposedWords as letters, nth}
-		<FlipLetter {letters} {size} {nth} {...options} />
+		<FlipDice {letters} {size} {nth} {...options} />
 	{/each}
 </div>
 

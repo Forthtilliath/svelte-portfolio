@@ -1,6 +1,6 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
-	import FlipFace from './FlipFace.svelte';
+	import FlipDiceFace from './FlipDiceFace.svelte';
 
 	export let nth: number = 1;
 	export let letters: string[];
@@ -9,27 +9,28 @@
 	export let delayFn: (i: number) => string = () => '0s';
 	export let translateY: string = '0px';
 	export let colors: string[] = [];
+	export let duration = '16s';
 
 	$: [front, top, back, bottom] = letters;
 	$: delay = delay || delayFn(nth);
 </script>
 
 <div class="dice-wrapper" style="--size: {size}">
-	<div class="dice" style="--delay: {delay}">
-		<FlipFace face="front" bgColor={colors[0]} {translateY}>
+	<div class="dice" style="--delay: {delay}; --duration: {duration}">
+		<FlipDiceFace face="front" bgColor={colors[0]} {translateY}>
 			{front}
-		</FlipFace>
-		<FlipFace face="top" bgColor={colors[1]} {translateY}>
+		</FlipDiceFace>
+		<FlipDiceFace face="top" bgColor={colors[1]} {translateY}>
 			{top}
-		</FlipFace>
-		<FlipFace face="back" bgColor={colors[2]} {translateY}>
+		</FlipDiceFace>
+		<FlipDiceFace face="back" bgColor={colors[2]} {translateY}>
 			{back}
-		</FlipFace>
-		<FlipFace face="bottom" bgColor={colors[3]} {translateY}>
+		</FlipDiceFace>
+		<FlipDiceFace face="bottom" bgColor={colors[3]} {translateY}>
 			{bottom}
-		</FlipFace>
-		<FlipFace face="left" {translateY} />
-		<FlipFace face="right" {translateY} />
+		</FlipDiceFace>
+		<FlipDiceFace face="left" {translateY} />
+		<FlipDiceFace face="right" {translateY} />
 	</div>
 </div>
 
@@ -50,7 +51,7 @@
 		will-change: transform;
 		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 
-		animation: flip 16s ease-in-out var(--delay, 0) infinite;
+		animation: flip var(--duration) ease-in-out var(--delay, 0) infinite;
 	}
 
 	@keyframes flip {
