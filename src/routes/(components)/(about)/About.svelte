@@ -9,5 +9,11 @@
 		{$t('about.title')}
 	</SectionTitle>
 
-	
+	<p class="leading-7 text-xl [&:not(:first-child)]:mt-6">
+		{$t('about.p1')}
+	</p>
+
+	<p class="leading-7 text-xl [&:not(:first-child)]:mt-6">
+		{$t('about.p2')}
+	</p>
 </Section>

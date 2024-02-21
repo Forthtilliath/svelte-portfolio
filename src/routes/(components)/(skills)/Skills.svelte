@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Section from '$lib/components/shared/Section.svelte';
+	import { t } from '$lib/translations';
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="skills">
 	<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
-		Skills
+		{$t('skills.title')}
 	</h1>
 </Section>

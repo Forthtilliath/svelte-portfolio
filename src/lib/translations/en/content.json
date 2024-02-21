@@ -6,7 +6,12 @@
 		"projects": "Projects",
 		"contact": "Contact"
 	},
-  "about": {
-    "title": "About me"
+	"about": {
+		"title": "About me",
+		"p1": "After several years as a family caregiver, I decided to pursue my passion for web development by becoming self-taught. For over a year, I have specialized in JavaScript and more particularly in the React library.",
+		"p2": "Passionate about creating innovative and intuitive user interfaces, I am constantly looking for new knowledge to improve my front-end development skills."
+	},
+  "skills": {
+    "title": "My Skills"
   }
 }
