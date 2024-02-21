@@ -55,6 +55,19 @@
 			color: #fff;
 			text-align: center;
 			transform: translateY(var(--translateY));
+			font-family:
+				'Overpass',
+				-apple-system,
+				BlinkMacSystemFont,
+				'Segoe UI',
+				Roboto,
+				Oxygen,
+				Ubuntu,
+				Cantarell,
+				'Fira Sans',
+				'Droid Sans',
+				'Helvetica Neue',
+				sans-serif;
 		}
 	}
 </style>

@@ -1,4 +1,10 @@
-<section>
+<script lang="ts">
+	import { cn } from '$lib/utils';
+
+	export let className: string = '';
+</script>
+
+<section class={cn('container', className)}>
 	<slot />
 </section>
 
