@@ -1,0 +1,12 @@
+{
+	"header": {
+		"title": "Vincent LISITA",
+		"about": "À Propos",
+		"skills": "Compétences",
+		"projects": "Projets",
+		"contact": "Me Contacter"
+	},
+  "about": {
+    "title": "Qui suis-je ?"
+  }
+}

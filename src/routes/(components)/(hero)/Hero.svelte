@@ -1,12 +1,13 @@
 <script lang="ts">
 	import Section from '$lib/components/shared/Section.svelte';
+	import SectionTitle from '$lib/components/shared/SectionTitle.svelte';
 	import FlipWords from '$lib/components/shared/flip-words/FlipWords.svelte';
 </script>
 
-<Section className="flex items-center justify-center flex-col">
-	<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+<Section className="flex items-center justify-center flex-col" id="hero">
+	<SectionTitle>
 		Hello, my name is <span class="text-7xl">Vincent LISITA</span>
-	</h1>
+	</SectionTitle>
 
 	<FlipWords
 		words={['react', 'nextjs', 'solidjs', 'svelte']}

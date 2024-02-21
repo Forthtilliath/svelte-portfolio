@@ -2,9 +2,10 @@
 	import { cn } from '$lib/utils';
 
 	export let className: string = '';
+	export let id: string;
 </script>
 
-<section class={cn('container', className)}>
+<section class={cn('container', className)} {id}>
 	<slot />
 </section>
 

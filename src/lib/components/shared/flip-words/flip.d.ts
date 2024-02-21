@@ -2,7 +2,7 @@ declare module 'forth-flip-words' {
 	export namespace Flip {
 		type OtherOptions = {
 			translateY?: string;
-			colors?: string[];
+			colors?: [string, string, string, string];
 			duration?: string;
 		};
 

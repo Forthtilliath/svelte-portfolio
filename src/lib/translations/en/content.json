@@ -1,0 +1,12 @@
+{
+	"header": {
+		"title": "Vincent LISITA",
+		"about": "About",
+		"skills": "Skills",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+  "about": {
+    "title": "About me"
+  }
+}

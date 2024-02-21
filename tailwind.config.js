@@ -47,6 +47,10 @@ const config = {
 				card: {
 					DEFAULT: "hsl(var(--card) / <alpha-value>)",
 					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
+				},
+				app: {
+					blue: "#149eca",
+					black: "#020817"
 				}
 			},
 			borderRadius: {

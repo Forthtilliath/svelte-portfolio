@@ -1,5 +1,6 @@
 <script>
 	import '../app.pcss';
+	import '../global.pcss';
 </script>
 
 <svelte:head>
