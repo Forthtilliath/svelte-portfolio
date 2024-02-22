@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let size = 24;
 	export let color = '#cd6799';
+	
 	$: sizePx = `${size}px`;
 </script>
 
