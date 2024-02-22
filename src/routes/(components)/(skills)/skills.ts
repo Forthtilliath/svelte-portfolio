@@ -44,8 +44,7 @@ const skills = {
 		},
 		{
 			name: 'Next.js',
-			icon: NextJS,
-			color: '#f2f2f2'
+			icon: NextJS
 		},
 		{
 			name: 'Solid',
@@ -53,15 +52,13 @@ const skills = {
 		},
 		{
 			name: 'Svelte',
-			icon: Svelte,
-			color: '#ff3e00'
+			icon: Svelte
 		}
 	],
 	css: [
 		{
 			name: 'CSS Modules',
-			icon: CSSModules,
-			color: '#f2f2f2'
+			icon: CSSModules
 		},
 		{
 			name: 'SCSS',
@@ -73,8 +70,7 @@ const skills = {
 		},
 		{
 			name: 'Styled Components',
-			icon: StyledComponents,
-			color: '#f2f2f2'
+			icon: StyledComponents
 		}
 	],
 	libraries: [
@@ -84,8 +80,7 @@ const skills = {
 		},
 		{
 			name: 'Shadcn/ui',
-			icon: Shadcn,
-			color: '#f2f2f2'
+			icon: Shadcn
 		},
 		{
 			name: 'Zod',
