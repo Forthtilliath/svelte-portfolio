@@ -76,6 +76,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.6.0
     version: 3.6.4(postcss-load-config@5.0.3)(postcss@8.4.35)(sass@1.71.0)(svelte@4.2.11)
+  svelte-file-icons:
+    specifier: ^1.0.1
+    version: 1.0.1(svelte@4.2.11)
   tailwindcss:
     specifier: ^3.3.6
     version: 3.4.1
@@ -2260,6 +2263,14 @@ packages:
       espree: 9.6.1
       postcss: 8.4.35
       postcss-scss: 4.0.9(postcss@8.4.35)
+      svelte: 4.2.11
+    dev: true
+
+  /svelte-file-icons@1.0.1(svelte@4.2.11):
+    resolution: {integrity: sha512-0+E4Mnlld9OqFdb9enRXO/B4XOMTdsJx2BsZMRPT1lK+bVl1JHtoiK7OQ9L9kWjJ8gyo0Uk3rjACnj7lu7Vg3g==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0
+    dependencies:
       svelte: 4.2.11
     dev: true
 

@@ -4,16 +4,16 @@
 	import { t } from '$lib/translations';
 </script>
 
-<Section className="flex items-center justify-center flex-col" id="about">
-	<SectionTitle className="text-app-blue">
+<Section className="flex items-center justify-center flex-col gap-6" id="about">
+	<SectionTitle className="text-app-blue mb-4">
 		{$t('about.title')}
 	</SectionTitle>
 
-	<p class="leading-7 text-xl [&:not(:first-child)]:mt-6">
+	<p class="leading-7 text-xl indent-8">
 		{$t('about.p1')}
 	</p>
 
-	<p class="leading-7 text-xl [&:not(:first-child)]:mt-6">
+	<p class="leading-7 text-xl indent-8">
 		{$t('about.p2')}
 	</p>
 </Section>
