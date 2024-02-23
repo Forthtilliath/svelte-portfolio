@@ -2,6 +2,7 @@
 	import type { Skill } from './skills';
 
 	export let list: Skill[];
+	export let title: string;
 
 	// https://reactsvgicons.com/
 	const config = {
@@ -9,6 +10,11 @@
 	};
 </script>
 
+<h2
+	class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+>
+	{title}
+</h2>
 <div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-8">
 	{#each list as { name, icon, color }}
 		<div class="h-28 w-28">

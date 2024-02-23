@@ -12,9 +12,9 @@
 		{$t('skills.title')}
 	</h1>
 
-	<SkillBox list={css} />
-	<SkillBox list={frameworks} />
-	<SkillBox list={libraries} />
-	<SkillBox list={languages} />
-	<SkillBox list={tools} />
+	<SkillBox title="Frameworks" list={frameworks} />
+	<SkillBox title="CSS" list={css} />
+	<SkillBox title="Libraries" list={libraries} />
+	<SkillBox title="Languages" list={languages} />
+	<SkillBox title="Tools" list={tools} />
 </Section>
