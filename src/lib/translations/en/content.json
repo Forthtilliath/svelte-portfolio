@@ -6,6 +6,10 @@
 		"projects": "Projects",
 		"contact": "Contact"
 	},
+	"hero": {
+		"name": "Hi, my name is",
+		"job": "I am Developer Front-End"
+	},
 	"about": {
 		"title": "About me",
 		"p1": "After several years as a family caregiver, I decided to pursue my passion for web development by becoming self-taught. For over a year, I have specialized in JavaScript and more particularly in the React library.",

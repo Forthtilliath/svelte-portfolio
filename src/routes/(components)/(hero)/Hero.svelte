@@ -2,6 +2,7 @@
 	import Section from '$lib/components/shared/Section.svelte';
 	import SectionTitle from '$lib/components/shared/SectionTitle.svelte';
 	import FlipWords from '$lib/components/shared/flip-words/FlipWords.svelte';
+	import { t } from '$lib/translations';
 
 	let width: number;
 
@@ -9,9 +10,13 @@
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="hero">
-	<SectionTitle className="text-white">
-		<span>Hello, my name is</span> <span class="text-7xl text-3d">Vincent LISITA</span>
+	<SectionTitle className="text-white text-center">
+		<span class="text-5xl">{$t('hero.name')}</span>
+		<span class="text-3d text-7xl">Vincent LISITA !</span>
 	</SectionTitle>
+	<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-app-blue lg:text-5xl">
+		<span>{$t('hero.job')}</span>
+	</h2>
 
 	<div class="relative w-full" bind:clientWidth={width}>
 		<FlipWords
