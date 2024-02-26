@@ -75,7 +75,7 @@ const skills = {
 	],
 	libraries: [
 		{
-			name: 'I18n',
+			name: 'i18n',
 			icon: I18n
 		},
 		{
@@ -87,7 +87,7 @@ const skills = {
 			icon: Zod
 		},
 		{
-			name: 'Chart JS',
+			name: 'Chart.js',
 			icon: ChartJs
 		},
 		{
@@ -97,7 +97,7 @@ const skills = {
 	],
 	languages: [
 		{
-			name: 'TypeScript',
+			name: 'Typescript',
 			icon: Typescript
 		},
 		{

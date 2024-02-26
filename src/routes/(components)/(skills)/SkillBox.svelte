@@ -10,12 +10,10 @@
 	};
 </script>
 
-<h2
-	class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
->
+<h2 class="scroll-m-20 border-b text-3xl font-semibold tracking-tight transition-colors first:mt-0">
 	{title}
 </h2>
-<div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-8">
+<div class="grid grid-cols-2 gap-4 md:grid-cols-8">
 	{#each list as { name, icon, color }}
 		<div class="h-28 w-28">
 			<div class="flex h-28 w-28 flex-col items-center justify-center gap-3">

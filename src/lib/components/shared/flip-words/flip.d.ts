@@ -4,6 +4,10 @@ declare module 'forth-flip-words' {
 			translateY?: string;
 			colors?: [string, string, string, string];
 			duration?: string;
+			classNames?: {
+				wrapper?: string;
+				face?: string | [string, string, string, string];
+			}
 		};
 
 		type OptionsWithDelay = {

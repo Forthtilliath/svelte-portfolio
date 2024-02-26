@@ -1,5 +1,6 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
+	import type { Flip } from 'forth-flip-words';
 	import FlipDiceFace from './FlipDiceFace.svelte';
 
 	export let nth: number = 1;
@@ -10,6 +11,10 @@
 	export let translateY: string = '0px';
 	export let colors: string[] = [];
 	export let duration = '16s';
+	export let classNames: Flip.OtherOptions['classNames'] = {};
+
+	$: classNameFace = classNames?.face ?? '';
+	$: classNameFaces = Array.isArray(classNameFace) ? classNameFace : Array(4).fill(classNameFace);
 
 	$: [front, top, back, bottom] = letters;
 	$: delay = delay || delayFn(nth);
@@ -17,16 +22,16 @@
 
 <div class="dice-wrapper" style="--size: {size}">
 	<div class="dice" style="--delay: {delay}; --duration: {duration}">
-		<FlipDiceFace face="front" bgColor={colors[0]} {translateY}>
+		<FlipDiceFace face="front" bgColor={colors[0]} {translateY} className={classNameFaces[0]}>
 			{front}
 		</FlipDiceFace>
-		<FlipDiceFace face="top" bgColor={colors[1]} {translateY}>
+		<FlipDiceFace face="top" bgColor={colors[1]} {translateY} className={classNameFaces[1]}>
 			{top}
 		</FlipDiceFace>
-		<FlipDiceFace face="back" bgColor={colors[2]} {translateY}>
+		<FlipDiceFace face="back" bgColor={colors[2]} {translateY} className={classNameFaces[2]}>
 			{back}
 		</FlipDiceFace>
-		<FlipDiceFace face="bottom" bgColor={colors[3]} {translateY}>
+		<FlipDiceFace face="bottom" bgColor={colors[3]} {translateY} className={classNameFaces[3]}>
 			{bottom}
 		</FlipDiceFace>
 		<FlipDiceFace face="left" {translateY} />

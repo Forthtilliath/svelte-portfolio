@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { cn } from "$lib/utils";
+
 	export let face: 'front' | 'top' | 'back' | 'bottom' | 'left' | 'right';
+	export let className = '';
 	export let bgColor = '';
 	export let translateY: string;
 </script>
 
-<div class={`face ${face}`} style="--translateY: {translateY}; --bgColor: {bgColor}">
+<div class={cn(`face ${face}`, className)} style="--translateY: {translateY}; --bgColor: {bgColor}">
 	<p><slot /></p>
 </div>
 

@@ -79,6 +79,9 @@ devDependencies:
   svelte-file-icons:
     specifier: ^1.0.1
     version: 1.0.1(svelte@4.2.11)
+  svelte-tilt:
+    specifier: ^0.0.3
+    version: 0.0.3
   tailwindcss:
     specifier: ^3.3.6
     version: 3.4.1
@@ -2331,6 +2334,10 @@ packages:
       strip-indent: 3.0.0
       svelte: 4.2.11
       typescript: 5.3.3
+    dev: true
+
+  /svelte-tilt@0.0.3:
+    resolution: {integrity: sha512-C7j/noDHRQybkgtV41TQD0zXaReJPgEDDl81dzRRBNbpDjOVtvl8B4V2w9qGzRsHdulQn7izctofgRDMWCzVqA==}
     dev: true
 
   /svelte@4.2.11:

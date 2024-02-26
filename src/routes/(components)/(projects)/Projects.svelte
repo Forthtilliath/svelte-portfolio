@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Section from '$lib/components/shared/Section.svelte';
+	import SectionTitle from '$lib/components/shared/SectionTitle.svelte';
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="projects">
-	<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
+	<SectionTitle>
 		Projects
-	</h1>
+	</SectionTitle>
 </Section>
