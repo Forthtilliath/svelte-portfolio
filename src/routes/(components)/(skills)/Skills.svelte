@@ -13,7 +13,7 @@
 		{$t('skills.title')}
 	</SectionTitle>
 
-	<div class="grid ">
+	<div class="grid grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4 w-full">
 		<SkillBox title="Frameworks" list={frameworks} />
 		<SkillBox title="CSS" list={css} />
 		<SkillBox title="Libraries" list={libraries} />

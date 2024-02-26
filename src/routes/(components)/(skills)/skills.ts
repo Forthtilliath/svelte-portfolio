@@ -35,8 +35,7 @@ export type Skill = {
 	color?: string;
 };
 
-const skills = {
-	// const skills: Record<string, Skill[]> = {
+const skills: Record<string, Skill[]> = {
 	frameworks: [
 		{
 			name: 'React',

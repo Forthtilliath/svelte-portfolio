@@ -12,6 +12,6 @@
 <style>
 	section {
 		padding: 1rem;
-		height: 100dvh;
+		min-height: 100dvh;
 	}
 </style>

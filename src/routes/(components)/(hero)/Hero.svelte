@@ -5,13 +5,12 @@
 
 	let width: number;
 
-	$: console.log(width);
 	$: diceWidth = Math.min(100, (width - 100) / 7);
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="hero">
-	<SectionTitle>
-		Hello, my name is <span class="text-7xl text-white">Vincent LISITA</span>
+	<SectionTitle className="text-white">
+		<span>Hello, my name is</span> <span class="text-7xl text-3d">Vincent LISITA</span>
 	</SectionTitle>
 
 	<div class="relative w-full" bind:clientWidth={width}>
@@ -24,8 +23,8 @@
 				colors: ['#149eca', '#000000', '#3a5577', '#f96743'],
 				duration: '12s',
 				classNames: {
-					// face: 'border-2 border-white',
-					face: ['', 'border-2 border-white', '', ''],
+					face: 'border-2 border-white',
+					// face: ['', 'border-2 border-white', '', ''],
 					wrapper: 'absolute left-1/2 -translate-x-1/2'
 					//font-size to fix
 				}
@@ -38,7 +37,7 @@
 	@use '$lib/styles/mixins' as *;
 	$primarycolour: #149eca;
 
-	span {
+	.text-3d {
 		@include text3d(
 			adjust-color($primarycolour, $lightness: -8%),
 			$depth: 8,

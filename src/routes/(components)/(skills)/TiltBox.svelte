@@ -12,22 +12,22 @@
 	};
 </script>
 
-<Shine>
-	<div class="rounded-lg border-2 bg-app-black p-4 hover:cursor-pointer" use:tilt>
-		<h2
-			class="scroll-m-20 border-b text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-		>
-			{title}
-		</h2>
-		<div class="grid grid-cols-2 gap-4 md:grid-cols-8">
-			{#each list as { name, icon, color }}
-				<div class="h-28 w-28">
+<div>
+	<Shine>
+		<div class="rounded-lg border-2 bg-app-black p-4 hover:cursor-pointer" use:tilt>
+			<h2
+				class="scroll-m-20 border-b text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+			>
+				{title}
+			</h2>
+			<div class="grid grid-cols-[repeat(auto-fit,minmax(7rem,1fr))] gap-4">
+				{#each list as { name, icon, color }}
 					<div class="flex h-28 w-28 flex-col items-center justify-center gap-3">
 						<svelte:component this={icon} {...config} {color} />
 						<p class="text-center text-sm text-slate-400">{name}</p>
 					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
-	</div>
-</Shine>
+	</Shine>
+</div>
