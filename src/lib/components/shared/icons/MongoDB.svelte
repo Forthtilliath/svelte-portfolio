@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let size = 24;
+	export let color: string; color;
 
 	$: sizePx = `${size}px`;
 </script>
