@@ -17,7 +17,7 @@
 		<SkillBox title="Frameworks" list={frameworks} />
 		<SkillBox title="CSS" list={css} />
 		<SkillBox title="Libraries" list={libraries} />
-		<SkillBox title="Languages" list={languages} />
 		<SkillBox title="Tools" list={tools} />
+		<SkillBox title="Languages" list={languages} />
 	</div>
 </Section>
