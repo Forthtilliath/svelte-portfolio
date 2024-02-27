@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { t } from '$lib/translations';
+	import Fr from '$lib/components/shared/icons/flags/FR.svelte';
+	import Gb from '$lib/components/shared/icons/flags/GB.svelte';
+	import { t, locale } from '$lib/translations';
 </script>
 
 <header
@@ -22,6 +24,19 @@
 			</li>
 			<li class="font-poppins cursor-pointer text-base font-medium transition hover:text-app-blue">
 				<a href="#contact">{$t('header.contact')}</a>
+			</li>
+			<li class="font-poppins flex cursor-pointer text-base font-medium transition">
+				{#if $locale === 'en'}
+					<button on:click={() => ($locale = 'fr')}>
+						<Fr size={36} />
+						<span class="sr-only">{$t('header.language', { lang: 'french' })}</span>
+					</button>
+				{:else}
+					<button on:click={() => ($locale = 'en')}>
+						<Gb size={36} />
+						<span class="sr-only">{$t('header.language', { lang: 'anglais' })}</span>
+					</button>
+				{/if}
 			</li>
 		</menu>
 	</div>
