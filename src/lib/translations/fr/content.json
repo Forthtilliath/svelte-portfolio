@@ -4,7 +4,8 @@
 		"about": "À Propos",
 		"skills": "Compétences",
 		"projects": "Projets",
-		"contact": "Me Contacter"
+		"contact": "Me Contacter",
+		"language": "Change la langue en {{lang}}"
 	},
 	"hero": {
 		"name": "Salut, mon nom est",
