@@ -1,7 +1,7 @@
 <script lang="ts">
 	import tilt from 'svelte-tilt';
 	import type { Skill } from './skills';
-	import Shine from '$lib/components/Shine.svelte';
+	import Shine from '$lib/components/shared/Shine.svelte';
 
 	export let list: Skill[];
 	export let title: string;
@@ -12,8 +12,8 @@
 	};
 </script>
 
-<Shine>
-	<div class="rounded-lg border-2 bg-black/80 p-4 hover:cursor-pointer" use:tilt>
+<Shine lightColor="#149eca" depth={2}>
+	<div class="rounded-lg border-2 bg-black/20 p-4 hover:cursor-pointer" use:tilt>
 		<h2
 			class="scroll-m-20 border-b text-3xl font-semibold tracking-tight transition-colors first:mt-0"
 		>
