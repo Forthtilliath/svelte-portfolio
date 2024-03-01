@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Section from '$lib/components/shared/Section.svelte';
 	import SectionTitle from '$lib/components/shared/SectionTitle.svelte';
+	import Text3d from '$lib/components/shared/Text3d.svelte';
 	import FlipWords from '$lib/components/shared/flip-words/FlipWords.svelte';
 	import { t } from '$lib/translations';
 
@@ -12,9 +13,9 @@
 <Section className="flex items-center justify-center flex-col" id="hero">
 	<SectionTitle className="text-white text-center">
 		<span class="text-5xl">{$t('hero.name')}</span>
-		<span class="text-3d text-7xl">Vincent LISITA !</span>
+		<Text3d tag="span" className="text-7xl" color="#149eca">Vincent LISITA !</Text3d>
 	</SectionTitle>
-	<h2 class="mb-4 text-4xl font-extrabold tracking-tight text-app-blue lg:text-5xl">
+	<h2 class="mb-4 text-7xl font-extrabold tracking-tight text-app-blue lg:text-5xl">
 		<span>{$t('hero.job')}</span>
 	</h2>
 
@@ -47,7 +48,7 @@
 			adjust-color($primarycolour, $lightness: -8%),
 			$depth: 8,
 			$primaryshadowcolour: adjust-color($primarycolour, $lightness: -10%, $saturation: +20%),
-			$shadowopacity: 0.3
+			$shadowopacity: 0.2
 		);
 	}
 </style>
