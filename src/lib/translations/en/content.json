@@ -8,8 +8,8 @@
 		"language": "Set language to {{lang}}"
 	},
 	"hero": {
-		"name": "Hi, my name is",
-		"job": "I am Developer Front-End"
+		"name": "Hi, I'm",
+		"job": "Developer Front-End"
 	},
 	"about": {
 		"title": "About me",
