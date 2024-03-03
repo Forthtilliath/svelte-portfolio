@@ -5,7 +5,7 @@
 </script>
 
 <Section className="flex items-center justify-center flex-col gap-6" id="about">
-	<SectionTitle className="mb-4">
+	<SectionTitle>
 		{$t('about.title')}
 	</SectionTitle>
 

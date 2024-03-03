@@ -18,6 +18,8 @@ import ChartJs from '$lib/components/shared/icons/ChartJS.svelte';
 import Zod from '$lib/components/shared/icons/Zod.svelte';
 import ReactQuery from '$lib/components/shared/icons/ReactQuery.svelte';
 import Shadcn from '$lib/components/shared/icons/Shadcn.svelte';
+import Zustand from '$lib/components/shared/icons/Zustand.svelte';
+import Vitest from '$lib/components/shared/icons/Vitest.svelte';
 
 import Typescript from '$lib/components/shared/icons/Typescript.svelte';
 import GraphQl from '$lib/components/shared/icons/GraphQL.svelte';
@@ -28,6 +30,8 @@ import Github from '$lib/components/shared/icons/Github.svelte';
 import VsCode from '$lib/components/shared/icons/VSCode.svelte';
 import Prisma from '$lib/components/shared/icons/Prisma.svelte';
 import MongoDB from '$lib/components/shared/icons/MongoDB.svelte';
+import Vite from '$lib/components/shared/icons/Vite.svelte';
+import Pnpm from '$lib/components/shared/icons/Pnpm.svelte';
 
 export type Skill = {
 	name: string;
@@ -92,6 +96,15 @@ const skills: Record<string, Skill[]> = {
 		{
 			name: 'React-query',
 			icon: ReactQuery
+		},
+		{
+			name: 'Zustand',
+			icon: Zustand,
+			color: 'white'
+		},
+		{
+			name: 'Vitest',
+			icon: Vitest
 		}
 	],
 	languages: [
@@ -128,6 +141,14 @@ const skills: Record<string, Skill[]> = {
 		{
 			name: 'MongoDB',
 			icon: MongoDB
+		},
+		{
+			name: 'Pnpm',
+			icon: Pnpm
+		},
+		{
+			name: 'Vite',
+			icon: Vite
 		}
 	]
 };

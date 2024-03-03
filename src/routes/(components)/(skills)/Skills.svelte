@@ -13,11 +13,11 @@
 		{$t('skills.title')}
 	</SectionTitle>
 
-	<div class="grid grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4 w-full">
-		<SkillBox title="Frameworks" list={frameworks} />
-		<SkillBox title="CSS" list={css} />
-		<SkillBox title="Libraries" list={libraries} />
-		<SkillBox title="Tools" list={tools} />
-		<SkillBox title="Languages" list={languages} />
+	<div class="mt-4 grid w-full grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4">
+		<SkillBox title="Frameworks" list={frameworks.sort((a, b) => a.name.localeCompare(b.name))} />
+		<SkillBox title="CSS" list={css.sort((a, b) => a.name.localeCompare(b.name))} />
+		<SkillBox title="Libraries" list={libraries.sort((a, b) => a.name.localeCompare(b.name))} />
+		<SkillBox title="Tools" list={tools.sort((a, b) => a.name.localeCompare(b.name))} />
+		<SkillBox title="Languages" list={languages.sort((a, b) => a.name.localeCompare(b.name))} />
 	</div>
 </Section>

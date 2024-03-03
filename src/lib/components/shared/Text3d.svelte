@@ -52,7 +52,7 @@
 	$: textShadow = ajustColor(
 		tinycolor(shadowOptions.color).darken(8).toHslString(),
 		shadowOptions.depth || 8,
-		tinycolor(shadowOptions.color).darken(15).saturate(20).toHslString(),
+		tinycolor(shadowOptions.color).darken(10).saturate(20).toHslString(),
 		shadowOptions.opacity	|| 0.2
 	);
 </script>

@@ -6,7 +6,6 @@
 	export let list: Skill[];
 	export let title: string;
 
-	// https://reactsvgicons.com/
 	const config = {
 		size: 48
 	};
