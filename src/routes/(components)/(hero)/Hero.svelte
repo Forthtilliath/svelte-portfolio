@@ -4,10 +4,16 @@
 	import Text3d from '$lib/components/shared/Text3d.svelte';
 	import FlipWords from '$lib/components/shared/flip-words/FlipWords.svelte';
 	import { t } from '$lib/translations';
+	import { onMount } from 'svelte';
 
 	let width: number;
 
 	$: diceWidth = Math.min(100, (width - 100) / 7);
+	$: loaded = false;
+
+	onMount(() => {
+		loaded = true;
+	});
 
 	const shadowOptions = {
 		// depth:
@@ -27,21 +33,23 @@
 		</Text3d>
 	</h2>
 
-	<div class="relative mt-8 w-full" bind:clientWidth={width}>
-		<FlipWords
-			words={['react', 'nextjs', 'solidjs', 'svelte']}
-			size={diceWidth + 'px'}
-			options={{
-				translateY: '-4px',
-				delayFn: (i) => `${(i * 0.2).toFixed(1)}s`,
-				colors: ['#149eca', '#000000', '#3a5577', '#f96743'],
-				duration: '12s',
-				classNames: {
-					face: 'border-2 border-white',
-					wrapper: 'absolute left-1/2 -translate-x-1/2'
-					//font-size to fix
-				}
-			}}
-		/>
-	</div>
+	{#if loaded}
+		<div class="relative mt-8 w-full" bind:clientWidth={width}>
+			<FlipWords
+				words={['react', 'nextjs', 'solidjs', 'svelte']}
+				size={diceWidth + 'px'}
+				options={{
+					translateY: '-4px',
+					delayFn: (i) => `${(i * 0.2).toFixed(1)}s`,
+					colors: ['#149eca', '#000000', '#3a5577', '#f96743'],
+					duration: '12s',
+					classNames: {
+						face: 'border-2 border-white',
+						wrapper: 'absolute left-1/2 -translate-x-1/2'
+						// TODO: font-size to fix
+					}
+				}}
+			/>
+		</div>
+	{/if}
 </Section>
