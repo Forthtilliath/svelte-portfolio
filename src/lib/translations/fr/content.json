@@ -17,6 +17,11 @@
 		"p2": "Passionné par la création d'interfaces utilisateur innovantes et intuitives, je suis constamment en quête de nouvelles connaissances pour améliorer mes compétences en développement front-end."
 	},
 	"skills": {
-		"title": "Mes Compétences"
+		"title": "Mes Compétences",
+		"frameworks": "Librairies",
+		"css": "CSS",
+		"libraries": "Bibliothèques",
+		"tools": "Outils",
+		"languages": "Langages"
 	}
 }
