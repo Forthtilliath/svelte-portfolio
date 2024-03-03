@@ -1,22 +1,12 @@
-<script lang="ts">
+<script lang="ts" context="module">
 	import tinycolor from 'tinycolor2';
 	import { cn } from '$lib/utils';
-	export let className: string = '';
-	export let tag: string = 'p';
-	export let color: string;
 
-	$: textShadow = ajustColor(
-		tinycolor(color).darken(8).toHslString(),
-		8,
-		tinycolor(color).darken(10).saturate(20).toHslString(),
-		0.2
-	);
-
-	function ajustColor(
+	export function ajustColor(
 		baseColor: string,
 		depth: number,
 		primaryShadowColor: string,
-		shadowOpacity: number = 0
+		shadowOpacity: number
 	) {
 		if (typeof depth !== 'number' || depth < 1 || depth > 10) {
 			throw new Error('depth must be a number between 1 and 10');
@@ -49,12 +39,35 @@
 	}
 </script>
 
-<svelte:element this={tag} style="--text-shadow: {textShadow}" class={cn('text-3d', className)}>
+<script lang="ts">
+	export let className: string = '';
+	export let tag: string = 'p';
+	export let color: string = 'currentColor';
+	export let shadowOptions: {
+		color?: string;
+		opacity?: number;
+		depth?: number;
+	};
+
+	$: textShadow = ajustColor(
+		tinycolor(shadowOptions.color).darken(8).toHslString(),
+		shadowOptions.depth || 8,
+		tinycolor(shadowOptions.color).darken(15).saturate(20).toHslString(),
+		shadowOptions.opacity	|| 0.2
+	);
+</script>
+
+<svelte:element
+	this={tag}
+	style="--text-shadow: {textShadow}; --color: {color}"
+	class={cn('text-3d', className)}
+>
 	<slot />
 </svelte:element>
 
 <style lang="scss">
 	.text-3d {
+		color: var(--color);
 		text-shadow: var(--text-shadow);
 	}
 </style>
