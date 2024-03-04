@@ -3,7 +3,7 @@ import transporter from '$lib/methods/emailSetup.server.js';
 // import type Mail from 'nodemailer/lib/mailer/index.js';
 
 export const actions = {
-	default: async ({ request }) => {
+	sendEmail: async ({ request }) => {
 		try {
 			const formData = await request.formData();
 			console.log(...formData);

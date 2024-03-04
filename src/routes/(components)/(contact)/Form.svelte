@@ -8,7 +8,7 @@
 </script>
 
 
-<form method="POST">
+<form method="POST" action="?/sendEmail">
   <label for="name">Name</label>
   <!-- <input type="text" name="name" bind:value={$form.name} /> -->
   <input type="text" name="name" />
