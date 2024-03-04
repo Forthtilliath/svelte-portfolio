@@ -6,35 +6,48 @@
 	import { t } from '$lib/translations';
 	import { onMount } from 'svelte';
 
-	let width: number;
+	let clientWidth: number;
 
-	$: diceWidth = Math.min(100, (width - 100) / 7);
+	$: diceWidth = Math.min(100, (clientWidth - 100) / 7);
+	$: depthMax = getDepth(clientWidth);
 	$: loaded = false;
 
 	onMount(() => {
 		loaded = true;
 	});
 
-	const shadowOptions = {
-		// depth:
-	};
+	function getDepth(width: number): number {
+		if (width < 640) return 4;
+		if (width < 768) return 6;
+		return 8;
+
+	}
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="hero">
 	<SectionTitle className="text-white text-center">
-		<span class="text-5xl">{$t('hero.name')}</span>
-		<Text3d tag="span" className="text-7xl" color="#fff" shadowOptions={{ color: '#149eca' }}>
+		<span class="text-4xl md:text-5xl">{$t('hero.name')}</span>
+		<Text3d
+			tag="span"
+			className="text-3xl md:text-7xl block md:inline-block"
+			color="#fff"
+			shadowOptions={{ color: '#149eca', depth: depthMax }}
+		>
 			Vincent LISITA !
 		</Text3d>
 	</SectionTitle>
-	<h2 class="text-7xl font-extrabold tracking-tight text-app-blue lg:text-5xl">
-		<Text3d tag="span" className="text-7xl" color="#149eca" shadowOptions={{ color: '#fff' }}>
-			{$t('hero.job')}
-		</Text3d>
-	</h2>
+
+	<Text3d
+		tag="h2"
+		className="text-center font-extrabold tracking-tight text-[clamp(3rem,5vw,5rem)] md:text-6xl lg:text-7xl text-balance"
+		color="#149eca"
+		shadowOptions={{ color: '#fff', depth: depthMax, to: { luminosity: 30, saturate: 0 } }}
+	>
+		{$t('hero.job')}
+	</Text3d>
 
 	{#if loaded}
-		<div class="relative mt-8 w-full" bind:clientWidth={width}>
+		<div class="relative mt-8 w-full" bind:clientWidth>
 			<FlipWords
 				words={['react', 'nextjs', 'solidjs', 'svelte']}
 				size={diceWidth + 'px'}
