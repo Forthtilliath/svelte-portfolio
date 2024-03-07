@@ -1,28 +1,28 @@
 <script lang="ts">
-  import { superForm } from 'sveltekit-superforms';
+	// import { superForm } from 'sveltekit-superforms';
+	import Input from './Input.svelte';
+	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
 
-  // export let data;
+	// export let data;
 
-  // Client API:
-  // const { form } = superForm(data.form);
+	// Client API:
+	// const { form } = superForm(data.form);
 </script>
 
-
 <form method="POST" action="?/sendEmail">
-  <label for="name">Name</label>
-  <!-- <input type="text" name="name" bind:value={$form.name} /> -->
-  <input type="text" name="name" />
+	<Input name="name" label="Name" />
+	<Input name="email" label="Votre E-mail" type="email" />
+	<Input name="title" label="Titre" />
 
-  <label for="email">E-mail</label>
-  <!-- <input type="email" name="email" bind:value={$form.email} /> -->
-  <input type="text" name="email" />
+  <Textarea name="message" />
 
-  <div><button type="submit">Submit</button></div>
-  <!-- <p class="success">{$form?.success ||""}</p> -->
+	<div><button type="submit">Submit</button></div>
+	<!-- <p class="success">{$form?.success ||""}</p> -->
 </form>
 
 <style lang="scss">
-  input {
-    color: black;
-  }
+	form {
+		display: flex;
+		flex-direction: column;
+	}
 </style>
