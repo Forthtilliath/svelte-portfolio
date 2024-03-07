@@ -11,11 +11,10 @@ const transporter = nodemailer.createTransport({
 	}
 });
 
-transporter.verify((err, success) => {
+transporter.verify((err) => {
 	if (err) {
 		console.log(err);
 	} else {
-		console.log(success);
 		console.log('Server is ready to take our messages');
 	}
 });
