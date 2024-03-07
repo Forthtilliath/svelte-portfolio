@@ -1,12 +1,31 @@
 import { SECRET_EMAIL_ACCOUNT } from '$env/static/private';
 import transporter from '$lib/methods/emailSetup.server.js';
-// import type Mail from 'nodemailer/lib/mailer/index.js';
+import { superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
+import { contactFormSchema } from './(components)/(contact)/Form.svelte';
+import { fail } from '@sveltejs/kit';
+
+export const load = async () => {
+	return {
+		form: await superValidate(zod(contactFormSchema))
+	};
+};
 
 export const actions = {
+	default: async (event) => {
+		const form = await superValidate(event, zod(contactFormSchema));
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+		return {
+			form
+		};
+	},
 	sendEmail: async ({ request }) => {
 		try {
 			const formData = await request.formData();
-			console.log(...formData);
 
 			const email = formData.get('email');
 			const name = formData.get('name');
@@ -19,15 +38,15 @@ export const actions = {
 
 			const html = `<h2>${name}</h2><p>${email}</p>`;
 
-			const message = {
-				from: email,
+			const newMessage = {
+				from: email as string,
 				to: SECRET_EMAIL_ACCOUNT,
 				subject: 'Message from Portfolio',
 				text: 'Message from Portfolio',
 				html
 			};
 
-			const sendEmail = (message) => {
+			const sendEmail = (message: typeof newMessage) => {
 				return new Promise((resolve, reject) => {
 					transporter.sendMail(message, (err, info) => {
 						if (err) {
@@ -38,7 +57,7 @@ export const actions = {
 				});
 			};
 
-			await sendEmail(message);
+			await sendEmail(newMessage);
 
 			return {
 				status: 200,
