@@ -48,6 +48,7 @@
 		"@types/tinycolor2": "^1.4.6",
 		"bits-ui": "^0.19.3",
 		"clsx": "^2.1.0",
+		"formsnap": "^0.5.1",
 		"nodemailer": "^6.9.11",
 		"sveltekit-i18n": "^2.4.2",
 		"tailwind-merge": "^2.2.1",

@@ -5,6 +5,8 @@
 	import Skills from './(components)/(skills)/Skills.svelte';
 	import Projects from './(components)/(projects)/Projects.svelte';
 	import Contact from './(components)/(contact)/Contact.svelte';
+
+	export let data;
 </script>
 
 <Header />
@@ -13,5 +15,5 @@
 	<About />
 	<Skills />
 	<Projects />
-	<Contact />
+	<Contact data={data.form} />
 </main>
