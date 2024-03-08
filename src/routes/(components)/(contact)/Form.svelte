@@ -11,6 +11,7 @@
 		message: z.string({ required_error: 'Please enter a message' }).min(10)
 	});
 	export type ContactFormSchema = typeof contactFormSchema;
+	export type ContactForm = z.infer<typeof contactFormSchema>;
 	export type SuperValidatedContactFormSchema = SuperValidated<Infer<ContactFormSchema>>;
 </script>
 
@@ -18,10 +19,7 @@
 	import * as Form from '$lib/components/ui/form';
 	import { superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import SuperDebug from 'sveltekit-superforms';
-	import { browser } from '$app/environment';
-	import { Input } from '$lib/components/ui/input';
-	import { Textarea } from '$lib/components/ui/textarea';
+	import Field from './Field.svelte';
 
 	export let data: SuperValidatedContactFormSchema;
 
@@ -30,39 +28,29 @@
 	});
 
 	const { form: formData, enhance } = form;
+
+	// TODO: Remove this in the future
+	$formData = {
+		name: 'Forth',
+		email: 'forth@live.fr',
+		message: 'A simple test to validate the form'
+	};
 </script>
 
-<form method="POST" action="?/sendEmail" use:enhance class="w-[400px] max-w-full">
-	<Form.Field {form} name="name">
-		<Form.Control let:attrs>
-			<Form.Label>Name</Form.Label>
-			<Input placeholder="Your name" {...attrs} bind:value={$formData.name} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
+<form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full">
+	<Field {form} name="name" label="Your name" value={$formData.name} />
+	<Field {form} name="email" label="Your e-mail" value={$formData.email} />
+	<Field
+		{form}
+		name="message"
+		label="Your message"
+		value={$formData.message}
+		multiline
+		class="text-green-500"
+	/>
 
-	<Form.Field {form} name="email">
-		<Form.Control let:attrs>
-			<Form.Label>E-mail</Form.Label>
-			<Input placeholder="Your e-mail" {...attrs} bind:value={$formData.email} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-
-	<Form.Field {form} name="message">
-		<Form.Control let:attrs>
-			<Form.Label>Message</Form.Label>
-			<Textarea {...attrs} bind:value={$formData.message} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-
-	<Form.Button>Send message</Form.Button>
+	<Form.Button class="mt-4">Send message</Form.Button>
 </form>
-
-{#if browser}
-	<SuperDebug data={$formData} label="My form data" />
-{/if}
 
 <style lang="scss">
 	form {
