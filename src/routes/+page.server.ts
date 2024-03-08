@@ -12,13 +12,14 @@ export const load = async () => {
 };
 
 export const actions = {
-	default: async (event) => {
+	sendMessage: async (event) => {
 		const form = await superValidate(event, zod(contactFormSchema));
 		if (!form.valid) {
 			return fail(400, {
 				form
 			});
 		}
+		
 		return {
 			form
 		};
