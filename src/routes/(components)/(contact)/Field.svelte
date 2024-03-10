@@ -2,13 +2,12 @@
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
-	import type { SuperForm } from 'sveltekit-superforms';
-	import type { ContactForm } from './Form.svelte';
+	import type { contactFormSchema } from './Form.svelte';
 	import type { HTMLInputAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 
 	type OtherProps = {
-		form: SuperForm<ContactForm>;
-		name: keyof ContactForm;
+		form: SuperForms.Form<typeof contactFormSchema>;
+		name: SuperForms.Keys<typeof contactFormSchema>;
 		label: string;
 		placeholder?: string;
 		value: string;

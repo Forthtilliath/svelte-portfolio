@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
 	import { z } from 'zod';
-	import { type Infer, type SuperValidated } from 'sveltekit-superforms';
 
 	export const contactFormSchema = z.object({
 		name: z
@@ -10,9 +9,6 @@
 		email: z.string({ required_error: 'Please select an email to contact you' }).email(),
 		message: z.string({ required_error: 'Please enter a message' }).min(10)
 	});
-	export type ContactFormSchema = typeof contactFormSchema;
-	export type ContactForm = z.infer<typeof contactFormSchema>;
-	export type SuperValidatedContactFormSchema = SuperValidated<Infer<ContactFormSchema>>;
 </script>
 
 <script lang="ts">
@@ -21,7 +17,7 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import Field from './Field.svelte';
 
-	export let data: SuperValidatedContactFormSchema;
+	export let data: SuperForms.Data<typeof contactFormSchema>;
 
 	const form = superForm(data, {
 		validators: zodClient(contactFormSchema)
