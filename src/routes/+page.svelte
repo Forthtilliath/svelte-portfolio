@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from './(components)/Header.svelte';
+	import Header from './(components)/header.svelte';
 	import Hero from './(components)/(hero)/Hero.svelte';
 	import About from './(components)/(about)/About.svelte';
 	import Skills from './(components)/(skills)/Skills.svelte';
