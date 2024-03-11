@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Fr from '$lib/components/shared/icons/flags/FR.svelte';
-	import Gb from '$lib/components/shared/icons/flags/GB.svelte';
+	import Fr from '$lib/components/shared/icons/flags/fr.svelte';
+	import Gb from '$lib/components/shared/icons/flags/gb.svelte';
 	import { t, locale } from '$lib/translations';
 </script>
 

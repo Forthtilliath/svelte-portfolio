@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Section from '$lib/components/shared/Section.svelte';
-	import SectionTitle from '$lib/components/shared/SectionTitle.svelte';
+	import Section from '$lib/components/shared/section.svelte';
+	import SectionTitle from '$lib/components/shared/section-title.svelte';
 	import { t } from '$lib/translations';
 
 	import skills from './skills';
-	import SkillBox from './TiltBox.svelte';
+	import SkillBox from './tilt-box.svelte';
 	$: ({ css, frameworks, languages, tools, libraries } = skills);
 </script>
 

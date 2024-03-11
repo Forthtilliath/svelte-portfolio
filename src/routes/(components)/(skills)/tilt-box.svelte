@@ -1,7 +1,7 @@
 <script lang="ts">
 	import tilt from 'svelte-tilt';
 	import type { Skill } from './skills';
-	import Shine from '$lib/components/shared/Shine.svelte';
+	import Shine from '$lib/components/shared/shine.svelte';
 
 	export let list: Skill[];
 	export let title: string;

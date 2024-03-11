@@ -2,7 +2,7 @@ import { SECRET_EMAIL_ACCOUNT } from '$env/static/private';
 import transporter from '$lib/methods/emailSetup.server.js';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { contactFormSchema } from './(components)/(contact)/Form.svelte';
+import { contactFormSchema } from './(components)/(contact)/form.svelte';
 import { fail } from '@sveltejs/kit';
 
 export const load = async () => {

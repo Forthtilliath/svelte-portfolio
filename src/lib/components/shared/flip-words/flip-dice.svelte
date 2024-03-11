@@ -1,7 +1,7 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
 	import type { Flip } from 'forth-flip-words';
-	import FlipDiceFace from './FlipDiceFace.svelte';
+	import FlipDiceFace from './flip-dice-face.svelte';
 
 	export let nth: number = 1;
 	export let letters: string[];

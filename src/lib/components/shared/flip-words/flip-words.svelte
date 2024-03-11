@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { transposeWords } from './transposeWords';
-	import FlipDice from './FlipDice.svelte';
+	import FlipDice from './flip-dice.svelte';
 	import type { Flip } from 'forth-flip-words';
 	import { cn } from '$lib/utils';
 

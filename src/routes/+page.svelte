@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Header from './(components)/header.svelte';
-	import Hero from './(components)/(hero)/Hero.svelte';
-	import About from './(components)/(about)/About.svelte';
-	import Skills from './(components)/(skills)/Skills.svelte';
-	import Projects from './(components)/(projects)/Projects.svelte';
-	import Contact from './(components)/(contact)/Contact.svelte';
+	import Hero from './(components)/(hero)/hero.svelte';
+	import About from './(components)/(about)/about.svelte';
+	import Skills from './(components)/(skills)/skills.svelte';
+	import Projects from './(components)/(projects)/projects.svelte';
+	import Contact from './(components)/(contact)/contact.svelte';
 
 	export let data;
 </script>

@@ -3,35 +3,35 @@ import type { ComponentType } from 'svelte';
 // https://icon-icons.com/
 // https://seeklogo.com/
 
-import React from '$lib/components/shared/icons/React.svelte';
-import SolidJS from '$lib/components/shared/icons/SolidJS.svelte';
-import Svelte from '$lib/components/shared/icons/Svelte.svelte';
-import NextJS from '$lib/components/shared/icons/NextJS.svelte';
+import React from '$lib/components/shared/icons/react.svelte';
+import SolidJS from '$lib/components/shared/icons/solid-js.svelte';
+import Svelte from '$lib/components/shared/icons/svelte.svelte';
+import NextJS from '$lib/components/shared/icons/next-js.svelte';
 
-import CSSModules from '$lib/components/shared/icons/CSSModules.svelte';
-import SCSS from '$lib/components/shared/icons/SASS.svelte';
-import TailwindCSS from '$lib/components/shared/icons/TailwindCSS.svelte';
-import StyledComponents from '$lib/components/shared/icons/StyledComponents.svelte';
+import CSSModules from '$lib/components/shared/icons/css-modules.svelte';
+import SCSS from '$lib/components/shared/icons/sass.svelte';
+import TailwindCSS from '$lib/components/shared/icons/tailwind-css.svelte';
+import StyledComponents from '$lib/components/shared/icons/styled-components.svelte';
 
-import I18n from '$lib/components/shared/icons/I18n.svelte';
-import ChartJs from '$lib/components/shared/icons/ChartJS.svelte';
-import Zod from '$lib/components/shared/icons/Zod.svelte';
-import ReactQuery from '$lib/components/shared/icons/ReactQuery.svelte';
-import Shadcn from '$lib/components/shared/icons/Shadcn.svelte';
-import Zustand from '$lib/components/shared/icons/Zustand.svelte';
-import Vitest from '$lib/components/shared/icons/Vitest.svelte';
+import I18n from '$lib/components/shared/icons/i18n.svelte';
+import ChartJs from '$lib/components/shared/icons/chart-js.svelte';
+import Zod from '$lib/components/shared/icons/zod.svelte';
+import ReactQuery from '$lib/components/shared/icons/react-query.svelte';
+import Shadcn from '$lib/components/shared/icons/shadcn.svelte';
+import Zustand from '$lib/components/shared/icons/zustand.svelte';
+import Vitest from '$lib/components/shared/icons/vitest.svelte';
 
-import Typescript from '$lib/components/shared/icons/Typescript.svelte';
-import GraphQl from '$lib/components/shared/icons/GraphQL.svelte';
-import Sql from '$lib/components/shared/icons/SQL.svelte';
+import Typescript from '$lib/components/shared/icons/typescript.svelte';
+import GraphQl from '$lib/components/shared/icons/graph-ql.svelte';
+import Sql from '$lib/components/shared/icons/sql.svelte';
 
-import Git from '$lib/components/shared/icons/Git.svelte';
-import Github from '$lib/components/shared/icons/Github.svelte';
-import VsCode from '$lib/components/shared/icons/VSCode.svelte';
-import Prisma from '$lib/components/shared/icons/Prisma.svelte';
-import MongoDB from '$lib/components/shared/icons/MongoDB.svelte';
-import Vite from '$lib/components/shared/icons/Vite.svelte';
-import Pnpm from '$lib/components/shared/icons/Pnpm.svelte';
+import Git from '$lib/components/shared/icons/git.svelte';
+import Github from '$lib/components/shared/icons/github.svelte';
+import VsCode from '$lib/components/shared/icons/vs-code.svelte';
+import Prisma from '$lib/components/shared/icons/prisma.svelte';
+import MongoDB from '$lib/components/shared/icons/mongo-db.svelte';
+import Vite from '$lib/components/shared/icons/vite.svelte';
+import Pnpm from '$lib/components/shared/icons/pnpm.svelte';
 
 export type Skill = {
 	name: string;
