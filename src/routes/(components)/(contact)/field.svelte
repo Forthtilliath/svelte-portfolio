@@ -1,7 +1,7 @@
 <script lang="ts" generics="Multiline extends boolean">
 	import * as Form from '$lib/components/ui/form';
-	import { Input } from '$lib/components/ui/input';
-	import { Textarea } from '$lib/components/ui/textarea';
+	import { Input, type InputEvents } from '$lib/components/ui/input';
+	import { Textarea, type TextareaEvents } from '$lib/components/ui/textarea';
 	import type { contactFormSchema } from './form.svelte';
 	import type { HTMLInputAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 
@@ -16,6 +16,7 @@
 	type FieldInputAttributes = Omit<HTMLInputAttributes, 'form'> & OtherProps;
 	type FieldTextareaAttributes = Omit<HTMLTextareaAttributes, 'form'> & OtherProps;
 	type $$Props = Multiline extends true ? FieldTextareaAttributes : FieldInputAttributes;
+	type $$Events = Multiline extends true ? TextareaEvents : InputEvents;
 
 	export let form: $$Props['form'];
 	export let name: $$Props['name'];
@@ -29,9 +30,9 @@
 	<Form.FormControl>
 		<Form.Label class="data-[fs-error]:text-red-500">{label}</Form.Label>
 		{#if multiline}
-			<Textarea {placeholder} {...$$restProps} bind:value />
+			<Textarea {placeholder} {name} {...$$restProps} bind:value />
 		{:else}
-			<Input {placeholder} {...$$restProps} bind:value />
+			<Input {placeholder} {name} {...$$restProps} bind:value />
 		{/if}
 	</Form.FormControl>
 	<Form.FieldErrors class="text-red-500" />

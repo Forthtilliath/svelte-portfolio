@@ -16,6 +16,7 @@
 	import { superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import Field from './field.svelte';
+	import Input from '$lib/components/ui/input/input.svelte';
 
 	export let data: SuperForms.Data<typeof contactFormSchema>;
 
@@ -34,13 +35,13 @@
 </script>
 
 <form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full">
-	<Field {form} name="name" label="Your name" value={$formData.name} />
-	<Field {form} name="email" label="Your e-mail" value={$formData.email} />
+	<Field {form} name="name" label="Your name" bind:value={$formData.name} />
+	<Field {form} name="email" label="Your e-mail" bind:value={$formData.email} />
 	<Field
 		{form}
 		name="message"
 		label="Your message"
-		value={$formData.message}
+		bind:value={$formData.message}
 		multiline
 		class="text-green-500"
 	/>

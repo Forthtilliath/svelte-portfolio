@@ -12,8 +12,9 @@ export const load = async () => {
 };
 
 export const actions = {
-	sendMessage: async (event) => {
-		const form = await superValidate(event, zod(contactFormSchema));
+		sendMessage: async ({ request }) => {
+		const form = await superValidate(request, zod(contactFormSchema));
+		console.log(form);
 		if (!form.valid) {
 			return fail(400, {
 				form
