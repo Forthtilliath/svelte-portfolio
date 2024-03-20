@@ -8,15 +8,18 @@ const transporter = nodemailer.createTransport({
 	auth: {
 		user: SECRET_EMAIL_ACCOUNT,
 		pass: SECRET_EMAIL_PASSWORD
+	},
+	tls: {
+		rejectUnauthorized: false
 	}
 });
 
 transporter.verify((err) => {
 	if (err) {
 		console.log(err);
-	} else {
-		console.log('Server is ready to take our messages');
+		return;
 	}
+	console.log('Server is ready to take our messages');
 });
 
 export default transporter;

@@ -16,7 +16,6 @@
 	import { superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import Field from './field.svelte';
-	import Input from '$lib/components/ui/input/input.svelte';
 
 	export let data: SuperForms.Data<typeof contactFormSchema>;
 
