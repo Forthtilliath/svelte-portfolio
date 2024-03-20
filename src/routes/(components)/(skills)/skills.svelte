@@ -13,7 +13,7 @@
 		{$t('skills.title')}
 	</SectionTitle>
 
-	<div class="mt-4 grid w-full grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4">
+	<div class="mt-4 grid w-full md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4">
 		<SkillBox
 			title={$t('skills.frameworks')}
 			list={frameworks.sort((a, b) => a.name.localeCompare(b.name))}
