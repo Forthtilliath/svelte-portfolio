@@ -23,5 +23,12 @@
 		"libraries": "Librairies",
 		"tools": "Tools",
 		"languages": "Languages"
+	},
+	"contact": {
+		"title": "Contact me",
+		"name": "Your name",
+		"email": "Your e-mail",
+		"message": "Your message",
+		"submit": "Send"
 	}
 }
