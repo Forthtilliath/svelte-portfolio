@@ -5,6 +5,7 @@
 
 	import skills from './skills';
 	import SkillBox from './tilt-box.svelte';
+	import { sortStringsByKey } from '$lib/methods/sort';
 	$: ({ css, frameworks, languages, tools, libraries } = skills);
 </script>
 
@@ -13,23 +14,11 @@
 		{$t('skills.title')}
 	</SectionTitle>
 
-	<div class="mt-4 grid w-full md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))] gap-4">
-		<SkillBox
-			title={$t('skills.frameworks')}
-			list={frameworks.sort((a, b) => a.name.localeCompare(b.name))}
-		/>
-		<SkillBox title={$t('skills.css')} list={css.sort((a, b) => a.name.localeCompare(b.name))} />
-		<SkillBox
-			title={$t('skills.libraries')}
-			list={libraries.sort((a, b) => a.name.localeCompare(b.name))}
-		/>
-		<SkillBox
-			title={$t('skills.tools')}
-			list={tools.sort((a, b) => a.name.localeCompare(b.name))}
-		/>
-		<SkillBox
-			title={$t('skills.languages')}
-			list={languages.sort((a, b) => a.name.localeCompare(b.name))}
-		/>
+	<div class="mt-4 grid w-full gap-4 md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))]">
+		<SkillBox title={$t('skills.frameworks')} list={frameworks.sort(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.css')} list={css.sort(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.libraries')} list={libraries.sort(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.tools')} list={tools.sort(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.languages')} list={languages.sort(sortStringsByKey('name'))} />
 	</div>
 </Section>
