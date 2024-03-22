@@ -17,7 +17,7 @@
 </script>
 
 <Header />
-<main>
+<main class="mt-20">
 	<Hero />
 	<SectionSeparator img={img1} filter={50} />
 	<About />

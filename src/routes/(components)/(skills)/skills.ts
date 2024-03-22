@@ -39,7 +39,9 @@ export type Skill = {
 	color?: string;
 };
 
-const skills: Record<string, Skill[]> = {
+export type Technology = (typeof skills)[keyof typeof skills][number]['name'];
+
+const skills = {
 	frameworks: [
 		{
 			name: 'React',
@@ -151,6 +153,6 @@ const skills: Record<string, Skill[]> = {
 			icon: Vite
 		}
 	]
-};
+} as const satisfies Record<string, Skill[]>;
 
 export default skills;
