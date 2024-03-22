@@ -5,13 +5,6 @@
 	export let id: string;
 </script>
 
-<section class={cn('container', className)} {id}>
+<section class={cn('container p-4 pb-12 min-h-[calc(100dvh-4rem)]', className)} {id}>
 	<slot />
 </section>
-
-<style>
-	section {
-		padding: 1rem;
-		min-height: calc(100dvh - 4rem);
-	}
-</style>
