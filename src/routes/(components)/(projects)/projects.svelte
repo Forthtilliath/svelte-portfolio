@@ -8,7 +8,9 @@
 <Section className="flex items-center justify-center flex-col" id="projects">
 	<SectionTitle>Projects</SectionTitle>
 
-	{#each projects as project}
-		<ProjectCard {...project} />
-	{/each}
+	<main class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+		{#each projects as project}
+			<ProjectCard {...project} />
+		{/each}
+	</main>
 </Section>

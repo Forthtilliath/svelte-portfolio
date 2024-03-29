@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import type { ComponentProps } from 'svelte';
 	import Frame from './frame.svelte';
+	import { cn } from '$lib/utils';
 
 	type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -40,10 +40,10 @@
 	};
 
 	let innerPadding: string;
-	$: innerPadding = paddings[padding];
+	$: innerPadding = cn('space-y-2', paddings[padding]);
 
 	let cardClass: string;
-	$: cardClass = twMerge(
+	$: cardClass = cn(
 		'flex w-full',
 		sizes[size],
 		reverse ? 'flex-col-reverse' : 'flex-col',
@@ -54,7 +54,7 @@
 	);
 
 	let imgClass: string;
-	$: imgClass = twMerge(
+	$: imgClass = cn(
 		reverse ? 'rounded-b-lg' : 'rounded-t-lg',
 		horizontal && 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none',
 		horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg')
@@ -78,7 +78,7 @@
 >
 	{#if img}
 		<img class={imgClass} src={img} alt="" />
-		<div class={innerPadding}>
+		<div class={cn('border-t border-t-app-blue', innerPadding)}>
 			<slot />
 		</div>
 	{:else}
