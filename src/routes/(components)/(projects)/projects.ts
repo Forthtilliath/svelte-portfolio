@@ -3,7 +3,7 @@ import type { Technology } from '../(skills)/skills';
 export type Project = {
 	name: string;
 	description: string;
-	image: string;
+	image?: string;
 	tags: Technology[];
 	url?: string | undefined;
 	repo: string;
@@ -24,7 +24,7 @@ const projects: Project[] = [
 	{
 		name: 'Advent of Svelte',
 		description: 'Advent of Svelte',
-		image: '/images/advent-of-svelte.png',
+		// image: '/images/advent-of-svelte.png',
 		tags: ['Svelte', 'Tailwind', 'Typescript', 'Shadcn/ui', 'Zod'],
 		url: 'https://advent-of-svelte.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/advent-of-svelte'
@@ -32,7 +32,7 @@ const projects: Project[] = [
 	{
 		name: 'Riot app',
 		description: 'Riot app',
-		image: '/images/riot.png',
+		// image: '/images/riot.png',
 		tags: ['Next.js', 'Typescript', 'i18n'],
 		url: 'https://riot-app.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
@@ -40,7 +40,7 @@ const projects: Project[] = [
 	{
 		name: 'Lecteur audio',
 		description: 'Lecteur audio',
-		image: '/images/player.png',
+		// image: '/images/player.png',
 		tags: ['Solid', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
