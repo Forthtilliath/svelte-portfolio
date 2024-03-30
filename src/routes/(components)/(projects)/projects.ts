@@ -14,6 +14,14 @@ const ENDPOINT_GITHUB = 'https://github.com/Forthtilliath';
 
 const projects: Project[] = [
 	{
+		name: 'TEST',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ante id leo suscipit pharetra. Sed nunc quam, faucibus in congue vel, pellentesque eu augue. Phasellus nec velit mauris. Curabitur dapibus ex sapien, id interdum orci dictum sed. Duis ullamcorper tortor enim, vel pharetra felis sagittis nec. Nam sodales vitae arcu sed suscipit. Nullam nunc risus, egestas ut eleifend sed, condimentum quis est. Curabitur id odio in nulla hendrerit tempus. Nam consequat, neque nec aliquet commodo, nibh nisi vehicula nunc, a malesuada ante lectus auctor ligula. Nunc at tellus ac quam congue rhoncus eu et nibh. Nam interdum gravida hendrerit.',
+		image: projectImages.sveltePortfolio,
+		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
+		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
+	},
+	{
 		name: 'Portfolio',
 		description: 'Portfolio of my works and projects',
 		image: projectImages.sveltePortfolio,
@@ -32,7 +40,7 @@ const projects: Project[] = [
 	{
 		name: 'Riot app',
 		description: 'Riot app',
-		// image: '/images/riot.png',
+		image: projectImages.sveltePortfolio,
 		tags: ['Next.js', 'Typescript', 'i18n'],
 		url: 'https://riot-app.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/next-riot-api'

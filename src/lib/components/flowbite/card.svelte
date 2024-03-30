@@ -2,6 +2,7 @@
 	import type { ComponentProps } from 'svelte';
 	import Frame from './frame.svelte';
 	import { cn } from '$lib/utils';
+	import { Skeleton } from '../ui/skeleton';
 
 	type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -11,6 +12,7 @@
 	export let img: string | undefined = undefined;
 	export let padding: SizeType | 'none' = 'lg';
 	export let size: SizeType | 'none' = 'sm';
+	export let skeleton: boolean = false;
 
 	// propagate props type from underlying Frame
 	interface $$Props extends ComponentProps<Frame> {
@@ -19,6 +21,7 @@
 		img?: string;
 		padding?: SizeType | 'none';
 		size?: SizeType | 'none';
+		skeleton?: boolean;
 	}
 
 	const paddings: Record<SizeType | 'none', string> = {
@@ -56,7 +59,7 @@
 	let imgClass: string;
 	$: imgClass = cn(
 		reverse ? 'rounded-b-lg' : 'rounded-t-lg',
-		horizontal && 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none',
+		horizontal ? 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none' : 'h-48',
 		horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg')
 	);
 </script>
@@ -77,7 +80,11 @@
 	class={cardClass}
 >
 	{#if img}
-		<img class={imgClass} src={img} alt="" />
+		{#if skeleton}
+			<Skeleton class={imgClass} />
+		{:else}
+			<img class={imgClass} src={img} alt="" />
+		{/if}
 		<div class={cn('border-t border-t-app-blue', innerPadding)}>
 			<slot />
 		</div>
