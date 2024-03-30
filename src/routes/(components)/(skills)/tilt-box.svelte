@@ -2,6 +2,7 @@
 	import tilt from 'svelte-tilt';
 	import type { Skill } from './skills';
 	import Shine from '$lib/components/shared/shine.svelte';
+	import SkillIcon from '$lib/components/shared/skill-icon.svelte';
 
 	export let list: Skill[];
 	export let title: string;
@@ -19,11 +20,8 @@
 			{title}
 		</h2>
 		<div class="grid grid-cols-[repeat(auto-fill,minmax(7rem,1fr))] gap-4">
-			{#each list as { name, icon, color }}
-				<div class="flex h-28 w-28 flex-col items-center justify-center gap-3">
-					<svelte:component this={icon} {...config} {color} />
-					<p class="text-center text-sm text-slate-200">{name}</p>
-				</div>
+			{#each list as skill}
+				<SkillIcon {...skill} {...config} />
 			{/each}
 		</div>
 	</div>
