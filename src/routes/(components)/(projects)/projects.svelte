@@ -15,7 +15,7 @@
 	);
 </script>
 
-<Section className="flex items-center justify-center flex-col" id="projects">
+<Section className="flex items-center justify-start flex-col" id="projects">
 	<SectionTitle>Projects</SectionTitle>
 
 	<div class="pb-4">

@@ -1,4 +1,5 @@
 import type { Technology } from '../(skills)/skills';
+import * as projectImages from '$lib/assets/projects';
 
 export type Project = {
 	name: string;
@@ -10,13 +11,12 @@ export type Project = {
 };
 
 const ENDPOINT_GITHUB = 'https://github.com/Forthtilliath';
-const ENDPOINT_LOCAL_IMAGES = '/src/lib/assets/projects';
 
 const projects: Project[] = [
 	{
 		name: 'Portfolio',
 		description: 'Portfolio of my works and projects',
-		image: ENDPOINT_LOCAL_IMAGES + '/svelte-portfolio.png',
+		image: projectImages.sveltePortfolio,
 		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
 		url: 'https://vincent-lisita.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
