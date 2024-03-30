@@ -4,17 +4,26 @@
 	import ProjectCard from './project-card.svelte';
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
+	import type { Framework, Technology } from '../(skills)/skills';
+
+	let filterFrameworks: Framework[] = [];
+
+	let filteredProjects: typeof projects;
+	$: filteredProjects = projects.filter(
+		(project) =>
+			filterFrameworks.length === 0 || filterFrameworks.some((f) => project.tags.includes(f))
+	);
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="projects">
 	<SectionTitle>Projects</SectionTitle>
 
 	<div class="pb-4">
-		<FrameworksGroup />
+		<FrameworksGroup bind:value={filterFrameworks} />
 	</div>
 
 	<main class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-		{#each projects as project}
+		{#each filteredProjects as project}
 			<ProjectCard {...project} />
 		{/each}
 	</main>

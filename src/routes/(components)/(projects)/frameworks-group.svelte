@@ -4,7 +4,7 @@
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import skills from '../(skills)/skills';
 
-	let value: string[] | undefined = undefined;
+	export let value: string[] | undefined = undefined;
 
 	const config = {
 		size: 48

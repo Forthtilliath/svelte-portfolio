@@ -40,6 +40,7 @@ export type Skill = {
 };
 
 export type Technology = (typeof skills)[keyof typeof skills][number]['name'];
+export type Framework = typeof skills.frameworks[number]['name'];
 
 const skills = {
 	frameworks: [
