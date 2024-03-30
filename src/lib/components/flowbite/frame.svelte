@@ -1,4 +1,5 @@
 <script lang="ts">
+	import tilt from 'svelte-tilt';
 	import { cn } from '$lib/utils';
 	import type { Action } from 'svelte/action';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
@@ -18,6 +19,7 @@
 		options?: object;
 		class?: string;
 		role?: string;
+		tilted?: boolean;
 	}
 
 	export let tag: string = $$restProps.href ? 'a' : 'div';
@@ -25,6 +27,7 @@
 	export let rounded: boolean = false;
 	export let border: boolean = false;
 	export let shadow: boolean = false;
+	export let tilted: boolean = false;
 
 	// For components development
 	export let node: HTMLElement | undefined = undefined;
@@ -114,11 +117,15 @@
 		shadow && 'shadow-md',
 		$$props.class
 	);
+
+	let tiltAction: Action<HTMLElement, any>;
+	$: tiltAction = tilted ? tilt : () => {};
 </script>
 
 <svelte:element
 	this={tag}
 	use:use={options}
+	use:tiltAction
 	bind:this={node}
 	{role}
 	{...$$restProps}
