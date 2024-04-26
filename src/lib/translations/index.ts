@@ -1,4 +1,5 @@
 import i18n from 'sveltekit-i18n';
+import kleur from 'kleur';
 import lang from './lang.json';
 
 type TradArguments = {
@@ -27,4 +28,4 @@ export const config: import('sveltekit-i18n').Config<TradArguments> = {
 
 export const { t, loading, locales, locale, loadTranslations } = new i18n(config);
 
-loading.subscribe(($loading) => $loading && console.log('Loading translations for the main instance...'));
+loading.subscribe(($loading) => $loading && console.log(kleur.yellow().bold('[i18n] ') + 'Loading translations for the main instance...'));
