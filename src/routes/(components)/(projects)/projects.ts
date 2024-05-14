@@ -39,10 +39,10 @@ const projects: Project[] = [
 	},
 	{
 		name: 'Riot app',
-		description: 'Riot app',
+		description: 'Next App which use Riot API.',
 		image: projectImages.sveltePortfolio,
 		tags: ['Next.js', 'Typescript', 'i18n'],
-		url: 'https://riot-app.vercel.app/',
+		url: 'https://next-riot.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
 	},
 	{
