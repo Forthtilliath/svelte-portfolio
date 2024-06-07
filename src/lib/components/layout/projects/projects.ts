@@ -1,4 +1,4 @@
-import type { Technology } from '../(skills)/skills';
+import type { Technology } from '$lib/components/layout/skills';
 import * as projectImages from '$lib/assets/projects';
 
 export type Project = {

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Section from '$lib/components/shared/section.svelte';
 	import SectionTitle from '$lib/components/shared/section-title.svelte';
+	import type { Framework } from '$lib/components/layout/skills';
 	import ProjectCard from './project-card.svelte';
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
-	import type { Framework } from '../skills/skills';
 
 	let filterFrameworks: Framework[] = [];
 
@@ -22,7 +22,9 @@
 		<FrameworksGroup bind:value={filterFrameworks} />
 	</div>
 
-	<main class="grid gap-4 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] w-full justify-items-center">
+	<main
+		class="grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]"
+	>
 		{#each filteredProjects as project}
 			<ProjectCard {...project} />
 		{/each}

@@ -2,7 +2,7 @@
 	import Shine from '$lib/components/shared/shine.svelte';
 	import SkillIcon from '$lib/components/shared/skill-icon.svelte';
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
-	import skills from '../skills/skills';
+	import { skills } from '$lib/components/layout/skills';
 
 	export let value: string[] | undefined = undefined;
 
