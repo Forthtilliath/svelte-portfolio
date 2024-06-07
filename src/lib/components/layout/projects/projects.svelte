@@ -4,7 +4,7 @@
 	import ProjectCard from './project-card.svelte';
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
-	import type { Framework } from '../(skills)/skills';
+	import type { Framework } from '../skills/skills';
 
 	let filterFrameworks: Framework[] = [];
 

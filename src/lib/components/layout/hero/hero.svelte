@@ -8,8 +8,11 @@
 
 	let clientWidth: number;
 
+	let diceWidth: number;
 	$: diceWidth = Math.min(100, (clientWidth - 100) / 7);
+	let depthMax: number;
 	$: depthMax = getDepth(clientWidth);
+	let loaded: boolean;
 	$: loaded = false;
 
 	onMount(() => {
@@ -20,7 +23,6 @@
 		if (width < 640) return 4;
 		if (width < 768) return 6;
 		return 8;
-
 	}
 </script>
 

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Header from './(components)/header.svelte';
-	import Hero from './(components)/(hero)/hero.svelte';
-	import About from './(components)/(about)/about.svelte';
-	import Skills from './(components)/(skills)/skills.svelte';
-	import Projects from './(components)/(projects)/projects.svelte';
-	import Contact from './(components)/(contact)/contact.svelte';
+	import Header from '$lib/components/layout/header.svelte';
+	import Hero from '$lib/components/layout/hero/hero.svelte';
+	import About from '$lib/components/layout/about/about.svelte';
+	import Skills from '$lib/components/layout/skills/skills.svelte';
+	import Projects from '$lib/components/layout/projects/projects.svelte';
+	import Contact from '$lib/components/layout/contact/contact.svelte';
 
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 

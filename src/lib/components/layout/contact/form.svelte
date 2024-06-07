@@ -25,13 +25,6 @@
 	});
 
 	const { form: formData, enhance } = form;
-
-	// TODO: Remove this in the future
-	$formData = {
-		name: 'Forth',
-		email: 'forth@live.fr',
-		message: 'A simple test to validate the form'
-	};
 </script>
 
 <form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full">
