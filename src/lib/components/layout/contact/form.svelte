@@ -36,7 +36,7 @@
 		label={$t('contact.message')}
 		bind:value={$formData.message}
 		multiline
-		class="text-green-500"
+		class="max-h-[200px]"
 	/>
 
 	<Form.Button class="mt-4">{$t('contact.submit')}</Form.Button>
