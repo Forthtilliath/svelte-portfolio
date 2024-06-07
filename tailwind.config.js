@@ -60,6 +60,11 @@ const config = {
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans]
+			},
+			height: {
+				'5': '1.25rem',
+				'15': '3.75rem',
+				'20': '5rem',
 			}
 		}
 	}

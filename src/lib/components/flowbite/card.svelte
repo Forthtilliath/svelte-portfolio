@@ -47,7 +47,7 @@
 
 	let cardClass: string;
 	$: cardClass = cn(
-		'flex w-full',
+		'flex w-screen',
 		sizes[size],
 		reverse ? 'flex-col-reverse' : 'flex-col',
 		horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'),
