@@ -65,7 +65,7 @@
 			</p>
 			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
 				{#each tags as tag}
-					<span class="text-white group">
+					<span class="text-white group font-serif text-sm">
 						<strong class="group-hover:text-sky-500">#</strong>{tag}
 					</span>
 				{/each}
