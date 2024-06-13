@@ -70,7 +70,7 @@
 					</span>
 				{/each}
 			</div>
-			<Button href={repo} class="w-full">Show repository</Button>
+			<Button href={repo} class="w-full" variant="card-link" external>Show repository</Button>
 		</Card>
 	</Shine>
 	<Card img={image} size="xs" href={url} color="app-blue" padding="sm" skeleton slot="loading">

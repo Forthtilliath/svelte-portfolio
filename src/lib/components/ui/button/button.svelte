@@ -10,13 +10,18 @@
 	export let variant: $$Props["variant"] = "default";
 	export let size: $$Props["size"] = "default";
 	export let builders: $$Props["builders"] = [];
+	export let external: $$Props["external"] = false;
 	export { className as class };
+
+	let externalProps: Record<string, unknown> = {};
+	$: externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 </script>
 
 <ButtonPrimitive.Root
 	{builders}
 	class={cn(buttonVariants({ variant, size, className }))}
 	type="button"
+	{...externalProps}
 	{...$$restProps}
 	on:click
 	on:keydown
