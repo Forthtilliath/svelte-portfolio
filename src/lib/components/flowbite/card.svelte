@@ -3,6 +3,7 @@
 	import Frame from './frame.svelte';
 	import { cn } from '$lib/utils';
 	import { Skeleton } from '../ui/skeleton';
+	import { defaultProject } from '$lib/assets/projects';
 
 	type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -52,7 +53,7 @@
 		reverse ? 'flex-col-reverse' : 'flex-col',
 		horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'),
 		href && 'hover:bg-gray-100 dark:hover:bg-gray-700',
-		!img && innerPadding,
+		// !img && innerPadding,
 		$$props.class
 	);
 
@@ -79,18 +80,16 @@
 	{...$$restProps}
 	class={cardClass}
 >
-	{#if img}
-		{#if skeleton}
-			<Skeleton class={imgClass} />
-		{:else}
-			<img class={imgClass} src={img} alt="" />
-		{/if}
-		<div class={cn('border-t border-t-app-blue', innerPadding)}>
-			<slot />
-		</div>
+	{#if skeleton}
+		<Skeleton class={imgClass} />
+	{:else if img}
+		<img class={imgClass} src={img} alt="Project Overview" />
 	{:else}
-		<slot />
+		<img class={imgClass} src={defaultProject} alt="Project Overview" />
 	{/if}
+	<div class={cn('border-t border-t-app-blue', innerPadding)}>
+		<slot />
+	</div>
 </Frame>
 
 <!--

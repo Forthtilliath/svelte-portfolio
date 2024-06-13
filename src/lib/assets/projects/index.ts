@@ -1,3 +1,4 @@
+import defaultProject from './default.jpg';
 import sveltePortfolio from './svelte-portfolio.png';
 
-export { sveltePortfolio };
+export { sveltePortfolio, defaultProject };
