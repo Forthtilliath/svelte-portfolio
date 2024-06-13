@@ -6,6 +6,7 @@
 	import Shine from '$lib/components/shared/shine.svelte';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import { cn } from '$lib/utils';
+	import { locale, type Language } from '$lib/translations';
 
 	export let image: Project['image'] = undefined;
 	export let name: Project['name'];
@@ -13,6 +14,9 @@
 	export let repo: Project['repo'];
 	export let tags: Project['tags'];
 	export let url: Project['url'] = undefined;
+
+	let lang: Language;
+	$: lang = $locale as Language;
 
 	let aSkeletonWidths = [
 		'w-5/12',
@@ -58,14 +62,14 @@
 	>
 		<Card img={image} size="xs" href={url} color="app-blue" padding="sm" tilted>
 			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-				{name}
+				{name[lang]}
 			</h5>
 			<p class="line-clamp-3 h-[60px] font-normal leading-tight text-gray-700 dark:text-gray-400">
-				{description}
+				{description[lang]}
 			</p>
 			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
 				{#each tags as tag}
-					<span class="text-white group font-serif text-sm">
+					<span class="group font-serif text-sm text-white">
 						<strong class="group-hover:text-sky-500">#</strong>{tag}
 					</span>
 				{/each}
