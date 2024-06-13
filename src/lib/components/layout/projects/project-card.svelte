@@ -63,10 +63,10 @@
 			<p class="line-clamp-3 h-[60px] font-normal leading-tight text-gray-700 dark:text-gray-400">
 				{description}
 			</p>
-			<div class="line-clamp-2 flex flex-wrap gap-x-2">
+			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
 				{#each tags as tag}
-					<span class="text-white">
-						#{tag}
+					<span class="text-white group">
+						<strong class="group-hover:text-sky-500">#</strong>{tag}
 					</span>
 				{/each}
 			</div>
