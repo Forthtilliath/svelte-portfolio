@@ -1,4 +1,4 @@
-import type { Technology } from '$lib/components/layout/skills';
+import { type Technology } from '$lib/components/layout/skills';
 import * as projectImages from '$lib/assets/projects';
 import { type Language } from '$lib/translations';
 
@@ -14,16 +14,6 @@ export type Project = {
 const ENDPOINT_GITHUB = 'https://github.com/Forthtilliath';
 
 const projects: Project[] = [
-	{
-		name: { fr: 'TEST FR', en: 'TEST EN' },
-		description: {
-			fr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ante id leo suscipit pharetra. Sed nunc quam, faucibus in congue vel, pellentesque eu augue. Phasellus nec velit mauris. Curabitur dapibus ex sapien, id interdum orci dictum sed. Duis ullamcorper tortor enim, vel pharetra felis sagittis nec. Nam sodales vitae arcu sed suscipit. Nullam nunc risus, egestas ut eleifend sed, condimentum quis est. Curabitur id odio in nulla hendrerit tempus. Nam consequat, neque nec aliquet commodo, nibh nisi vehicula nunc, a malesuada ante lectus auctor ligula. Nunc at tellus ac quam congue rhoncus eu et nibh. Nam interdum gravida hendrerit.',
-			en: 'Nec usurpare lustratae dicam sermonibus clarissimorum populorum celeritate nec lustratae exterarum nec conficiendi ponere crebris passibus potuisse exterarum res proeliorum celeritate omnis exterarum quam sed nec imperatorum ante sunt idque.'
-		},
-		image: projectImages.sveltePortfolio,
-		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
-		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
-	},
 	{
 		name: { fr: 'Portfolio', en: 'Portfolio' },
 		description: {
@@ -67,6 +57,16 @@ const projects: Project[] = [
 		tags: ['Solid', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
+	},
+	{
+		name: { fr: 'Code Share', en: 'Code Share' },
+		description: {
+			fr: "Une plateforme collaborative de partage d'extraits de code. Développé avec SvelteKit et alimenté par PocketBase.",
+			en: 'A collaborative platform for sharing code snippets. Built with SvelteKit and powered by PocketBase.'
+		},
+		image: projectImages.svelteCodeshare,
+		tags: ['Svelte', 'Typescript'],
+		repo: ENDPOINT_GITHUB + '/sveltekit_pocketbase_socialmedia'
 	}
 ];
 

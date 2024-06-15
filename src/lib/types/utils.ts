@@ -5,6 +5,10 @@ declare global {
 		}[keyof T],
 		undefined
 	>;
+
+	type Optional<T> = T | undefined;
+	type Nullable<T> = T | null;
+	type Nullish<T> = T | null | undefined;
 }
 
 export {};

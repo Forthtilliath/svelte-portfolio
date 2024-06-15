@@ -36,21 +36,7 @@
 	}
 </script>
 
-<!-- Front -->
-<!-- - Image du projet -->
-<!-- - Titre du projet -->
-<!-- - Courte Description du projet -->
-<!-- - Tags du projet -->
-<!-- - React/Next/Solid/Svelte -->
-
-<!-- Back -->
-<!-- - Description du projet -->
-<!-- - Bouton pour voir le projet -->
-
-<!-- Set same height for each card -->
-<!-- Max 2 lines of descriptions -->
-
-<!-- TODO: Add skeleton while loading -->
+<!-- TODO: Bouton pour afficher plus d'infos -->
 
 <WithLoader>
 	<Shine
