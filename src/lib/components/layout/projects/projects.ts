@@ -66,7 +66,7 @@ const projects: Project[] = [
 		},
 		image: projectImages.svelteCodeshare,
 		tags: ['Svelte', 'Typescript'],
-		repo: ENDPOINT_GITHUB + '/sveltekit_pocketbase_socialmedia'
+		repo: ENDPOINT_GITHUB + '/svelte-codeshare'
 	}
 ];
 
