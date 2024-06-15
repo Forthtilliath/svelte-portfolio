@@ -67,6 +67,16 @@ const projects: Project[] = [
 		image: projectImages.svelteCodeshare,
 		tags: ['Svelte', 'Typescript'],
 		repo: ENDPOINT_GITHUB + '/svelte-codeshare'
+	},
+	{
+		name: { fr: 'LOL Random Arena', en: 'LOL Random Arena' },
+		description: {
+			fr: 'Application qui aide les joueurs à générer des equipes et des combats aleatoires.',
+			en: 'App to help players to generate teams & champions inside arena mode.'
+		},
+		image: projectImages.svelteLolArena,
+		tags: ['Svelte', 'Typescript', 'Shadcn/ui', 'Tailwind', 'Zod'],
+		repo: ENDPOINT_GITHUB + '/lol-random-arena'
 	}
 ];
 
