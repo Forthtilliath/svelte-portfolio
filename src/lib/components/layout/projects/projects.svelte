@@ -5,10 +5,11 @@
 	import ProjectCard from './project-card.svelte';
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
+	import Pagination from '$lib/components/shared/pagination.svelte';
 
 	let filterFrameworks: Framework[] = [];
 
-	let filteredProjects: typeof projects;
+	let filteredProjects: typeof projects = [];
 	$: filteredProjects = projects.filter(
 		(project) =>
 			filterFrameworks.length === 0 || filterFrameworks.some((f) => project.tags.includes(f))
@@ -22,11 +23,9 @@
 		<FrameworksGroup bind:value={filterFrameworks} />
 	</div>
 
-	<main
-		class="grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]"
-	>
-		{#each filteredProjects as project}
-			<ProjectCard {...project} />
-		{/each}
-	</main>
+	<Pagination data={filteredProjects} perPage={6} siblingCount={2}>
+		<article slot="card" let:pageData>
+			<ProjectCard {...pageData} />
+		</article>
+	</Pagination>
 </Section>

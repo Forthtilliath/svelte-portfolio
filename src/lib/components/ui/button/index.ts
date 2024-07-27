@@ -21,20 +21,27 @@ const buttonVariants = tv({
 			sm: 'h-8 rounded-md px-3 text-xs',
 			lg: 'h-10 rounded-md px-8',
 			icon: 'h-9 w-9'
+		},
+		rounded: {
+			default: '',
+			full: 'rounded-full'
 		}
 	},
 	defaultVariants: {
 		variant: 'default',
-		size: 'default'
+		size: 'default',
+		rounded: 'default'
 	}
 });
 
 type Variant = VariantProps<typeof buttonVariants>['variant'];
 type Size = VariantProps<typeof buttonVariants>['size'];
+type Rounded = VariantProps<typeof buttonVariants>['rounded'];
 
 type Props = ButtonPrimitive.Props & {
 	variant?: Variant;
 	size?: Size;
+	rounded?: Rounded;
 	external?: boolean;
 };
 
