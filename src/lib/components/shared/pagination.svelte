@@ -2,6 +2,7 @@
 	import * as Pagination from '$lib/components/ui/pagination';
 	import ChevronLeft from 'svelte-radix/ChevronLeft.svelte';
 	import ChevronRight from 'svelte-radix/ChevronRight.svelte';
+	import { t } from '$lib/translations';
 
 	export let perPage: number;
 	export let siblingCount: number;
@@ -25,7 +26,7 @@
 			<Pagination.Item>
 				<Pagination.PrevButton>
 					<ChevronLeft class="h-4 w-4" />
-					<span class="hidden sm:block">Previous</span>
+					<span class="hidden sm:block">{$t('ui.previous')}</span>
 				</Pagination.PrevButton>
 			</Pagination.Item>
 			{#each pages as page (page.key)}
@@ -43,7 +44,7 @@
 			{/each}
 			<Pagination.Item>
 				<Pagination.NextButton>
-					<span class="hidden sm:block">Next</span>
+					<span class="hidden sm:block">{$t('ui.next')}</span>
 					<ChevronRight class="h-4 w-4" />
 				</Pagination.NextButton>
 			</Pagination.Item>
