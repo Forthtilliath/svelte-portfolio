@@ -51,7 +51,7 @@
 	{#if loaded}
 		<div class="relative mt-8 w-full" bind:clientWidth>
 			<FlipWords
-				words={['react', 'nextjs', 'solidjs', 'svelte']}
+				words={['react', 'next.js', 'solidjs', 'sveltekit']}
 				size={diceWidth + 'px'}
 				options={{
 					translateY: '-4px',
