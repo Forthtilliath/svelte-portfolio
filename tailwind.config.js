@@ -65,6 +65,9 @@ const config = {
 				'5': '1.25rem',
 				'15': '3.75rem',
 				'20': '5rem',
+			},
+			gridTemplateColumns: {
+				projects: 'repeat(auto-fit, minmax(20rem, 1fr))'
 			}
 		}
 	}

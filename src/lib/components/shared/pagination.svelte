@@ -15,7 +15,7 @@
 
 <Pagination.Root count={data.length} {perPage} {siblingCount} let:pages let:currentPage>
 	<main
-		class="mb-4 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]"
+		class="mb-4 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-projects"
 	>
 		{#each getCurrentPageData(currentPage) as pageData}
 			<slot name="card" {pageData} />
