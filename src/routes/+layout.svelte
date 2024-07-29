@@ -10,7 +10,7 @@
 
 	<meta name="darkreader-lock" />
 
-	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:card" content="summary" />
 	<meta property="twitter:title" content={$t('meta.title')} />
 	<meta property="twitter:description" content={$t('meta.description')} />
 	<meta property="twitter:image" content="https://vincent-lisita.vercel.app/me.avif" />
