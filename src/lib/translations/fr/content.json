@@ -1,4 +1,9 @@
 {
+	"meta": {
+		"author": "Vincent LISITA",
+		"title": "Portfolio de Vincent LISITA",
+		"description": "Portfolio de Vincent LISITA"
+	},
 	"header": {
 		"title": "Vincent LISITA",
 		"about": "À Propos",

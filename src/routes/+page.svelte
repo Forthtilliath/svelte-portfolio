@@ -5,6 +5,8 @@
 	import Skills from '$lib/components/layout/skills';
 	import Projects from '$lib/components/layout/projects';
 	import Contact from '$lib/components/layout/contact';
+	import Footer from '$lib/components/layout/footer.svelte';
+
 
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 
@@ -12,11 +14,13 @@
 	import img2 from '$lib/assets/separators/2.jpg';
 	import img3 from '$lib/assets/separators/3.jpg';
 	import img4 from '$lib/assets/separators/4.jpg';
+	import img5 from '$lib/assets/separators/5.avif';
 
 	export let data;
 </script>
 
 <Header />
+
 <main class="mt-20">
 	<Hero />
 	<SectionSeparator img={img1} filter={50} />
@@ -27,4 +31,7 @@
 	<Projects />
 	<SectionSeparator img={img4} filter={70} />
 	<Contact data={data.form} />
+	<SectionSeparator img={img5} filter={60} height="50px" />
+	<Footer />
 </main>
+
