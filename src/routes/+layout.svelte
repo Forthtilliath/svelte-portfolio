@@ -13,8 +13,8 @@
 	<meta property="twitter:card" content="summary" />
 	<meta property="twitter:title" content={$t('meta.title')} />
 	<meta property="twitter:description" content={$t('meta.description')} />
-	<meta property="twitter:site" content="https://vincent-lisita.vercel.app/" />
 	<meta property="twitter:image" content="https://vincent-lisita.vercel.app/me.jpg" />
+	<meta property="twitter:url" content="https://vincent-lisita.vercel.app/" />
 
 	<meta property="og:title" content={$t('meta.title')} />
 	<meta property="og:description" content={$t('meta.description')} />
