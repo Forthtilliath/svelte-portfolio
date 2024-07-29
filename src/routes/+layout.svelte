@@ -15,7 +15,7 @@
 	<meta property="twitter:description" content={$t('meta.description')} />
 	<meta property="twitter:image" content="https://vincent-lisita.vercel.app/me.avif" />
 
-	<meta property="og:image" content={$t('meta.title')} />
+	<meta property="og:image" content="https://vincent-lisita.vercel.app/me.avif" />
 	<meta property="og:description" content={$t('meta.description')} />
 	<meta property="og:url" content="https://vincent-lisita.vercel.app/" />
 </svelte:head>
