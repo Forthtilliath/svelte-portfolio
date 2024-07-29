@@ -18,7 +18,7 @@
 
 	<meta property="og:title" content={$t('meta.title')} />
 	<meta property="og:description" content={$t('meta.description')} />
-	<meta property="og:image" content="https://vincent-lisita.vercel.app/me.avif" />
+	<meta property="og:image" content="https://vincent-lisita.vercel.app/me.jpg" />
 	<meta property="og:url" content="https://vincent-lisita.vercel.app/" />
 	<meta property="og:type" content="”siteweb”" />
 	<meta property="og:locale" content="fr_FR" />
