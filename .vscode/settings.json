@@ -1,3 +1,5 @@
 {
-	"svg.preview.background": "editor"
+	"svg.preview.background": "editor",
+	"i18n-ally.localesPaths": ["I:/9 - Vincent/Dev JS/sveltekit-portfolio/src/lib/translations"],
+	"i18n-ally.keystyle": "nested"
 }
