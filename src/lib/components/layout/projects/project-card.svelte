@@ -57,7 +57,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-1">
 				{name[lang]}
 			</h5>
 			<p class="line-clamp-3 h-[60px] font-normal leading-tight text-gray-700 dark:text-gray-400">

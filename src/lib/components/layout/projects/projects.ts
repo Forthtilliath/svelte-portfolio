@@ -15,15 +15,15 @@ const ENDPOINT_GITHUB = 'https://github.com/Forthtilliath';
 
 const projects: Project[] = [
 	{
-		name: { fr: 'Portfolio', en: 'Portfolio' },
+		name: { fr: 'Green Bank', en: 'Green Bank' },
 		description: {
-			fr: 'Portfolio présentant mes projets et mes compétences',
-			en: 'Portfolio of my works and projects'
+			fr: 'Tournoi Hackathon 2023',
+			en: 'Hackathon Tournament 2023'
 		},
-		image: projectImages.sveltekitPortfolio,
-		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
-		url: 'https://vincent-lisita.vercel.app/',
-		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
+		image: projectImages.vanillaGreenBank,
+		tags: ['React', 'Tailwind', 'Typescript', 'Zod', 'Zustand', 'Vitest', 'Chart.js'],
+		url: 'https://green-bank-swart.vercel.app/simulator',
+		repo: ENDPOINT_GITHUB + '/green-bank'
 	},
 	{
 		name: { fr: 'Advent of Svelte', en: 'Advent of Svelte' },
@@ -46,6 +46,17 @@ const projects: Project[] = [
 		tags: ['Next.js', 'Typescript', 'i18n'],
 		url: 'https://next-riot.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
+	},
+	{
+		name: { fr: 'Dolla', en: 'Dolla' },
+		description: {
+			fr: 'Single Page Application',
+			en: 'Single Page Application'
+		},
+		image: projectImages.reactDolla,
+		tags: ['React', 'Styled Components', 'Typescript'],
+		url: 'https://react-ts-dolla.vercel.app/',
+		repo: ENDPOINT_GITHUB + '/react-ts-dolla'
 	},
 	{
 		name: { fr: 'Lecteur audio : Spotube', en: 'Player audio: Spotube' },
@@ -89,6 +100,50 @@ const projects: Project[] = [
 		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
+	},
+	{
+		name: { fr: 'Navigation Page', en: 'Page Navigation' },
+		description: {
+			fr: 'Système de navigation dynamique avec Preact et Tailwind CSS.',
+			en: 'Dynamic Navigation System with Preact and Tailwind CSS'
+		},
+		image: projectImages.preactPageNavigation,
+		tags: ['React', 'Tailwind', 'Typescript'],
+		url: 'https://forth-spotube.netlify.app/',
+		repo: ENDPOINT_GITHUB + '/preact-page-navigation'
+	},
+	{
+		name: { fr: 'Organisateur Playgrounds', en: 'Playgrounds Organizer' },
+		description: {
+			fr: 'Organisateur afin de regrouper les différents playgrounds fait sur codepen, codesandbox, stackblitz...',
+			en: 'Organizer to group together the different playgrounds made on codepen, codesandbox, stackblitz...'
+		},
+		image: projectImages.solidjsPlaygroundsOrganizer,
+		tags: ['SolidJS', 'Tailwind', 'Typescript', 'Zod'],
+		url: 'https://playgrounds-organizer.vercel.app/',
+		repo: ENDPOINT_GITHUB + '/playgrounds-organizer'
+	},
+	{
+		name: { fr: '7 Wonders : Assistant', en: '7 Wonders: Assistant' },
+		description: {
+			fr: '7 Wonders: Assistant est une application qui aide les utilisateurs à gérer et à calculer les scores de leurs parties de 7 Wonders.',
+			en: '7 Wonders: Assistant is an application that helps users manage and calculate scores for their 7 Wonders games.'
+		},
+		// image: projectImages.solidjsPlaygroundsOrganizer,
+		tags: ['React', 'Tailwind', 'Typescript', 'Zod', 'Zustand', 'Vitest', 'Chart.js'],
+		url: 'https://7wonders-assistant.vercel.app/',
+		repo: ENDPOINT_GITHUB + '/7wonders-assistant'
+	},
+	{
+		name: { fr: 'Portfolio', en: 'Portfolio' },
+		description: {
+			fr: 'Portfolio présentant mes projets et mes compétences',
+			en: 'Portfolio of my works and projects'
+		},
+		image: projectImages.sveltekitPortfolio,
+		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
+		url: 'https://vincent-lisita.vercel.app/',
+		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
 	}
 ];
 
