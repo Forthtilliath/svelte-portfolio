@@ -6,26 +6,28 @@
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
 	import Pagination from '$lib/components/shared/pagination.svelte';
+	import { derived, writable } from 'svelte/store';
 
-	let filterFrameworks: Framework[] = [];
+	let filterFrameworks = writable<Framework[]>([]);
 
-	let filteredProjects: typeof projects = [];
-	$: filteredProjects = projects.filter(
-		(project) =>
-			filterFrameworks.length === 0 || filterFrameworks.some((f) => project.tags.includes(f))
-	);
+	let filteredProjects = derived([filterFrameworks], ([$filterFrameworks]) => {
+		return projects.filter(
+			(project) =>
+				$filterFrameworks.length === 0 || $filterFrameworks.some((f) => project.tags.includes(f))
+		);
+	});
 </script>
 
 <Section className="flex items-center justify-start flex-col" id="projects">
 	<SectionTitle>Projects</SectionTitle>
 
 	<div class="pb-4">
-		<FrameworksGroup bind:value={filterFrameworks} />
+		<FrameworksGroup bind:value={$filterFrameworks} />
 	</div>
 
-	<Pagination data={filteredProjects} perPage={6} siblingCount={2}>
-		<article slot="card" let:pageData>
-			<ProjectCard {...pageData} />
+	<Pagination data={$filteredProjects} perPage={6} siblingCount={2}>
+		<article slot="card" let:itemData>
+			<ProjectCard {...itemData} />
 		</article>
 	</Pagination>
 </Section>

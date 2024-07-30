@@ -4,21 +4,30 @@
 	import ChevronRight from 'svelte-radix/ChevronRight.svelte';
 	import { t } from '$lib/translations';
 
-	export let perPage: number;
-	export let siblingCount: number;
-	export let data: T[] = [];
+	type $$Props = {
+		perPage: number;
+		siblingCount: number;
+		data: T[];
+	};
 
-	function getCurrentPageData(page: number = 1) {
-		return data.slice((page - 1) * perPage, page * perPage);
-	}
+	type $$Slots = {
+		card: {
+			itemData: T;
+		};
+	};
+
+	export let perPage: $$Props['perPage'];
+	export let siblingCount: $$Props['siblingCount'];
+	export let data: $$Props['data'] = [];
 </script>
 
 <Pagination.Root count={data.length} {perPage} {siblingCount} let:pages let:currentPage>
-	<main
-		class="mb-4 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-projects"
-	>
-		{#each getCurrentPageData(currentPage) as pageData}
-			<slot name="card" {pageData} />
+	{@const pageData = currentPage
+		? data.slice((currentPage - 1) * perPage, currentPage * perPage)
+		: data}
+	<main class="mb-4 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-projects">
+		{#each pageData as itemData}
+			<slot name="card" {itemData} />
 		{/each}
 	</main>
 	{#if pages.length > 1}
