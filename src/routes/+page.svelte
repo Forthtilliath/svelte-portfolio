@@ -7,7 +7,7 @@
 	import Contact from '$lib/components/layout/contact';
 	import Footer from '$lib/components/layout/footer.svelte';
 
-
+	import Stars from '$lib/components/shared/stars.svelte';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 
 	import img1 from '$lib/assets/separators/1.jpg';
@@ -21,7 +21,7 @@
 
 <Header />
 
-<main class="mt-20">
+<main class="relative mt-20">
 	<Hero />
 	<SectionSeparator img={img1} filter={50} />
 	<About />
@@ -35,3 +35,4 @@
 	<Footer />
 </main>
 
+<Stars />
