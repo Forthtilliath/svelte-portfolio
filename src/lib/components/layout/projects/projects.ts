@@ -32,7 +32,7 @@ const projects: Project[] = [
 			en: 'Advent of Svelte'
 		},
 		image: projectImages.sveltekitAdventOfSvelte,
-		tags: ['Svelte', 'Tailwind', 'Typescript', 'Shadcn/ui', 'Zod'],
+		tags: ['Sveltekit', 'Tailwind', 'Typescript', 'Shadcn/ui', 'Zod'],
 		url: 'https://advent-of-svelte.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/advent-of-svelte'
 	},
@@ -76,7 +76,7 @@ const projects: Project[] = [
 			en: 'A collaborative platform for sharing code snippets. Built with SvelteKit and powered by PocketBase.'
 		},
 		image: projectImages.sveltekitCodeshare,
-		tags: ['Svelte', 'Typescript'],
+		tags: ['Sveltekit', 'Typescript'],
 		repo: ENDPOINT_GITHUB + '/svelte-codeshare'
 	},
 	{
@@ -86,7 +86,7 @@ const projects: Project[] = [
 			en: 'App to help players to generate teams & champions inside arena mode.'
 		},
 		image: projectImages.sveltekitLolArena,
-		tags: ['Svelte', 'Typescript', 'Shadcn/ui', 'Tailwind', 'Zod'],
+		tags: ['Sveltekit', 'Typescript', 'Shadcn/ui', 'Tailwind', 'Zod'],
 		url: 'https://lol-random-arena.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/lol-random-arena'
 	},
@@ -141,7 +141,7 @@ const projects: Project[] = [
 			en: 'Portfolio of my works and projects'
 		},
 		image: projectImages.sveltekitPortfolio,
-		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
+		tags: ['Sveltekit', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
 		url: 'https://vincent-lisita.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
 	}

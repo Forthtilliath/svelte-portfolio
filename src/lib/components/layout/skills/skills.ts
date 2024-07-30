@@ -57,7 +57,7 @@ const skills = {
 			icon: SolidJS
 		},
 		{
-			name: 'Svelte',
+			name: 'Sveltekit',
 			icon: Svelte
 		}
 	],
