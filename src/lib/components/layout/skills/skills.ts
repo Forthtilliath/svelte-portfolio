@@ -53,7 +53,7 @@ const skills = {
 			icon: NextJS
 		},
 		{
-			name: 'Solid',
+			name: 'SolidJS',
 			icon: SolidJS
 		},
 		{

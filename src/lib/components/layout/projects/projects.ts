@@ -54,7 +54,7 @@ const projects: Project[] = [
 			en: 'Player audio'
 		},
 		// image: '/images/player.png',
-		tags: ['Solid', 'CSS Modules', 'SCSS', 'Typescript'],
+		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
 	},
