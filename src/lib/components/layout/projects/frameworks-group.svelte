@@ -13,7 +13,11 @@
 
 <ToggleGroup.Root type="multiple" class="h-auto" size="auto" bind:value>
 	{#each skills.frameworks as framework}
-		<ToggleGroup.Item value={framework.name} aria-label={`Toggle ${framework.name}`}>
+		<ToggleGroup.Item
+			value={framework.name}
+			aria-label={`Toggle ${framework.name}`}
+			class="border hover:border-white"
+		>
 			<Shine>
 				<SkillIcon {...framework} {...config} />
 			</Shine>
