@@ -24,19 +24,8 @@
 	.stars {
 		width: var(--size);
 		height: var(--size);
-		background: transparent;
 		box-shadow: var(--shadows);
 		animation: animStar var(--duration) linear infinite;
-
-		&:after {
-			content: ' ';
-			position: absolute;
-			top: 100dvh;
-			width: var(--size);
-			height: var(--size);
-			background: transparent;
-			box-shadow: var(--shadows);
-		}
 	}
 
 	.stars1 {
