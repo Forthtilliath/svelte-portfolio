@@ -31,8 +31,8 @@
 	function getSkeletonWidth() {
 		return aSkeletonWidths[Math.floor(Math.random() * aSkeletonWidths.length)];
 	}
-	function hasLine() {
-		return Math.random() > 0.5;
+	function getRandom(n: number) {
+		return Math.floor(Math.random() * n) + 1;
 	}
 </script>
 
@@ -64,22 +64,27 @@
 		</Card>
 	</Shine>
 	<Card img={image} size="xs" href={url} color="app-blue" padding="sm" skeleton slot="loading">
+		{@const contentLines = getRandom(3)}
+		{@const tagsLines = getRandom(2)}
 		<!-- Title-->
 		<Skeleton class={cn('h-8', getSkeletonWidth())} />
 		<!-- Content -->
-		{#if hasLine()}
-			<Skeleton class={cn('h-5')} />
-		{/if}
-		{#if hasLine()}
-			<Skeleton class={cn('h-5')} />
-		{/if}
-		<Skeleton class={cn('h-5', getSkeletonWidth())} />
+		{#each { length: contentLines - 1 } as _}
+			<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
+		{/each}
+		<Skeleton class={cn('h-4', getSkeletonWidth())} />
+		{#each { length: 3 - contentLines} as _}
+			<div class="h-4 bg-transparent" />
+		{/each}
 		<!-- Tags -->
-		{#if hasLine()}
-			<Skeleton class={cn('h-6')} />
-		{/if}
-		<Skeleton class={cn('h-6', getSkeletonWidth())} />
+		{#each { length: tagsLines - 1 } as _}
+			<Skeleton class={cn('h-4', getSkeletonWidth())} />
+		{/each}
+		<Skeleton class={cn('h-4', getSkeletonWidth())} />
+		{#each { length: 2 - tagsLines } as _}
+			<div class="h-5 bg-transparent" />
+		{/each}
 		<!-- Button -->
-		<Skeleton class={cn('h-10')} />
+		<Skeleton class={cn('h-9')} />
 	</Card>
 </WithLoader>

@@ -30,7 +30,7 @@
 		{@const pageData = currentPage
 			? data.slice((currentPage - 1) * perPage, currentPage * perPage)
 			: data}
-		<main class="mb-4 grid w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-projects">
+		<main class="mb-4 grid justify-center w-full grid-cols-1 justify-items-center gap-4 sm:grid-cols-projects">
 			{#each pageData as itemData}
 				<slot name="card" {itemData} />
 			{/each}
