@@ -26,7 +26,7 @@
 	export let multiline: $$Props['multiline'] = false;
 </script>
 
-<Form.Field {form} {name}>
+<Form.Field {form} {name} class="space-y-1">
 	<Form.FormControl let:attrs>
 		<Form.Label class="data-[fs-error]:text-red-500">{label}</Form.Label>
 		{#if multiline}
@@ -35,5 +35,5 @@
 			<Input {...attrs} {placeholder} {name} {...$$restProps} bind:value />
 		{/if}
 	</Form.FormControl>
-	<Form.FieldErrors class="text-red-500" />
+	<Form.FieldErrors class="text-red-500 italic" />
 </Form.Field>

@@ -27,7 +27,7 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full">
+<form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full space-y-4">
 	<Field
 		{form}
 		name="name"
