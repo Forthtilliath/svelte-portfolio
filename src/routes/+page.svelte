@@ -10,10 +10,10 @@
 	import Stars from '$lib/components/shared/stars.svelte';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 
-	import img1 from '$lib/assets/separators/1.jpg';
-	import img2 from '$lib/assets/separators/2.jpg';
-	import img3 from '$lib/assets/separators/3.jpg';
-	import img4 from '$lib/assets/separators/4.jpg';
+	import img1 from '$lib/assets/separators/1.webp';
+	import img2 from '$lib/assets/separators/2.webp';
+	import img3 from '$lib/assets/separators/3.webp';
+	import img4 from '$lib/assets/separators/4.webp';
 	import img5 from '$lib/assets/separators/5.avif';
 
 	export let data;
