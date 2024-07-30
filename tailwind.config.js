@@ -62,12 +62,13 @@ const config = {
 				sans: [...fontFamily.sans]
 			},
 			height: {
-				'5': '1.25rem',
-				'15': '3.75rem',
-				'20': '5rem',
+				5: '1.25rem',
+				15: '3.75rem',
+				20: '5rem'
 			},
 			gridTemplateColumns: {
-				projects: 'repeat(auto-fit, minmax(20rem, 1fr))'
+				// projects: 'repeat(auto-fit, minmax(20rem, 1fr))'
+				projects: 'repeat(auto-fit, 20rem)'
 			}
 		}
 	}
