@@ -27,12 +27,12 @@
 </script>
 
 <Form.Field {form} {name}>
-	<Form.FormControl>
+	<Form.FormControl let:attrs>
 		<Form.Label class="data-[fs-error]:text-red-500">{label}</Form.Label>
 		{#if multiline}
-			<Textarea {placeholder} {name} {...$$restProps} bind:value />
+			<Textarea {...attrs} {placeholder} {name} {...$$restProps} bind:value />
 		{:else}
-			<Input {placeholder} {name} {...$$restProps} bind:value />
+			<Input {...attrs} {placeholder} {name} {...$$restProps} bind:value />
 		{/if}
 	</Form.FormControl>
 	<Form.FieldErrors class="text-red-500" />
