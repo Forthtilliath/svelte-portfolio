@@ -15,10 +15,13 @@
 	</SectionTitle>
 
 	<div class="mt-4 grid w-full gap-4 md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))]">
-		<SkillBox title={$t('skills.frameworks')} list={frameworks.sort(sortStringsByKey('name'))} />
-		<SkillBox title={$t('skills.css')} list={css.sort(sortStringsByKey('name'))} />
-		<SkillBox title={$t('skills.libraries')} list={libraries.sort(sortStringsByKey('name'))} />
-		<SkillBox title={$t('skills.tools')} list={tools.sort(sortStringsByKey('name'))} />
-		<SkillBox title={$t('skills.languages')} list={languages.sort(sortStringsByKey('name'))} />
+		<SkillBox
+			title={$t('skills.frameworks')}
+			list={frameworks.toSorted(sortStringsByKey('name'))}
+		/>
+		<SkillBox title={$t('skills.css')} list={css.toSorted(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.libraries')} list={libraries.toSorted(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.tools')} list={tools.toSorted(sortStringsByKey('name'))} />
+		<SkillBox title={$t('skills.languages')} list={languages.toSorted(sortStringsByKey('name'))} />
 	</div>
 </Section>
