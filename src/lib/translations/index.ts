@@ -1,4 +1,4 @@
-import i18n from 'sveltekit-i18n';
+import i18n, { type Parser } from 'sveltekit-i18n';
 import kleur from 'kleur';
 import lang from './lang.json';
 
@@ -26,7 +26,13 @@ export const config: import('sveltekit-i18n').Config<TradArguments> = {
 	]
 };
 
-export const { t, loading, locales, locale, loadTranslations } = new i18n(config);
+type Params = {
+	name: string;
+};
+
+export const { t, loading, locales, locale, loadTranslations } = new i18n<Parser.Params<Params>>(
+	config
+);
 
 export type Language = 'en' | 'fr';
 

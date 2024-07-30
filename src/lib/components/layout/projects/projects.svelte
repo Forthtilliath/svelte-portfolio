@@ -7,6 +7,7 @@
 	import FrameworksGroup from './frameworks-group.svelte';
 	import Pagination from '$lib/components/shared/pagination.svelte';
 	import { derived, writable } from 'svelte/store';
+	import { t } from '$lib/translations';
 
 	let filterFrameworks = writable<Framework[]>([]);
 
@@ -19,7 +20,7 @@
 </script>
 
 <Section className="flex items-center justify-start flex-col" id="projects">
-	<SectionTitle>Projects</SectionTitle>
+	<SectionTitle>{$t('projects.title')}</SectionTitle>
 
 	<div class="pb-4">
 		<FrameworksGroup bind:value={$filterFrameworks} />

@@ -30,6 +30,10 @@
 		"tools": "Tools",
 		"languages": "Languages"
 	},
+	"projects": {
+		"title": "My Projects",
+		"display": "Open the project: {{name}}"
+	},
 	"contact": {
 		"title": "Contact me",
 		"name": "Your name",

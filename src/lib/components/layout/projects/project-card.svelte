@@ -6,7 +6,7 @@
 	import Shine from '$lib/components/shared/shine.svelte';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import { cn } from '$lib/utils';
-	import { locale, type Language } from '$lib/translations';
+	import { t, locale, type Language } from '$lib/translations';
 
 	export let image: Project['image'] = undefined;
 	export let name: Project['name'];
@@ -46,7 +46,15 @@
 		specularConstant={0.3}
 		specularExponent={200}
 	>
-		<Card img={image} size="xs" href={url} color="app-blue" padding="sm" tilted>
+		<Card
+			img={image}
+			size="xs"
+			href={url}
+			color="app-blue"
+			padding="sm"
+			tilted
+			aria-label={$t('projects.display', { name: name[lang] })}
+		>
 			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
 			</h5>
@@ -73,7 +81,7 @@
 			<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
 		{/each}
 		<Skeleton class={cn('h-4', getSkeletonWidth())} />
-		{#each { length: 3 - contentLines} as _}
+		{#each { length: 3 - contentLines } as _}
 			<div class="h-4 bg-transparent" />
 		{/each}
 		<!-- Tags -->

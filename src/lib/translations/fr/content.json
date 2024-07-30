@@ -29,6 +29,10 @@
 		"tools": "Outils",
 		"languages": "Langages"
 	},
+	"projects": {
+		"title": "Mes Projets",
+		"display": "Ouvrir le projet : {{name}}"
+	},
 	"contact": {
 		"title": "Contactez-moi",
 		"name": "Votre nom",

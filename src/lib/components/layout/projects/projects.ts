@@ -47,7 +47,7 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
 	},
 	{
-		name: { fr: 'Lecteur audio : Spotube', en: 'Player audio : Spotube' },
+		name: { fr: 'Lecteur audio : Spotube', en: 'Player audio: Spotube' },
 		description: {
 			fr: 'Spotube est une application de streaming musical qui te donne accès à quelques titres.',
 			en: 'Spotube is a music streaming app that gives you access to a few tracks.'
@@ -78,7 +78,7 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/lol-random-arena'
 	},
 	{
-		name: { fr: 'Restaurant : Oriflamme', en: 'Restaurant : Oriflamme' },
+		name: { fr: 'Restaurant : Oriflamme', en: 'Restaurant: Oriflamme' },
 		description: {
 			fr: 'La Rotisserie Sandwichs Maison offre une expérience culinaire authentique avec ses viandes grillées artisanales et ses sandwiches gourmands, disponibles sur commande et en livraison à domicile via Les Frères Toques.',
 			en: 'The Rotisserie Sandwich House provides an authentic culinary experience with its artisanal grilled meats and gourmet sandwiches, available on order and home delivery through The Brothers Forks.'
