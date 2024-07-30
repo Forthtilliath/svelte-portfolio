@@ -31,7 +31,6 @@ const projects: Project[] = [
 			fr: 'Advent of Svelte',
 			en: 'Advent of Svelte'
 		},
-		// image: '/images/advent-of-svelte.png',
 		tags: ['Svelte', 'Tailwind', 'Typescript', 'Shadcn/ui', 'Zod'],
 		url: 'https://advent-of-svelte.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/advent-of-svelte'
@@ -48,12 +47,12 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
 	},
 	{
-		name: { fr: 'Lecteur audio', en: 'Player audio' },
+		name: { fr: 'Lecteur audio : Spotube', en: 'Player audio : Spotube' },
 		description: {
-			fr: 'Lecteur audio',
-			en: 'Player audio'
+			fr: 'Spotube est une application de streaming musical qui te donne accès à quelques titres.',
+			en: 'Spotube is a music streaming app that gives you access to a few tracks.'
 		},
-		// image: '/images/player.png',
+		image: projectImages.solidjsSpotube,
 		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
@@ -77,6 +76,17 @@ const projects: Project[] = [
 		image: projectImages.svelteLolArena,
 		tags: ['Svelte', 'Typescript', 'Shadcn/ui', 'Tailwind', 'Zod'],
 		repo: ENDPOINT_GITHUB + '/lol-random-arena'
+	},
+	{
+		name: { fr: 'Restaurant : Oriflamme', en: 'Restaurant : Oriflamme' },
+		description: {
+			fr: 'La Rotisserie Sandwichs Maison offre une expérience culinaire authentique avec ses viandes grillées artisanales et ses sandwiches gourmands, disponibles sur commande et en livraison à domicile via Les Frères Toques.',
+			en: 'The Rotisserie Sandwich House provides an authentic culinary experience with its artisanal grilled meats and gourmet sandwiches, available on order and home delivery through The Brothers Forks.'
+		},
+		image: projectImages.solidjsOriflamme,
+		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
+		url: 'https://forth-spotube.netlify.app/',
+		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
 	}
 ];
 
