@@ -21,7 +21,7 @@ const projects: Project[] = [
 			en: 'Hackathon Tournament 2023'
 		},
 		image: projectImages.vanillaGreenBank,
-		tags: ['React', 'Tailwind', 'Typescript', 'Zod', 'Zustand', 'Vitest', 'Chart.js'],
+		tags: ['Next.js', 'Tailwind', 'Typescript', 'Zod'],
 		url: 'https://green-bank-swart.vercel.app/simulator',
 		repo: ENDPOINT_GITHUB + '/green-bank'
 	},
