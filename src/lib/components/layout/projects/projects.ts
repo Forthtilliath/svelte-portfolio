@@ -64,7 +64,7 @@ const projects: Project[] = [
 			fr: "Une plateforme collaborative de partage d'extraits de code. Développé avec SvelteKit et alimenté par PocketBase.",
 			en: 'A collaborative platform for sharing code snippets. Built with SvelteKit and powered by PocketBase.'
 		},
-		image: projectImages.svelteCodeshare,
+		image: projectImages.sveltekitCodeshare,
 		tags: ['Svelte', 'Typescript'],
 		repo: ENDPOINT_GITHUB + '/svelte-codeshare'
 	},
@@ -74,8 +74,9 @@ const projects: Project[] = [
 			fr: 'Application qui aide les joueurs à générer des equipes et des combats aleatoires.',
 			en: 'App to help players to generate teams & champions inside arena mode.'
 		},
-		image: projectImages.svelteLolArena,
+		image: projectImages.sveltekitLolArena,
 		tags: ['Svelte', 'Typescript', 'Shadcn/ui', 'Tailwind', 'Zod'],
+		url: 'https://lol-random-arena.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/lol-random-arena'
 	},
 	{
