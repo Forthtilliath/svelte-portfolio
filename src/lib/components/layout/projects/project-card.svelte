@@ -52,7 +52,6 @@
 			href={url}
 			color="app-blue"
 			padding="sm"
-			tilted
 			aria-label={$t('projects.display', { name: name[lang] })}
 			class="bg-app-black"
 		>

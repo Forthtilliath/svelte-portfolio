@@ -85,25 +85,25 @@
 	};
 
 	const borderColors = {
-		gray: 'border-gray-300 dark:border-gray-800 divide-gray-300 dark:divide-gray-800',
-		red: 'border-red-300 dark:border-red-800 divide-red-300 dark:divide-red-800',
-		yellow: 'border-yellow-300 dark:border-yellow-800 divide-yellow-300 dark:divide-yellow-800',
-		green: 'border-green-300 dark:border-green-800 divide-green-300 dark:divide-green-800',
-		indigo: 'border-indigo-300 dark:border-indigo-800 divide-indigo-300 dark:divide-indigo-800',
-		purple: 'border-purple-300 dark:border-purple-800 divide-purple-300 dark:divide-purple-800',
-		pink: 'border-pink-300 dark:border-pink-800 divide-pink-300 dark:divide-pink-800',
-		blue: 'border-blue-300 dark:border-blue-800 divide-blue-300 dark:divide-blue-800',
-		light: 'border-gray-500 divide-gray-500',
-		dark: 'border-gray-500 divide-gray-500',
-		default: 'border-gray-200 dark:border-gray-700 divide-gray-200 dark:divide-gray-700',
-		dropdown: 'border-gray-100 dark:border-gray-600 divide-gray-100 dark:divide-gray-600',
-		navbar: 'border-gray-100 dark:border-gray-700 divide-gray-100 dark:divide-gray-700',
-		navbarUl: 'border-gray-100 dark:border-gray-700 divide-gray-100 dark:divide-gray-700',
-		form: 'border-gray-300 dark:border-gray-700 divide-gray-300 dark:divide-gray-700',
+		gray: 'ring-gray-300 dark:ring-gray-800 divide-gray-300 dark:divide-gray-800',
+		red: 'ring-red-300 dark:ring-red-800 divide-red-300 dark:divide-red-800',
+		yellow: 'ring-yellow-300 dark:ring-yellow-800 divide-yellow-300 dark:divide-yellow-800',
+		green: 'ring-green-300 dark:ring-green-800 divide-green-300 dark:divide-green-800',
+		indigo: 'ring-indigo-300 dark:ring-indigo-800 divide-indigo-300 dark:divide-indigo-800',
+		purple: 'ring-purple-300 dark:ring-purple-800 divide-purple-300 dark:divide-purple-800',
+		pink: 'ring-pink-300 dark:ring-pink-800 divide-pink-300 dark:divide-pink-800',
+		blue: 'ring-blue-300 dark:ring-blue-800 divide-blue-300 dark:divide-blue-800',
+		light: 'ring-gray-500 divide-gray-500',
+		dark: 'ring-gray-500 divide-gray-500',
+		default: 'ring-gray-200 dark:ring-gray-700 divide-gray-200 dark:divide-gray-700',
+		dropdown: 'ring-gray-100 dark:ring-gray-600 divide-gray-100 dark:divide-gray-600',
+		navbar: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
+		navbarUl: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
+		form: 'ring-gray-300 dark:ring-gray-700 divide-gray-300 dark:divide-gray-700',
 		primary:
-			'border-primary-500 dark:border-primary-200  divide-primary-500 dark:divide-primary-200 ',
-		orange: 'border-orange-300 dark:border-orange-800 divide-orange-300 dark:divide-orange-800',
-		'app-blue': 'border-app-blue divide-app-blue',
+			'ring-primary-500 dark:ring-primary-200  divide-primary-500 dark:divide-primary-200 ',
+		orange: 'ring-orange-300 dark:ring-orange-800 divide-orange-300 dark:divide-orange-800',
+		'app-blue': 'ring-app-blue divide-app-blue',
 		none: ''
 	};
 
@@ -112,7 +112,7 @@
 		bgColors[color],
 		textColors[color],
 		rounded && 'rounded-lg',
-		border && 'border',
+		border && 'ring-1 hover:ring-2 hover:shadow-md hover:shadow-white/50',
 		borderColors[color],
 		shadow && 'shadow-md',
 		$$props.class

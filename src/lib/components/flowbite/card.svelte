@@ -52,15 +52,16 @@
 		sizes[size],
 		reverse ? 'flex-col-reverse' : 'flex-col',
 		horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'),
-		href && 'hover:bg-gray-100 dark:hover:bg-gray-700',
+		href && 'hover:bg-gray-100 dark:hover:bg-white/5 dark:hover:outline-2',
 		// !img && innerPadding,
 		$$props.class
 	);
 
 	let imgClass: string;
 	$: imgClass = cn(
+		'h-auto aspect-video object-cover w-full',
 		reverse ? 'rounded-b-lg' : 'rounded-t-lg',
-		horizontal ? 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none' : 'h-48',
+		horizontal && 'md:rounded-none',
 		horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg')
 	);
 </script>

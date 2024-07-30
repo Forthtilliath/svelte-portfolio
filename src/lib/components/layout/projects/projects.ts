@@ -20,7 +20,7 @@ const projects: Project[] = [
 			fr: 'Portfolio présentant mes projets et mes compétences',
 			en: 'Portfolio of my works and projects'
 		},
-		image: projectImages.sveltePortfolio,
+		image: projectImages.sveltekitPortfolio,
 		tags: ['Svelte', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
 		url: 'https://vincent-lisita.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
@@ -31,6 +31,7 @@ const projects: Project[] = [
 			fr: 'Advent of Svelte',
 			en: 'Advent of Svelte'
 		},
+		image: projectImages.sveltekitAdventOfSvelte,
 		tags: ['Svelte', 'Tailwind', 'Typescript', 'Shadcn/ui', 'Zod'],
 		url: 'https://advent-of-svelte.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/advent-of-svelte'
@@ -41,7 +42,7 @@ const projects: Project[] = [
 			fr: "Application Next utilisant l'API de Riot",
 			en: 'Next App which use Riot API.'
 		},
-		image: projectImages.sveltePortfolio,
+		image: projectImages.nextjsRiotApi,
 		tags: ['Next.js', 'Typescript', 'i18n'],
 		url: 'https://next-riot.vercel.app/',
 		repo: ENDPOINT_GITHUB + '/next-riot-api'
