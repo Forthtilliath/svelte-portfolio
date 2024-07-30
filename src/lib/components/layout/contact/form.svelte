@@ -28,8 +28,20 @@
 </script>
 
 <form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full">
-	<Field {form} name="name" label={$t('contact.name')} bind:value={$formData.name} />
-	<Field {form} name="email" label={$t('contact.email')} bind:value={$formData.email} />
+	<Field
+		{form}
+		name="name"
+		label={$t('contact.name')}
+		bind:value={$formData.name}
+		autocomplete="name"
+	/>
+	<Field
+		{form}
+		name="email"
+		label={$t('contact.email')}
+		bind:value={$formData.email}
+		autocomplete="email"
+	/>
 	<Field
 		{form}
 		name="message"
