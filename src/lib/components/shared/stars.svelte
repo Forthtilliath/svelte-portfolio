@@ -12,7 +12,7 @@
 	@function multiple-box-shadow($pop, $height: 2000) {
 		$value: '#{random($height)}px #{random($height)}px #FFF';
 		@for $i from 2 through math.round(math.div($height, $pop)) {
-			$value: '#{$value} , #{random($height)}px #{random($height)}px #FFF';
+			$value: '#{$value}, #{random($height)}px #{random($height)}px #FFF';
 		}
 
 		@return unquote($value);
