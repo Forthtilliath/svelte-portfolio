@@ -8,11 +8,11 @@
 	class="fixed top-0 z-20 flex w-full items-center bg-app-black/80 p-4 shadow-sm shadow-white backdrop-blur-sm"
 >
 	<div class="mx-auto flex w-full max-w-5xl items-center justify-between">
-		<a href="#hero" class="text-xl font-extrabold text-white transition-colors hover:text-app-blue">
+		<a href="#hero" class="text-xl font-extrabold text-white transition-colors hover:text-app-blue h-9">
 			{$t('header.title')}
 		</a>
 
-		<menu class="hidden flex-1 list-none items-center justify-end gap-x-8 sm:flex">
+		<menu class="hidden flex-1 list-none items-center justify-end gap-x-8 md:flex">
 			<li class="font-poppins cursor-pointer text-base font-medium transition hover:text-app-blue">
 				<a href="#about">{$t('header.about')}</a>
 			</li>
