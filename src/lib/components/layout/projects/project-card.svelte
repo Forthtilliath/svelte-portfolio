@@ -54,6 +54,7 @@
 			padding="sm"
 			tilted
 			aria-label={$t('projects.display', { name: name[lang] })}
+			class="bg-app-black"
 		>
 			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
