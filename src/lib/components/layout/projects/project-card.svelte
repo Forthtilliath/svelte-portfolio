@@ -49,11 +49,13 @@
 		<Card
 			img={image}
 			size="xs"
-			href={url}
 			color="app-blue"
 			padding="sm"
 			aria-label={$t('projects.display', { name: name[lang] })}
 			class="bg-app-black"
+			href={url}
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
