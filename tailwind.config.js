@@ -1,7 +1,9 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import { animStars } from './tailwind-extends/animStars';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
+	plugins: [animStars(8000)],
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: ['dark'],
