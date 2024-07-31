@@ -52,7 +52,7 @@
 			color="app-blue"
 			padding="sm"
 			aria-label={$t('projects.display', { name: name[lang] })}
-			class="bg-app-black"
+			class="mx-auto bg-app-black"
 			href={url}
 			target="_blank"
 			rel="noopener noreferrer"
