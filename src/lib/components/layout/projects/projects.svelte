@@ -27,7 +27,7 @@
 	</div>
 
 	<Pagination data={$filteredProjects} perPage={6} siblingCount={2}>
-		<article slot="card" let:itemData>
+		<article slot="card" let:itemData class="max-w-full">
 			<ProjectCard {...itemData} />
 		</article>
 	</Pagination>

@@ -32,7 +32,7 @@
 				? data.slice((currentPage - 1) * perPage, currentPage * perPage)
 				: data}
 			<main
-				class="mb-4 grid w-full grid-cols-1 justify-center justify-items-center gap-4 sm:grid-cols-projects"
+				class="mb-4 grid w-full grid-cols-1 justify-center justify-items-center gap-4 smd:grid-cols-projects max-xs:m-auto"
 			>
 				{#each pageData as itemData}
 					<slot name="card" {itemData} />

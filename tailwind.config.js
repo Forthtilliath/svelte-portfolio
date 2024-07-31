@@ -71,6 +71,10 @@ const config = {
 			gridTemplateColumns: {
 				// projects: 'repeat(auto-fit, minmax(20rem, 1fr))'
 				projects: 'repeat(auto-fit, 20rem)'
+			},
+			screens: {
+				xs: '400px',
+				'smd': '703px'
 			}
 		}
 	}
