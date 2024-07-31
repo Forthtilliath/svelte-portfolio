@@ -1,11 +1,11 @@
 import defaultProject from './default.webp';
 
-import vanillaGreenBank from './vanilla-green-bank.webp';
 
 import preactPageNavigation from './preact-page-navigation.webp';
 import reactDolla from './react-dolla.webp';
 
 import nextjsRiotApi from './nextjs-riot-api.webp';
+import nextjsGreenBank from './nextjs-green-bank.webp';
 
 import sveltekitPortfolio from './sveltekit-portfolio.webp';
 import sveltekitAdventOfSvelte from './sveltekit-advent-of-svelte.webp';
@@ -19,13 +19,13 @@ import solidjsPlaygroundsOrganizer from './solidjs-playgrounds-organizer.webp';
 export {
 	defaultProject,
 	//
-	vanillaGreenBank,
 	//
 	preactPageNavigation,
 	//
 	reactDolla,
 	//
 	nextjsRiotApi,
+	nextjsGreenBank,
 	//
 	//
 	sveltekitPortfolio,

@@ -7,19 +7,19 @@
 	export let value: string[] | undefined = undefined;
 
 	const config = {
-		size: 48
+		// size: 48
 	};
 </script>
 
-<ToggleGroup.Root type="multiple" class="h-auto" size="auto" bind:value>
+<ToggleGroup.Root type="multiple" class="h-auto gap-3 sm:gap-5" size="auto" bind:value>
 	{#each skills.frameworks as framework}
 		<ToggleGroup.Item
 			value={framework.name}
 			aria-label={`Toggle ${framework.name}`}
-			class="border hover:border-white"
+			class="h-14 w-14 border p-0 hover:border-white sm:h-28 sm:w-28"
 		>
 			<Shine>
-				<SkillIcon {...framework} {...config} />
+				<SkillIcon {...framework} {...config} class="h-6 w-6 sm:h-12 sm:w-12" />
 			</Shine>
 		</ToggleGroup.Item>
 	{/each}

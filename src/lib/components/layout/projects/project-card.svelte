@@ -52,7 +52,7 @@
 			color="app-blue"
 			padding="sm"
 			aria-label={$t('projects.display', { name: name[lang] })}
-			class="max-w-full bg-app-black"
+			class="mx-auto bg-app-black"
 			href={url}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -76,12 +76,11 @@
 	<Card
 		img={image}
 		size="xs"
-		href={url}
 		color="app-blue"
-		class="max-w-full bg-app-black"
 		padding="sm"
 		skeleton
 		slot="loading"
+		class="mx-auto bg-app-black"
 	>
 		{@const contentLines = getRandom(3)}
 		{@const tagsLines = getRandom(2)}

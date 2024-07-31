@@ -1,12 +1,14 @@
 <script lang="ts">
 	export let size = 24;
 	export let color: [string, string] = ['#000000', '#fff'];
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 	$: [color1, color2] = Array.isArray(color) ? color : [color, color];
 </script>
 
-<svg style:width={sizePx} style:height={sizePx} viewBox="0 0 256 256">
+<svg style:width={sizePx} style:height={sizePx} viewBox="0 0 256 256" class={className}>
 	<defs>
 		<circle id="next-path-1" cx="128" cy="128" r="128" />
 		<linearGradient
