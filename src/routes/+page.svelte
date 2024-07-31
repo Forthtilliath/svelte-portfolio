@@ -7,7 +7,7 @@
 	import Contact from '$lib/components/layout/contact';
 	import Footer from '$lib/components/layout/footer.svelte';
 
-	import Stars from '$lib/components/shared/stars.svelte';
+	import Stars from '$lib/components/shared/stars';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 
 	import img1 from '$lib/assets/separators/1.webp';
