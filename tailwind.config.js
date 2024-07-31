@@ -51,7 +51,7 @@ const config = {
 					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
 				},
 				app: {
-					blue: '#149eca',
+					blue: '#00BCD4',
 					black: '#020817'
 				}
 			},
@@ -73,6 +73,9 @@ const config = {
 				projects: 'repeat(auto-fit, 20rem)'
 			}
 		}
+	},
+	future: {
+		hoverOnlyWhenSupported: true
 	}
 };
 
