@@ -10,8 +10,8 @@
 		{$t('about.title')}
 	</SectionTitle>
 
-	<article class="flex max-md:flex-col gap-6 items-center">
-		<main class="space-y-6 flex-shrink">
+	<article class="flex items-center gap-6 max-md:flex-col">
+		<main class="flex-1 space-y-6">
 			<p class="indent-8 text-xl leading-10">
 				{$t('about.p1')}
 			</p>
@@ -20,8 +20,12 @@
 				{$t('about.p2')}
 			</p>
 		</main>
-		<!-- <div class="aspect-[500/450] w-[500px]"> -->
-		<img src={me} alt={$t('about.image-alt')} class="h-fit w-[500px] rounded-xl object-scale-down" />
-		<!-- </div> -->
+		<div class="flex-1 max-w-[500px]">
+			<img
+				src={me}
+				alt={$t('about.image-alt')}
+				class="h-fit w-full rounded-xl object-scale-down"
+			/>
+		</div>
 	</article>
 </Section>
