@@ -25,6 +25,7 @@
 			variant: isActive ? "outline" : "ghost",
 			size,
 		}),
+		isActive && "border-slate-400",
 		className
 	)}
 	{...$$restProps}
