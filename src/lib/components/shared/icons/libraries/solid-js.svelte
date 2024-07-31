@@ -1,11 +1,13 @@
 <script lang="ts">
 	export let size = 24;
 	export let color: string; color;
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 256 239">
+<svg width={sizePx} height={sizePx} viewBox="0 0 256 239" class={className}>
 	<defs>
 		<linearGradient
 			x1="-5.859375%"
