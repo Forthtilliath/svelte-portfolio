@@ -57,7 +57,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-1">
+			<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
 			</h5>
 			<p class="line-clamp-3 h-[60px] font-normal leading-tight text-gray-700 dark:text-gray-400">
@@ -73,7 +73,15 @@
 			<Button href={repo} class="w-full" variant="card-link" external>Show repository</Button>
 		</Card>
 	</Shine>
-	<Card img={image} size="xs" href={url} color="app-blue" padding="sm" skeleton slot="loading">
+	<Card
+		img={image}
+		size="xs"
+		color="app-blue"
+		padding="sm"
+		skeleton
+		slot="loading"
+		class="mx-auto bg-app-black"
+	>
 		{@const contentLines = getRandom(3)}
 		{@const tagsLines = getRandom(2)}
 		<!-- Title-->
