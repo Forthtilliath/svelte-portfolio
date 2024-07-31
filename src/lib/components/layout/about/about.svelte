@@ -21,7 +21,7 @@
 			</p>
 		</main>
 		<!-- <div class="aspect-[500/450] w-[500px]"> -->
-		<img src={me} alt={$t('about.imageAlt')} class="h-fit w-[500px] rounded-xl object-scale-down" />
+		<img src={me} alt={$t('about.image-alt')} class="h-fit w-[500px] rounded-xl object-scale-down" />
 		<!-- </div> -->
 	</article>
 </Section>
