@@ -1,9 +1,9 @@
 import defaultProject from './default.webp';
 
-import vanillaGreenBank from './vanilla-green-bank.png';
+import vanillaGreenBank from './vanilla-green-bank.webp';
 
 import preactPageNavigation from './preact-page-navigation.webp';
-import reactDolla from './react-dolla.png';
+import reactDolla from './react-dolla.webp';
 
 import nextjsRiotApi from './nextjs-riot-api.webp';
 
@@ -13,7 +13,7 @@ import sveltekitLolArena from './sveltekit-lol-arena.webp';
 import sveltekitCodeshare from './sveltekit-codeshare.webp';
 
 import solidjsSpotube from './solidjs-spotube.webp';
-import solidjsOriflamme from './solidjs-oriflamme.png';
+import solidjsOriflamme from './solidjs-oriflamme.webp';
 import solidjsPlaygroundsOrganizer from './solidjs-playgrounds-organizer.webp';
 
 export {
