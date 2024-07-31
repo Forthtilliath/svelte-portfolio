@@ -19,7 +19,8 @@
 	"about": {
 		"title": "Qui suis-je ?",
 		"p1": "Après plusieurs années en tant qu'aidant familial, j'ai décidé de poursuivre ma passion pour le développement web en me formant en autodidacte. Depuis plus de deux ans, je me suis spécialisé en JavaScript et plus particulièrement dans la bibliothèque React.",
-		"p2": "Passionné par la création d'interfaces utilisateur innovantes et intuitives, je suis constamment en quête de nouvelles connaissances pour améliorer mes compétences en développement front-end."
+		"p2": "Passionné par la création d'interfaces utilisateur innovantes et intuitives, je suis constamment en quête de nouvelles connaissances pour améliorer mes compétences en développement front-end.",
+		"imageAlt": "Moi"
 	},
 	"skills": {
 		"title": "Mes Compétences",
