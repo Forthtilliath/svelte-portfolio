@@ -20,7 +20,7 @@
 				{$t('about.p2')}
 			</p>
 		</main>
-		<div class="flex-1 max-w-[500px]">
+		<div class="flex-1 md:max-w-[min(500px,50%)]">
 			<img
 				src={me}
 				alt={$t('about.image-alt')}

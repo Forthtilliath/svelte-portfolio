@@ -8,13 +8,21 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: ['dark'],
 	theme: {
-		container: {
+		container: (theme) => ({
 			center: true,
-			padding: '2rem',
+			// padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+				lg: '4rem',
+				xl: '5rem',
+				'2xl': '6rem'
+			},
 			screens: {
+				...theme('screens'),
 				'2xl': '1200px'
 			}
-		},
+		}),
 		extend: {
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
@@ -74,7 +82,7 @@ const config = {
 			},
 			screens: {
 				xs: '400px',
-				'smd': '703px'
+				smd: '703px'
 			}
 		}
 	},
