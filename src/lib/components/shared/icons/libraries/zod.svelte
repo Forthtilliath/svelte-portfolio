@@ -1,12 +1,14 @@
 <script lang="ts">
 	export let size = 24;
 	export let color: string | [string, string, string] = ['#18253F', '#274D82', '#3068B7'];
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 	$: [color1, color2, color3] = Array.isArray(color) ? color : [color, color, color];
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 256 203">
+<svg width={sizePx} height={sizePx} viewBox="0 0 256 203" class={className}>
 	<defs>
 		<path
 			d="M200.420694,0 L53.6308282,0 L0,53.3549074 L121.760272,199.97871 L131.473707,189.079838 L252,53.8556526 L200.420694,0 Z M195.058122,12.5620609 L234.89802,54.1622312 L122.097509,180.72046 L16.9997871,54.1622312 L58.8145625,12.5620609 L195.058122,12.5620609 Z"

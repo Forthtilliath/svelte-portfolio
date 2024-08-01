@@ -6,12 +6,14 @@
 		'#FF6384',
 		'#E7E9ED'
 	];
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 	$: [color1, color2, color3, color4] = Array.isArray(color) ? color : [color, color, color, color];
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 192 192">
+<svg width={sizePx} height={sizePx} viewBox="0 0 192 192" class={className}>
 	<path
 		fill={color1}
 		d="M161.271,96.556c-22.368,0.439-17.709,14.599-33.473,18.18c-16.014,3.638-18.542-39.111-34.552-39.111

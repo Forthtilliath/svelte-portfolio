@@ -1,12 +1,14 @@
 <script lang="ts">
 	export let size = 24;
 	export let color: string | [string, string, string] = ['#009688', '#004d40', '#ffffff'];
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 	$: [color1, color2, color3] = Array.isArray(color) ? color : [color, color, color];
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 64 64">
+<svg width={sizePx} height={sizePx} viewBox="0 0 64 64" class={className}>
 	<g transform="matrix(0.29266863,0,0,0.29266863,8.3334108,-12.320112)">
 		<g transform="matrix(1.5849745,0,0,1.5849745,-33.159906,-17)">
 			<path

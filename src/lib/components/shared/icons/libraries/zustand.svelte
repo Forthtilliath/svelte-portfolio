@@ -1,11 +1,13 @@
 <script lang="ts">
 	export let size = 24;
 	export let color = 'currentColor';
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 800.000000 467.000000" fill={color}>
+<svg width={sizePx} height={sizePx} viewBox="0 0 800.000000 467.000000" fill={color} class={className}>
 	<path
 		style="opacity:0.605"
 		fill="#060905"

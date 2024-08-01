@@ -1,11 +1,13 @@
 <script lang="ts">
 	export let size = 24;
 	export let color = '#e10098';
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 32 32" fill={color}>
+<svg width={sizePx} height={sizePx} viewBox="0 0 32 32" fill={color} class={className}>
 	<rect
 		x="-0.43"
 		y="12.534"

@@ -7,6 +7,8 @@
 		'#FFDD35',
 		'#FFA800'
 	];
+	let className: string | undefined = undefined;
+	export { className as class };
 
 	$: sizePx = `${size}px`;
 	$: [color1, color2, color3, color4, color5] = Array.isArray(color)
@@ -14,7 +16,7 @@
 		: [color, color, color, color, color];
 </script>
 
-<svg width={sizePx} height={sizePx} viewBox="0 0 256 257">
+<svg width={sizePx} height={sizePx} viewBox="0 0 256 257" class={className}>
 	<defs>
 		<linearGradient
 			x1="-0.828097821%"
