@@ -83,7 +83,6 @@ export const actions = {
 			const html = `<h2>${name}</h2><p>${email}</p>`;
 
 			const newMessage: Mail.Options = {
-				sender: 'rue.normie@yahoo.fr',
 				from: email as string,
 				to: SECRET_EMAIL_ACCOUNT,
 				subject: '🏢 Message from Portfolio',
