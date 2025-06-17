@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.pcss';
 	import '../global.pcss';
 	import { t } from '$lib/translations';
