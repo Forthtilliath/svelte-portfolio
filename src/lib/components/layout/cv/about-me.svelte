@@ -7,7 +7,7 @@
 {#if template === 'fullstack'}
 	<p class="aboutme-content" aria-label="à propos de moi">
 		Après plusieurs années en tant qu'aidant familial, j'ai découvert ma véritable passion pour le
-		développement web. Autodidacte, j'ai consacré les deux dernières années à maîtriser React et à
+		développement web. Autodidacte, j'ai consacré les trois dernières années à maîtriser React et à
 		explorer divers frameworks et méta-frameworks, tel que Sveltekit. Mon désir incessant
 		d'apprendre et de m'améliorer m'a conduit à développer des compétences solides en développement
 		front-end.
