@@ -1,0 +1,21 @@
+:root {
+	--color-white: #f2f2f2;
+	--color-black: #242424;
+}
+
+:root {
+	font-family: Calibri, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	background-color: var(--color-black);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	--font-header: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	--font-body: Calibri, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}

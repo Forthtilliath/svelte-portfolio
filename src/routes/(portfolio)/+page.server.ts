@@ -1,12 +1,12 @@
 import { SECRET_EMAIL_ACCOUNT } from '$env/static/private';
+import { contactFormSchema } from '$lib/components/layout/contact/form.svelte';
+import { handleCatchErrorWithCallback } from '$lib/methods/handleCatchError';
+import { sendEmail } from '$lib/methods/sendMail';
 import transporter from '$lib/server/setupEmail.js';
-import { superValidate } from 'sveltekit-superforms';
-import { zod } from 'sveltekit-superforms/adapters';
-import { contactFormSchema } from '../lib/components/layout/contact/form.svelte';
 import { fail } from '@sveltejs/kit';
 import type Mail from 'nodemailer/lib/mailer';
-import { sendEmail } from '$lib/methods/sendMail';
-import { handleCatchErrorWithCallback } from '$lib/methods/handleCatchError';
+import { superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
 
 export const load = async () => {
 	return {

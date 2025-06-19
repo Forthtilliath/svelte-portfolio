@@ -1,14 +1,13 @@
 <script lang="ts">
-	import Header from '$lib/components/layout/header.svelte';
-	import Hero from '$lib/components/layout/hero';
 	import About from '$lib/components/layout/about';
-	import Skills from '$lib/components/layout/skills';
-	import Projects from '$lib/components/layout/projects';
 	import Contact from '$lib/components/layout/contact';
 	import Footer from '$lib/components/layout/footer.svelte';
-
-	import Stars from '$lib/components/shared/stars';
+	import Header from '$lib/components/layout/header.svelte';
+	import Hero from '$lib/components/layout/hero';
+	import Projects from '$lib/components/layout/projects';
+	import Skills from '$lib/components/layout/skills';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
+	import Stars from '$lib/components/shared/stars';
 
 	import img1 from '$lib/assets/separators/1.webp';
 	import img2 from '$lib/assets/separators/2.webp';

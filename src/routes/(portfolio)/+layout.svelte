@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '../app.pcss';
-	import '../global.pcss';
+	import '../../app.pcss';
+	import '../../global.pcss';
 	import { t } from '$lib/translations';
 </script>
 
