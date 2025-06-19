@@ -145,7 +145,7 @@
 
 	.infos-subtitle {
 		font-size: 1.4em;
-		// color: color-mix(in hsl, var(--header-bg) 80%, transparent);
+		// color: color-mix(in hsl, var(--header-bg-color) 80%, transparent);
 		color: var(--formation-subtitle-color);
 		padding-inline: 1rem;
 		line-height: 1.3rem;

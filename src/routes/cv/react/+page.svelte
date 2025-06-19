@@ -11,6 +11,7 @@
 	import SelfTaughtTraining from '$lib/components/layout/cv/self-taught-training.svelte';
 	import Skills from '$lib/components/layout/cv/skills.svelte';
 	import Socials from '$lib/components/layout/cv/socials.svelte';
+	import { IS_BLACK_AND_WHITE_THEME } from '$lib/constants';
 
 	import '$lib/styles/cv/index.scss';
 	const JOB = 'Développeur React';
@@ -37,7 +38,7 @@
 	</script>
 </svelte:head>
 
-<section class="a4 react">
+<section class="a4 react" class:dark={IS_BLACK_AND_WHITE_THEME}>
 	<header class="header" aria-label="Poste recherché + À propos de moi">
 		<div class="header__left">
 			<Photo />
@@ -70,16 +71,16 @@
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
-	.react,
-	.react * {
+	.react {
 		--color-1: oklch(89% 0.03 250);
 		--color-2: oklch(69% 0.09 250);
-		--color-3: oklch(49% 0.10 250);
+		--color-3: oklch(49% 0.1 250);
 
 		--name-color-1: var(--color-3);
 		--name-color-2: var(--color-black);
 
-		--header-bg: var(--color-3);
+		--header-bg-color: var(--color-3);
+		--header-text-color: var(--color-white);
 		--header-height: 200px;
 		--header-top: 100px;
 
@@ -106,6 +107,15 @@
 		--formation-subtitle-color: var(--color-2);
 		--formation-content-color: var(--color-black);
 		--experience-title-color: var(--color-2);
+
+		&.dark {
+			--color-1: oklch(100% 0 270);
+			--color-2: oklch(94% 0 270);
+			--color-3: oklch(90% 0 270);
+			--name-color-1: var(--color-gray);
+			--header-text-color: var(--color-black);
+			--formation-title-color: var(--color-black);
+		}
 	}
 
 	.a4 {
@@ -128,8 +138,8 @@
 		position: absolute;
 		width: 100%;
 		height: var(--header-height);
-		background: var(--header-bg);
-		color: #f2f2f2;
+		background: var(--header-bg-color);
+		color: var(--header-text-color);
 		top: var(--header-top);
 
 		display: flex;
@@ -150,7 +160,7 @@
 		font-size: 3.2em;
 		text-align: center;
 
-		color: aliceblue;
+		color: var(--header-text-color);
 		text-shadow: 0 0 3px #ffffff;
 	}
 
@@ -199,7 +209,7 @@
 		height: calc(100% - var(--header-top) - var(--header-height));
 
 		position: relative;
-    font-size: var(--training-title-fontsize);
+		font-size: var(--training-title-fontsize);
 
 		&::after {
 			content: '';

@@ -21,7 +21,7 @@
 		.photo {
 			width: var(--photo-width);
 			border-radius: 50%;
-			border: 8px solid var(--header-bg);
+			border: 8px solid var(--header-bg-color);
 
 			position: absolute;
 			transform: translatey(-50%);

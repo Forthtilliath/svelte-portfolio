@@ -11,6 +11,7 @@
 	import SelfTaughtTraining from '$lib/components/layout/cv/self-taught-training.svelte';
 	import Skills from '$lib/components/layout/cv/skills.svelte';
 	import Socials from '$lib/components/layout/cv/socials.svelte';
+	import { IS_BLACK_AND_WHITE_THEME } from '$lib/constants';
 
 	const JOB = 'Développeur Sveltekit';
 </script>
@@ -36,7 +37,7 @@
 	</script>
 </svelte:head>
 
-<section class="a4 sveltekit">
+<section class="a4 sveltekit" class:dark={IS_BLACK_AND_WHITE_THEME}>
 	<header class="header" aria-label="Poste recherché + À propos de moi">
 		<div class="header__left">
 			<Photo />
@@ -69,8 +70,7 @@
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
-	.sveltekit,
-	.sveltekit * {
+	.sveltekit {
 		--color-1: oklch(78% 0.12 35);
 		--color-2: oklch(68% 0.19 35);
 		--color-3: oklch(58% 0.2 35);
@@ -78,7 +78,8 @@
 		--name-color-1: var(--color-3);
 		--name-color-2: var(--color-black);
 
-		--header-bg: var(--color-3);
+		--header-bg-color: var(--color-3);
+		--header-text-color: var(--color-white);
 		--header-height: 200px;
 		--header-top: 100px;
 
@@ -105,6 +106,15 @@
 		--formation-subtitle-color: var(--color-2);
 		--formation-content-color: var(--color-black);
 		--experience-title-color: var(--color-2);
+
+		&.dark {
+			--color-1: oklch(100% 0 270);
+			--color-2: oklch(94% 0 270);
+			--color-3: oklch(90% 0 270);
+			--name-color-1: var(--color-gray);
+			--header-text-color: var(--color-black);
+			--formation-title-color: var(--color-black);
+		}
 	}
 
 	.a4 {
@@ -127,8 +137,8 @@
 		position: absolute;
 		width: 100%;
 		height: var(--header-height);
-		background: var(--header-bg);
-		color: #f2f2f2;
+		background: var(--header-bg-color);
+		color: var(--header-text-color);
 		top: var(--header-top);
 
 		display: flex;
@@ -149,7 +159,7 @@
 		font-size: 3.2em;
 		text-align: center;
 
-		color: aliceblue;
+		color: var(--header-text-color);
 		text-shadow: 0 0 3px #ffffff;
 	}
 
