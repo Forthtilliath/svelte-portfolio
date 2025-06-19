@@ -12,7 +12,7 @@
 	{#if template === 'dev'}
 		<ul class="card-content" role="list">
 			<!-- Frameworks Frontend -->
-			<li>JavaScript 💎 TypeScript</li>
+			<li>JavaScript 🔸 TypeScript</li>
 			<li>React 🔸 SolidJS 🔸 Svelte v4 & v5</li>
 			<!-- Frameworks Fullstack -->
 			<li>Next.js 🔸 Sveltekit</li>

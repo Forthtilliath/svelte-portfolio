@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AboutMe from '$lib/components/layout/cv/about-me.svelte';
+	import BtnPrint from '$lib/components/layout/cv/btn-print.svelte';
 	import CompletedProject from '$lib/components/layout/cv/completed-project.svelte';
 	import Informations from '$lib/components/layout/cv/informations.svelte';
 	import Interests from '$lib/components/layout/cv/interests.svelte';
@@ -65,6 +66,7 @@
 		</main>
 	</div>
 </section>
+<BtnPrint href={'/cv/react.pdf'} />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">

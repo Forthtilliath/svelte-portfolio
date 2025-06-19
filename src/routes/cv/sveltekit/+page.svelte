@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AboutMe from '$lib/components/layout/cv/about-me.svelte';
+	import BtnPrint from '$lib/components/layout/cv/btn-print.svelte';
 	import CompletedProject from '$lib/components/layout/cv/completed-project.svelte';
 	import Informations from '$lib/components/layout/cv/informations.svelte';
 	import Interests from '$lib/components/layout/cv/interests.svelte';
@@ -10,6 +11,7 @@
 	import SelfTaughtTraining from '$lib/components/layout/cv/self-taught-training.svelte';
 	import Skills from '$lib/components/layout/cv/skills.svelte';
 	import Socials from '$lib/components/layout/cv/socials.svelte';
+	import { redirect } from '@sveltejs/kit';
 
 	const JOB = 'Développeur Sveltekit';
 </script>
@@ -64,6 +66,7 @@
 		</main>
 	</div>
 </section>
+<BtnPrint href={'/cv/sveltekit.pdf'} />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
