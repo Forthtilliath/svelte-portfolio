@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import '$lib/styles/cv/index.scss';
 </script>
 
@@ -11,14 +12,44 @@
 <slot />
 <aside class="menu">
 	<menu role="navigation" aria-label="Menu de navigation entre les CV">
-		<li><a href="/cv" data-sveltekit-preload-data="off">Développeur Full-stack</a></li>
-		<li><a href="/cv/react" data-sveltekit-preload-data="off">Développeur React</a></li>
-		<li><a href="/cv/sveltekit" data-sveltekit-preload-data="off">Développeur SvelteKit</a></li>
-		<li><a href="/cv/restauration" data-sveltekit-preload-data="off">Restauration</a></li>
+		<li>
+			<a
+				href="/cv/fullstack"
+				class:active={$page.url.pathname === '/cv/fullstack'}
+				data-sveltekit-preload-data="off"
+				>Développeur Full-stack
+			</a>
+		</li>
+		<li>
+			<a
+				href="/cv/react"
+				class:active={$page.url.pathname === '/cv/react'}
+				data-sveltekit-preload-data="off"
+				>Développeur React
+			</a>
+		</li>
+		<li>
+			<a
+				href="/cv/sveltekit"
+				class:active={$page.url.pathname === '/cv/sveltekit'}
+				data-sveltekit-preload-data="off"
+				>Développeur SvelteKit
+			</a>
+		</li>
+		<li>
+			<a
+				href="/cv/restauration"
+				class:active={$page.url.pathname === '/cv/restauration'}
+				data-sveltekit-preload-data="off"
+				>Restauration
+			</a>
+		</li>
 	</menu>
 </aside>
 
 <style lang="scss">
+	@use 'sass:color';
+
 	@media print {
 		.menu,
 		.menu * {
@@ -46,6 +77,10 @@
 
 			&:hover {
 				background-color: var(--color-black);
+				color: var(--color-white);
+			}
+			&.active {
+				background-color: var(--color-gray);
 				color: var(--color-white);
 			}
 		}

@@ -1,9 +1,14 @@
 <script lang="ts">
-	export let href: string
-	
+	export let filename: string;
 </script>
 
-<a class="btn-print" {href} target="_blank" rel="noopener noreferrer" download="cv-vincent-lisita.pdf">
+<a
+	class="btn-print"
+	href="/cv/{filename}.pdf"
+	target="_blank"
+	rel="noopener noreferrer"
+	download="cv-vincent-lisita-{filename}.pdf"
+>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		shape-rendering="geometricPrecision"

@@ -57,15 +57,15 @@
 		</main>
 	</div>
 </section>
-<BtnPrint href={'/cv/restauration.pdf'} />
+<BtnPrint filename="restauration" />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
 	.restauration,
 	.restauration * {
-		--color-1: hsl(0, 100%, 85%);
-		--color-2: hsl(0, 97%, 76%);
-		--color-3: hsl(0, 100%, 59%);
+		--color-1: oklch(84% 0.08904 19);
+		--color-2: oklch(74% 0.14498 21);
+		--color-3: oklch(64% 0.24039 27);
 
 		--name-color-1: var(--color-3);
 		--name-color-2: var(--color-black);

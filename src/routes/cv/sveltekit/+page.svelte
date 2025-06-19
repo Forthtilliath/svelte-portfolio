@@ -11,7 +11,6 @@
 	import SelfTaughtTraining from '$lib/components/layout/cv/self-taught-training.svelte';
 	import Skills from '$lib/components/layout/cv/skills.svelte';
 	import Socials from '$lib/components/layout/cv/socials.svelte';
-	import { redirect } from '@sveltejs/kit';
 
 	const JOB = 'Développeur Sveltekit';
 </script>
@@ -66,15 +65,15 @@
 		</main>
 	</div>
 </section>
-<BtnPrint href={'/cv/sveltekit.pdf'} />
+<BtnPrint filename="sveltekit" />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
 	.sveltekit,
 	.sveltekit * {
-		--color-1: oklch(0.78 0.12 34.8);
-		--color-2: oklch(0.68 0.19 35.12);
-		--color-3: oklch(0.57 0.2 33.4);
+		--color-1: oklch(78% 0.12 35);
+		--color-2: oklch(68% 0.19 35);
+		--color-3: oklch(58% 0.2 35);
 
 		--name-color-1: var(--color-3);
 		--name-color-2: var(--color-black);
@@ -199,7 +198,7 @@
 		height: calc(100% - var(--header-top) - var(--header-height));
 
 		position: relative;
-    font-size: var(--training-title-fontsize);
+		font-size: var(--training-title-fontsize);
 
 		&::after {
 			content: '';

@@ -66,15 +66,15 @@
 		</main>
 	</div>
 </section>
-<BtnPrint href={'/cv/fullstack.pdf'} />
+<BtnPrint filename="fullstack" />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
 	.fullstack,
 	.fullstack * {
-		--color-1: oklch(89.18% 0.0286 249.94);
-		--color-2: oklch(68.93% 0.0859 250.77);
-		--color-3: oklch(51.21% 0.1032 252.42);
+		--color-1: oklch(89% 0.03 210);
+		--color-2: oklch(69% 0.09 210);
+		--color-3: oklch(49% 0.10 210);
 
 		--name-color-1: var(--color-3);
 		--name-color-2: var(--color-black);
