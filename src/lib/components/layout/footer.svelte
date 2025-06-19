@@ -23,22 +23,37 @@
 				<a
 					href="https://github.com/Forthtilliath"
 					rel="noopener noreferrer"
-					class="ml-1 text-gray-600 dark:text-slate-300 hover:underline"
+					class="ml-1 text-gray-600 hover:underline dark:text-slate-300"
 					target="_blank">@forthtilliath</a
 				>
 			</p>
 			<span class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
-				<a class="ml-3 text-gray-500 w-9 flex items-center justify-center" href="https://cv-vincent-lisita.vercel.app/">
+				<a
+					class="ml-3 flex w-9 items-center justify-center text-gray-500"
+					href="/cv"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<Cv color="rgb(20 158 202)" size={29.25} />
 					<span class="sr-only">Curriculum Vitae</span>
 				</a>
-				<a class="ml-3 text-gray-500" href="https://github.com/Forthtilliath">
+				<a
+					class="ml-3 text-gray-500"
+					href="https://github.com/Forthtilliath"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<Github size={36} />
 					<span class="sr-only">Github</span>
 				</a>
-				<a class="ml-3 text-gray-500" href="https://cv-vincent-lisita.vercel.app/">
+				<a
+					class="ml-3 text-gray-500"
+					href="https://www.linkedin.com/in/vincent-lisita/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<Linkedin size={36} />
-					<span class="sr-only">Curriculum Vitae</span>
+					<span class="sr-only">Linkedin</span>
 				</a>
 			</span>
 		</div>
