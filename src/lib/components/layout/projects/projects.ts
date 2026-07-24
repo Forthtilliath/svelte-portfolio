@@ -143,7 +143,7 @@ const projects: Project[] = [
 		image: projectImages.sveltekitPortfolio,
 		tags: ['Sveltekit', 'Tailwind', 'Typescript', 'i18n', 'Shadcn/ui', 'Zod'],
 		url: 'https://vincent-lisita.vercel.app/',
-		repo: ENDPOINT_GITHUB + '/svelte-portfolio'
+		repo: ENDPOINT_GITHUB + '/vincent-lisita-portfolio'
 	}
 ];
 
