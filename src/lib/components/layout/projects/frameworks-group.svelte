@@ -15,7 +15,7 @@
 	};
 </script>
 
-<ToggleGroup.Root type="multiple" class="h-auto gap-3 sm:gap-5" size="auto" bind:value>
+<ToggleGroup.Root type="multiple" class="h-auto gap-3 sm:gap-5" size="auto" spacing={1} bind:value>
 	{#each skills.frameworks as framework}
 		<ToggleGroup.Item
 			value={framework.name}
