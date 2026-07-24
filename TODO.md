@@ -7,7 +7,6 @@
 
 - Travailler la responsivité
 
-
 # Chaque projet doit avoir :
 
 - un nom
