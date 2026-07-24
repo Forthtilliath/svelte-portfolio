@@ -23,6 +23,6 @@
 	{count}
 	{perPage}
 	{siblingCount}
-	class={cn('cn-pagination mx-auto flex w-full justify-center', className)}
+	class={cn('cn-pagination mx-auto flex w-full flex-col items-center justify-center', className)}
 	{...restProps}
 />
