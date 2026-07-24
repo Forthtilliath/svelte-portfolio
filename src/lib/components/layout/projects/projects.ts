@@ -99,7 +99,7 @@ const projects: Project[] = [
 		image: projectImages.solidjsOriflamme,
 		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-oriflamme.netlify.app/',
-		repo: ENDPOINT_GITHUB + '/solidjs-ts-restaurant'
+		repo: ENDPOINT_GITHUB + '/solid-ts-restaurant'
 	},
 	{
 		name: { fr: 'Navigation Page', en: 'Page Navigation' },
