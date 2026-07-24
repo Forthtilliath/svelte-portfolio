@@ -1,23 +1,43 @@
 <!-- https://codepen.io/pawelmalak/pen/KRKxdJ?editors=0110 -->
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import type { Flip } from 'forth-flip-words';
 	import FlipDiceFace from './flip-dice-face.svelte';
 
-	export let nth: number = 1;
-	export let letters: string[];
-	export let size: string;
-	export let delay = '';
-	export let delayFn: (i: number) => string = () => '0s';
-	export let translateY: string = '0px';
-	export let colors: string[] = [];
-	export let duration = '16s';
-	export let classNames: Flip.OtherOptions['classNames'] = {};
+	interface Props {
+		nth?: number;
+		letters: string[];
+		size: string;
+		delay?: string;
+		delayFn?: (i: number) => string;
+		translateY?: string;
+		colors?: string[];
+		duration?: string;
+		classNames?: Flip.OtherOptions['classNames'];
+	}
 
-	$: classNameFace = classNames?.face ?? '';
-	$: classNameFaces = Array.isArray(classNameFace) ? classNameFace : Array(4).fill(classNameFace);
+	let {
+		nth = 1,
+		letters,
+		size,
+		delay = $bindable(''),
+		delayFn = () => '0s',
+		translateY = '0px',
+		colors = [],
+		duration = '16s',
+		classNames = {}
+	}: Props = $props();
 
-	$: [front, top, back, bottom] = letters;
-	$: delay = delay || delayFn(nth);
+	let classNameFace = $derived(classNames?.face ?? '');
+	let classNameFaces = $derived(
+		Array.isArray(classNameFace) ? classNameFace : Array(4).fill(classNameFace)
+	);
+
+	let [front, top, back, bottom] = $derived(letters);
+	run(() => {
+		delay = delay || delayFn(nth);
+	});
 </script>
 
 <div class="dice-wrapper" style="--size: {size}">

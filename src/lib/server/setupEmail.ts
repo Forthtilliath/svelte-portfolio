@@ -17,10 +17,10 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify((err) => {
 	if (err) {
-		console.error(kleur.red().bold("[Nodemailer] ") + err.message);
+		console.error(kleur.red().bold('[Nodemailer] ') + err.message);
 		return;
 	}
-	console.log(kleur.cyan().bold("[Nodemailer] ") + 'Server is ready to take our messages');
+	console.log(kleur.cyan().bold('[Nodemailer] ') + 'Server is ready to take our messages');
 });
 
 export default transporter;

@@ -6,14 +6,11 @@
 	import { t } from '$lib/translations';
 	import { onMount } from 'svelte';
 
-	let clientWidth: number;
+	let clientWidth: number = $state(0);
 
-	let diceWidth: number;
-	$: diceWidth = Math.min(100, (clientWidth - 100) / 7);
-	let depthMax: number;
-	$: depthMax = getDepth(clientWidth);
-	let loaded: boolean;
-	$: loaded = false;
+	let diceWidth: number = $derived(Math.min(100, (clientWidth - 100) / 7));
+	let depthMax: number = $derived(getDepth(clientWidth));
+	let loaded: boolean = $state(false);
 
 	onMount(() => {
 		loaded = true;

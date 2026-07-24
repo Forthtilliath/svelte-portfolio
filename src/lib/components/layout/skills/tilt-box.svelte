@@ -4,8 +4,12 @@
 	import Shine from '$lib/components/shared/shine.svelte';
 	import SkillIcon from '$lib/components/shared/skill-icon.svelte';
 
-	export let list: Skill[];
-	export let title: string;
+	interface Props {
+		list: Skill[];
+		title: string;
+	}
+
+	let { list, title }: Props = $props();
 
 	const config = {
 		size: 48

@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '$lib/styles/cv/index.scss';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -9,7 +14,7 @@
 	<meta name="darkreader-lock" />
 </svelte:head>
 
-<slot />
+{@render children?.()}
 <aside class="menu">
 	<menu role="navigation" aria-label="Menu de navigation entre les CV">
 		<li>

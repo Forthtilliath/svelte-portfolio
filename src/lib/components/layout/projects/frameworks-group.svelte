@@ -4,7 +4,11 @@
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import { skills } from '$lib/components/layout/skills';
 
-	export let value: string[] | undefined = undefined;
+	interface Props {
+		value?: string[] | undefined;
+	}
+
+	let { value = $bindable(undefined) }: Props = $props();
 
 	const config = {
 		// size: 48

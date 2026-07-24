@@ -1,15 +1,26 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
+	import type { Component } from 'svelte';
 
-	export let icon: ComponentType;
-	export let name: string;
-	export let color: string | undefined = undefined;
-	export let size: number | undefined = undefined;
-	let className: string | undefined = undefined;
-	export { className as class };
+	interface Props {
+		icon: Component<any>;
+		name: string;
+		color?: string | undefined;
+		size?: number | undefined;
+		class?: string | undefined;
+	}
+
+	let {
+		icon,
+		name,
+		color = undefined,
+		size = undefined,
+		class: className = undefined
+	}: Props = $props();
+
+	const SvelteComponent = $derived(icon);
 </script>
 
 <div class="flex flex-col items-center justify-center gap-3 p-4">
-	<svelte:component this={icon} {size} {color} class={className} />
+	<SvelteComponent {size} {color} class={className} />
 	<p class="text-center text-sm text-slate-200 max-sm:hidden">{name}</p>
 </div>

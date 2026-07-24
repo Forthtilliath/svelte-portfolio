@@ -1,7 +1,11 @@
 <script lang="ts">
 	import SidebarCard from './sidebar-card.svelte';
 
-	export let template: 'dev' | 'resto';
+	interface Props {
+		template: 'dev' | 'resto';
+	}
+
+	let { template }: Props = $props();
 </script>
 
 <SidebarCard aria-label="compétences">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	type $$Props = {
+	interface Props {
 		className?: string;
 		/** Height of the section */
 		height?: string;
@@ -9,17 +9,14 @@
 		img: string;
 		/** Value between 0 and 100 */
 		filter?: number;
-	};
+	}
 
-	export let className: string = '';
-	export let height = '100px';
-	export let img: string;
-	export let filter = 70;
+	let { className = '', height = '100px', img, filter = 70 }: Props = $props();
 </script>
 
 <section class={cn(className)} style="--height: {height}; --img: url({img});">
 	{#if filter}
-		<div class="inner" style="--opacity: {filter / 100};" />
+		<div class="inner" style="--opacity: {filter / 100};"></div>
 	{/if}
 </section>
 

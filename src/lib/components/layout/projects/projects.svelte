@@ -23,13 +23,15 @@
 	<SectionTitle>{$t('projects.title')}</SectionTitle>
 
 	<div class="pb-4">
-		<p class="text-center p-3 text-slate-200">{$t('projects.radio-description')}</p>
+		<p class="p-3 text-center text-slate-200">{$t('projects.radio-description')}</p>
 		<FrameworksGroup bind:value={$filterFrameworks} />
 	</div>
 
 	<Pagination data={$filteredProjects} perPage={6} siblingCount={2}>
-		<article slot="card" let:itemData class="mx-auto w-full">
-			<ProjectCard {...itemData} />
-		</article>
+		{#snippet card({ itemData })}
+			<article class="mx-auto w-full">
+				<ProjectCard {...itemData} />
+			</article>
+		{/snippet}
 	</Pagination>
 </Section>

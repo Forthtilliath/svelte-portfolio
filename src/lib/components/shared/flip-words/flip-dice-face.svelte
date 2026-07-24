@@ -1,14 +1,19 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
+	import { cn } from '$lib/utils';
 
-	export let face: 'front' | 'top' | 'back' | 'bottom' | 'left' | 'right';
-	export let className = '';
-	export let bgColor = '';
-	export let translateY: string;
+	interface Props {
+		face: 'front' | 'top' | 'back' | 'bottom' | 'left' | 'right';
+		className?: string;
+		bgColor?: string;
+		translateY: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { face, className = '', bgColor = '', translateY, children }: Props = $props();
 </script>
 
 <div class={cn(`face ${face}`, className)} style="--translateY: {translateY}; --bgColor: {bgColor}">
-	<p><slot /></p>
+	<p>{@render children?.()}</p>
 </div>
 
 <style lang="scss">

@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let restauration: boolean = false;
+	interface Props {
+		restauration?: boolean;
+	}
+
+	let { restauration = false }: Props = $props();
 </script>
 
 <div class="training" class:restauration>
@@ -25,24 +29,24 @@
 			</li>
 
 			<li>
-				<b>Internationalisation :</b> Mise en œuvre de l'internationalisation dans une application à
-				l'aide de i18next et react-i18next.
+				<b>Internationalisation :</b> Mise en œuvre de l'internationalisation dans une application à l'aide
+				de i18next et react-i18next.
 			</li>
 
 			<li>
-				<b>Tests :</b> Mise en place d'une suite de tests pour assurer la qualité de l'application à
-				l'aide de bibliothèques de tests comme Jest et Testing Library.
+				<b>Tests :</b> Mise en place d'une suite de tests pour assurer la qualité de l'application à l'aide
+				de bibliothèques de tests comme Jest et Testing Library.
 			</li>
 
 			<li>
-				<b>Formatage du code :</b> Utilisation de Prettier et ESLint pour assurer la cohérence et la
-				qualité du code.
+				<b>Formatage du code :</b> Utilisation de Prettier et ESLint pour assurer la cohérence et la qualité
+				du code.
 			</li>
 
 			<li>
 				<b>Travail en équipe et gestion de projet :</b> Expérience de travail en équipe et utilisation
-				de bonnes pratiques de gestion de projet, comme illustré par l'utilisation de conventions de
-				commit spécifiques.
+				de bonnes pratiques de gestion de projet, comme illustré par l'utilisation de conventions de commit
+				spécifiques.
 			</li>
 		</ul>
 	</div>
@@ -90,7 +94,7 @@
 		color: var(--formation-content-color);
 		// margin-top: -0.2rem;
 
-		:where(.restauration) & > li {
+		:where(:global(.restauration)) & > li {
 			margin-top: 0.15rem;
 		}
 	}

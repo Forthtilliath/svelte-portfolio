@@ -1,7 +1,11 @@
 <script lang="ts">
-	export let size = 24;
+	interface Props {
+		size?: number;
+	}
 
-	$: sizePx = `${size}px`;
+	let { size = 24 }: Props = $props();
+
+	let sizePx = $derived(`${size}px`);
 </script>
 
 <svg width={sizePx} height={sizePx} viewBox="0 0 48 48">

@@ -1,19 +1,20 @@
 <script lang="ts">
-	export let size = 24;
-	export let color: string | [string, string, string, string, string] = [
-		'#41D1FF',
-		'#BD34FE',
-		'#FFEA83',
-		'#FFDD35',
-		'#FFA800'
-	];
-	let className: string | undefined = undefined;
-	export { className as class };
+	interface Props {
+		size?: number;
+		color?: string | [string, string, string, string, string];
+		class?: string | undefined;
+	}
 
-	$: sizePx = `${size}px`;
-	$: [color1, color2, color3, color4, color5] = Array.isArray(color)
-		? color
-		: [color, color, color, color, color];
+	let {
+		size = 24,
+		color = ['#41D1FF', '#BD34FE', '#FFEA83', '#FFDD35', '#FFA800'],
+		class: className = undefined
+	}: Props = $props();
+
+	let sizePx = $derived(`${size}px`);
+	let [color1, color2, color3, color4, color5] = $derived(
+		Array.isArray(color) ? color : [color, color, color, color, color]
+	);
 </script>
 
 <svg width={sizePx} height={sizePx} viewBox="0 0 256 257" class={className}>
@@ -25,8 +26,8 @@
 			y2="78.4107719%"
 			id="linearGradient-1"
 		>
-			<stop stop-color={color1} offset="0%"/>
-			<stop stop-color={color2} offset="100%"/>
+			<stop stop-color={color1} offset="0%" />
+			<stop stop-color={color2} offset="100%" />
 		</linearGradient>
 		<linearGradient
 			x1="43.3760053%"
@@ -35,9 +36,9 @@
 			y2="89.0299051%"
 			id="linearGradient-2"
 		>
-			<stop stop-color={color3} offset="0%"/>
-			<stop stop-color={color4} offset="8.33333%"/>
-			<stop stop-color={color5} offset="100%"/>
+			<stop stop-color={color3} offset="0%" />
+			<stop stop-color={color4} offset="8.33333%" />
+			<stop stop-color={color5} offset="100%" />
 		</linearGradient>
 	</defs>
 	<g>
