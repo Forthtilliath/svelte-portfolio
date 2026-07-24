@@ -6,17 +6,18 @@ import transporter from '$lib/server/setupEmail.js';
 import { fail } from '@sveltejs/kit';
 import type Mail from 'nodemailer/lib/mailer';
 import { superValidate } from 'sveltekit-superforms';
-import { zod } from 'sveltekit-superforms/adapters';
+import { zod4 } from 'sveltekit-superforms/adapters';
+import type { PageServerLoad } from './$types';
 
-export const load = async () => {
+export const load: PageServerLoad = async () => {
 	return {
-		form: await superValidate(zod(contactFormSchema))
+		form: await superValidate(zod4(contactFormSchema))
 	};
 };
 
 export const actions = {
 	sendMessage: async ({ request }) => {
-		const form = await superValidate(request, zod(contactFormSchema));
+		const form = await superValidate(request, zod4(contactFormSchema));
 
 		if (!form.valid) {
 			return fail(400, {
