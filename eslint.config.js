@@ -65,6 +65,7 @@ export default [
 			'node_modules/**',
 			'build/**',
 			'.svelte-kit/**',
+			'.vercel/**',
 			'package/**',
 			'.env',
 			'.env.*',
