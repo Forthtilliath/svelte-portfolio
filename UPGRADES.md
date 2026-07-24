@@ -10,23 +10,23 @@ Le projet n'avait pas été touché depuis ~2 ans. Cette page résume la mise à
 
 ## Ce qui a été mis à jour (versions majeures)
 
-| Paquet | Avant | Après |
-|---|---|---|
-| Node (requis) | — | 22.16 (testé), `engine-strict=true` |
-| Svelte | 4.2 | **5.56** (runes) |
-| SvelteKit | 2.5 | 2.70 |
-| Vite | 5.3 | **8.1** |
-| Vitest | 1.6 | **4.1** |
-| Tailwind CSS | 3.4 | **4.3** (config CSS-first via `@config`) |
-| TypeScript | 5.5 | **6.0.3** (voir note ci-dessous, pas 7.x) |
-| ESLint | 9.8 | **10.7** (config flat, `.eslintrc.cjs` supprimé) |
-| bits-ui | 0.21 | **2.18** |
-| formsnap | 1.0 | **2.0** |
-| svelte-radix | 1.1 | **3.0** |
-| zod | 3.23 | **4.4** |
-| sveltekit-superforms | 2.16 | 2.30 (adaptateur `zod4`) |
-| nodemailer | 6.9 | **9.0** |
-| sass | 1.89 | 1.101 |
+| Paquet               | Avant | Après                                            |
+| -------------------- | ----- | ------------------------------------------------ |
+| Node (requis)        | —     | 22.16 (testé), `engine-strict=true`              |
+| Svelte               | 4.2   | **5.56** (runes)                                 |
+| SvelteKit            | 2.5   | 2.70                                             |
+| Vite                 | 5.3   | **8.1**                                          |
+| Vitest               | 1.6   | **4.1**                                          |
+| Tailwind CSS         | 3.4   | **4.3** (config CSS-first via `@config`)         |
+| TypeScript           | 5.5   | **6.0.3** (voir note ci-dessous, pas 7.x)        |
+| ESLint               | 9.8   | **10.7** (config flat, `.eslintrc.cjs` supprimé) |
+| bits-ui              | 0.21  | **2.18**                                         |
+| formsnap             | 1.0   | **2.0**                                          |
+| svelte-radix         | 1.1   | **3.0**                                          |
+| zod                  | 3.23  | **4.4**                                          |
+| sveltekit-superforms | 2.16  | 2.30 (adaptateur `zod4`)                         |
+| nodemailer           | 6.9   | **9.0**                                          |
+| sass                 | 1.89  | 1.101                                            |
 
 ## Travail de migration effectué
 
@@ -40,6 +40,7 @@ Le projet n'avait pas été touché depuis ~2 ans. Cette page résume la mise à
 - **ESLint 10** : migration de `.eslintrc.cjs` (legacy, supprimé) vers `eslint.config.js` (flat config). Règles `svelte/require-each-key` et `svelte/no-navigation-without-resolve` (nouvelles en v3 du plugin) mises en `warn` plutôt que fixées partout — voir section « à faire » plus bas.
 - **TypeScript figé à 6.0.3, pas 7.x** : `@sveltejs/kit` déclare un peer `typescript ^5.3.3 || ^6.0.0` — avec TypeScript 7 installé, la génération des types de route SvelteKit (`PageData`, `PageProps`, etc.) échouait silencieusement (tout devenait `unknown`), cassant le typage de `+page.server.ts` sur tout le projet. À remonter vers 7.x seulement quand SvelteKit l'annoncera officiellement supporté.
 - **vitest/vite dupliqués** : un `vite@5.4.19` orphelin traînait dans `node_modules/vitest/node_modules` et `node_modules/vite-node/node_modules` (residu d'installs incrémentaux), en conflit de types avec le `vite@8.1.5` racine. Supprimé, `bun install` ne le recrée pas (non présent dans le lockfile).
+- **`@sveltejs/adapter-auto` remplacé par `@sveltejs/adapter-vercel`** : le déploiement Vercel échouait avec `Error [PLUGIN_ERROR]: No "exports" main defined in node_modules/estree-walker/package.json`. Cause : `adapter-auto` (v7) installe et résout `@sveltejs/adapter-vercel` **à la volée pendant le build** via `bun add`, en dehors de la résolution normale du lockfile — ça entre en conflit avec la version d'`estree-walker` déjà présente dans `node_modules`. `adapter-vercel` est maintenant une dépendance directe, installée normalement via `bun install`, ce qui évite complètement cette classe de problèmes (et c'est aussi la recommandation officielle d'`adapter-auto` lui-même pour un déploiement en prod).
 
 ## Vérifications effectuées
 
@@ -52,12 +53,15 @@ Le projet n'avait pas été touché depuis ~2 ans. Cette page résume la mise à
 ## À faire / améliorations possibles
 
 ### Sécurité
+
 - **`tls: { rejectUnauthorized: false }`** dans `src/lib/server/setupEmail.ts` désactive la vérification du certificat TLS du serveur SMTP — expose à un risque d'interception (MITM). À supprimer si le certificat Gmail est valide (il l'est), ou à justifier explicitement sinon.
-- Le compte d'envoi utilise un mot de passe Gmail classique (`SECRET_EMAIL_PASSWORD`) plutôt qu'un mot de passe d'application ou un service transactionnel dédié (Resend, Postmark, SendGrid). Plus robuste et plus simple à faire tourner/révoquer sans toucher au compte principal.
+- **Confirmé en prod (logs Vercel) : l'envoi d'email est actuellement cassé.** `[Nodemailer] Invalid login: 535-5.7.8 Username and Password not accepted... BadCredentials`. Gmail rejette les identifiants configurés dans les variables d'environnement Vercel (`SECRET_EMAIL_ACCOUNT`/`SECRET_EMAIL_PASSWORD`) — soit ils sont périmés, soit Gmail n'accepte plus l'authentification par mot de passe classique (ce qui est le cas depuis un moment pour les comptes avec 2FA, et de plus en plus par défaut). Le formulaire de contact ne peut donc pas envoyer d'email tant que ce n'est pas corrigé : il faut générer un [mot de passe d'application Gmail](https://myaccount.google.com/apppasswords) et mettre à jour `SECRET_EMAIL_PASSWORD` sur Vercel, ou mieux, migrer vers un service transactionnel dédié (Resend, Postmark, SendGrid) — plus robuste et plus simple à faire tourner/révoquer sans toucher au compte Gmail principal.
 - Aucun rate-limiting sur l'action `sendMessage` du formulaire de contact — un script pourrait spammer l'envoi d'emails. À considérer si le formulaire devient une cible.
+- **Node.js 20.x déprécié sur Vercel** (vu dans les logs de build) : "Deployments created on or after 2026-10-01 will fail to build." À changer en Node.js 24.x dans Vercel → Project Settings → General → Node.js Version, avant cette date.
 - Pas de pipeline CI (GitHub Actions) : rien ne fait tourner `check`/`lint`/`build`/`bun audit` automatiquement sur les PR. C'est ce genre de pipeline qui aurait évité 2 ans de dérive silencieuse. Recommandé : un workflow simple + Dependabot (ou Renovate) pour les mises à jour de dépendances futures.
 
 ### Qualité / dette technique
+
 - **`svelte/require-each-key`** (nouvelle règle ESLint) : volontairement mise en `warn`, pas fixée. Concerne `project-card.svelte`, `frameworks-group.svelte`, `tilt-box.svelte`, `flip-words.svelte`, `pagination.svelte` — ajouter une clé aux blocs `{#each}` améliore les perfs de réconciliation Svelte et évite des bugs subtils de state sur réordonnancement.
 - **`svelte/no-navigation-without-resolve`** (nouvelle règle) : idem, en `warn`. SvelteKit 2.x propose maintenant `resolve()` pour des liens internes type-safe (`src/lib/components/layout/footer.svelte`, `src/routes/cv/+layout.svelte`, `ui/button/button.svelte`). Amélioration, pas un bug.
 - **`@typescript-eslint/no-explicit-any`** mis en `warn` (était probablement absent de l'ancienne config). Une bonne dizaine d'usages de `any`, certains pré-existants, d'autres introduits pendant la migration Svelte 5 pour contourner des limites d'inférence TypeScript sur des types conditionnels complexes (`field.svelte` notamment). Un passage de typage plus strict serait bénéfique mais n'est pas urgent.
@@ -66,15 +70,17 @@ Le projet n'avait pas été touché depuis ~2 ans. Cette page résume la mise à
 - **Aucun test automatisé** : `vitest` est configuré mais zéro fichier de test n'existe. Vu que le projet a un formulaire avec logique de validation (zod) et un composant de pagination avec état, ce sont deux candidats naturels pour un premier test.
 
 ### Design / UI
+
 - La CLI `shadcn-svelte` ne supporte plus le style **"new-york"** (déclaré dans `components.json`) — elle est retombée sur le style **"nova"** pour régénérer les composants `ui/*`. Trois régressions visuelles concrètes ont été trouvées et corrigées sur la section "Mes Projets" (filtres de frameworks) suite à ce changement de style par défaut :
   - `Pagination.Root` avait perdu `flex-col` : la grille de projets et les contrôles de pagination se retrouvaient côte à côte au lieu d'être empilés (et la grille passait de 3 à 2 colonnes faute de largeur).
   - Les boutons de filtre (`ToggleGroup`) utilisaient un rayon d'arrondi et une couleur d'état actif différents du design d'origine.
   - Le composant `Toggle` nova force à 16px toute icône `<svg>` sans classe `size-*` (règle `[&_svg:not([class*='size-'])]:size-4`), écrasant nos icônes `h-6 w-6 sm:h-12 sm:w-12`. Et `spacing={0}` par défaut sur `ToggleGroup.Root` déclenche un style "boutons joints" (coins carrés sauf aux extrémités) alors qu'on utilise un vrai espacement visuel (`gap-3 sm:gap-5`).
-  Une repasse visuelle des autres pages (notamment les variantes de CV : `/cv/fullstack`, `/cv/sveltekit`, `/cv/restauration`, qui n'utilisent pas ces composants `ui/*` et n'ont donc probablement pas ce problème) reste recommandée pour repérer d'éventuelles autres divergences du même type.
+    Une repasse visuelle des autres pages (notamment les variantes de CV : `/cv/fullstack`, `/cv/sveltekit`, `/cv/restauration`, qui n'utilisent pas ces composants `ui/*` et n'ont donc probablement pas ce problème) reste recommandée pour repérer d'éventuelles autres divergences du même type.
 - Tailwind v4 propose une syntaxe de classes arbitraires simplifiée pour les data-attributes (ex. `data-fs-error:text-red-500` au lieu de `data-[fs-error]:text-red-500`) — purement cosmétique, non-bloquant.
 - `tailwind.config.js` reste au format JS v3 chargé via `@config` (mode de compatibilité). Une migration complète vers la syntaxe CSS-first native de Tailwind v4 (`@theme` dans `app.css`) est possible mais demande de repasser à la main sur tout le système de couleurs (variables CSS `hsl(var(--x) / <alpha-value>)`) — un chantier à part, plus risqué visuellement, à faire seulement si vous voulez pousser la modernisation plus loin.
 
 ### Autres opportunités (hors dette, vraies améliorations)
+
 - Le `TODO.md` existant liste déjà des idées (formes en background, responsivité du hero, contenu des projets) — toujours valides.
 - `@sveltejs/adapter-auto` : le build local affiche "Could not detect a supported production environment" — normal en local, mais bon réflexe de vérifier que la plateforme de déploiement cible (Vercel/Netlify/autre) est toujours correctement détectée en prod après cette mise à jour majeure.
 - Le README est encore le README par défaut de `create-svelte` — pourrait être personnalisé pour décrire le projet.
