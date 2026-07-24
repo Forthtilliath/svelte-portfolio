@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ComponentProps } from 'svelte';
+	import type { ComponentProps, Snippet } from 'svelte';
 	import Frame from './frame.svelte';
 	import { cn } from '$lib/utils';
 	import { Skeleton } from '../ui/skeleton';
@@ -7,23 +7,32 @@
 
 	type SizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-	export let href: string | null | undefined = undefined;
-	export let horizontal: boolean = false;
-	export let reverse: boolean = false;
-	export let img: string | undefined = undefined;
-	export let padding: SizeType | 'none' = 'lg';
-	export let size: SizeType | 'none' = 'sm';
-	export let skeleton: boolean = false;
-
 	// propagate props type from underlying Frame
-	interface $$Props extends ComponentProps<Frame> {
+	interface Props extends ComponentProps<typeof Frame> {
+		href?: string | null | undefined;
 		horizontal?: boolean;
 		reverse?: boolean;
 		img?: string;
 		padding?: SizeType | 'none';
 		size?: SizeType | 'none';
 		skeleton?: boolean;
+		class?: string;
+		children?: Snippet;
+		[key: string]: any;
 	}
+
+	let {
+		href = undefined,
+		horizontal = false,
+		reverse = false,
+		img = undefined,
+		padding = 'lg',
+		size = 'sm',
+		skeleton = false,
+		class: className = undefined,
+		children,
+		...rest
+	}: Props = $props();
 
 	const paddings: Record<SizeType | 'none', string> = {
 		none: '',
@@ -43,26 +52,27 @@
 		xl: 'max-w-screen-xl'
 	};
 
-	let innerPadding: string;
-	$: innerPadding = cn('space-y-2', paddings[padding]);
+	let innerPadding = $derived(cn('space-y-2', paddings[padding]));
 
-	let cardClass: string;
-	$: cardClass = cn(
-		'flex',
-		sizes[size],
-		reverse ? 'flex-col-reverse' : 'flex-col',
-		horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'),
-		href && 'hover:bg-gray-100 dark:hover:bg-white/5 dark:hover:outline-2',
-		// !img && innerPadding,
-		$$props.class
+	let cardClass = $derived(
+		cn(
+			'flex',
+			sizes[size],
+			reverse ? 'flex-col-reverse' : 'flex-col',
+			horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'),
+			href && 'hover:bg-gray-100 dark:hover:bg-white/5 dark:hover:outline-2',
+			// !img && innerPadding,
+			className
+		)
 	);
 
-	let imgClass: string;
-	$: imgClass = cn(
-		'h-auto aspect-video object-cover w-full',
-		reverse ? 'rounded-b-lg' : 'rounded-t-lg',
-		horizontal && 'md:rounded-none',
-		horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg')
+	let imgClass = $derived(
+		cn(
+			'h-auto aspect-video object-cover w-full',
+			reverse ? 'rounded-b-lg' : 'rounded-t-lg',
+			horizontal && 'md:rounded-none',
+			horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg')
+		)
 	);
 </script>
 
@@ -72,13 +82,8 @@
 	rounded
 	shadow
 	border
-	on:click
-	on:focusin
-	on:focusout
-	on:mouseenter
-	on:mouseleave
 	{href}
-	{...$$restProps}
+	{...rest}
 	class={cardClass}
 >
 	{#if skeleton}
@@ -88,8 +93,8 @@
 	{:else}
 		<img class={imgClass} src={defaultProject} alt="Project Overview" />
 	{/if}
-	<div class={cn('border-t border-t-app-blue', innerPadding)}>
-		<slot />
+	<div class={cn('border-t-app-blue border-t', innerPadding)}>
+		{@render children?.()}
 	</div>
 </Frame>
 

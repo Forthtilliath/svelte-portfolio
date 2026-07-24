@@ -3,12 +3,13 @@
 	import { cn } from '$lib/utils';
 	import type { Action } from 'svelte/action';
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
+	import type { Snippet } from 'svelte';
 
 	const noop = () => {};
 
 	type FrameColor = keyof typeof bgColors;
 
-	interface $$Props extends HTMLAnchorAttributes {
+	interface Props extends HTMLAnchorAttributes {
 		tag?: string;
 		color?: FrameColor;
 		rounded?: boolean;
@@ -20,24 +21,28 @@
 		class?: string;
 		role?: string;
 		tilted?: boolean;
+		children?: Snippet;
+		[key: string]: any;
 	}
 
-	export let tag: string = $$restProps.href ? 'a' : 'div';
-	export let color: FrameColor = 'default';
-	export let rounded: boolean = false;
-	export let border: boolean = false;
-	export let shadow: boolean = false;
-	export let tilted: boolean = false;
-
-	// For components development
-	export let node: HTMLElement | undefined = undefined;
-	// Action function and its params
-	export let use: Action<HTMLElement, any> = noop;
-	export let options = {};
-
-	export let role: string | undefined = undefined;
-
-	$: color = color ?? 'default'; // for cases when undefined
+	let {
+		href,
+		tag = href ? 'a' : 'div',
+		color = 'default',
+		rounded = false,
+		border = false,
+		shadow = false,
+		tilted = false,
+		// For components development
+		node = $bindable(undefined),
+		// Action function and its params
+		use = noop,
+		options = {},
+		role = undefined,
+		class: className = undefined,
+		children,
+		...rest
+	}: Props = $props();
 
 	// your script goes here
 	const bgColors = {
@@ -100,26 +105,25 @@
 		navbar: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
 		navbarUl: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
 		form: 'ring-gray-300 dark:ring-gray-700 divide-gray-300 dark:divide-gray-700',
-		primary:
-			'ring-primary-500 dark:ring-primary-200  divide-primary-500 dark:divide-primary-200 ',
+		primary: 'ring-primary-500 dark:ring-primary-200  divide-primary-500 dark:divide-primary-200 ',
 		orange: 'ring-orange-300 dark:ring-orange-800 divide-orange-300 dark:divide-orange-800',
 		'app-blue': 'ring-app-blue divide-app-blue',
 		none: ''
 	};
 
-	let divClass: string;
-	$: divClass = cn(
-		bgColors[color],
-		textColors[color],
-		rounded && 'rounded-lg',
-		border && 'ring-1 hover:ring-2 hover:shadow-md hover:shadow-white/50',
-		borderColors[color],
-		shadow && 'shadow-md',
-		$$props.class
+	let divClass = $derived(
+		cn(
+			bgColors[color],
+			textColors[color],
+			rounded && 'rounded-lg',
+			border && 'ring-1 hover:ring-2 hover:shadow-md hover:shadow-white/50',
+			borderColors[color],
+			shadow && 'shadow-md',
+			className
+		)
 	);
 
-	let tiltAction: Action<HTMLElement, any>;
-	$: tiltAction = tilted ? tilt : () => {};
+	let tiltAction: Action<HTMLElement, any> = $derived(tilted ? tilt : () => {});
 </script>
 
 <svelte:element
@@ -128,15 +132,10 @@
 	use:tiltAction
 	bind:this={node}
 	{role}
-	{...$$restProps}
+	{...{ href, ...rest } as Record<string, unknown>}
 	class={divClass}
-	on:click
-	on:mouseenter
-	on:mouseleave
-	on:focusin
-	on:focusout
 >
-	<slot />
+	{@render children?.()}
 </svelte:element>
 
 <!--

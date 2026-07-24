@@ -1,36 +1,45 @@
 <script lang="ts">
 	import { uniqueId } from '$lib/methods/uniqueId';
 	import { cn } from '$lib/utils';
+	import type { Snippet } from 'svelte';
 
-	/** Color of light */
-	export let lightColor = '#666666';
+	interface Props {
+		/** Color of light */
+		lightColor?: string;
+		/** Size of light */
+		lightRadius?: number;
+		/** Depth of effect */
+		depth?: number;
+		/** Represents the height of the surface for a light filter primitive */
+		surfaceScale?: number;
+		/** The bigger the value the bigger the reflection */
+		specularConstant?: number;
+		/** controls the focus for the light source. The bigger the value the brighter the light */
+		specularExponent?: number;
+		classes?: { root?: string; svg?: string };
+		class?: string;
+		children?: Snippet;
+		[key: string]: any;
+	}
 
-	/** Size of light */
-	export let lightRadius = 300;
-
-	/** Depth of effect */
-	export let depth = 1;
-
-	/** Represents the height of the surface for a light filter primitive */
-	export let surfaceScale = 2;
-
-	/** The bigger the value the bigger the reflection */
-	export let specularConstant = 0.75;
-
-	/** controls the focus for the light source. The bigger the value the brighter the light */
-	export let specularExponent = 120;
-
-	/** @type {{root?: string, icon?: string, loading?: string}} */
-	export let classes: {
-		root?: string;
-		svg?: string;
-	} = {};
+	let {
+		lightColor = '#666666',
+		lightRadius = 300,
+		depth = 1,
+		surfaceScale = 2,
+		specularConstant = 0.75,
+		specularExponent = 120,
+		classes = {},
+		class: className = undefined,
+		children,
+		...rest
+	}: Props = $props();
 
 	const filterId = uniqueId('filter-');
 
-	let mouse = { x: 0, y: 0 };
-	let wrapperBox = { left: 0, top: 0 };
-	let wrapperEl: HTMLDivElement | null = null;
+	let mouse = $state({ x: 0, y: 0 });
+	let wrapperBox = $state({ left: 0, top: 0 });
+	let wrapperEl: HTMLDivElement | null = $state(null);
 
 	function onPointerMove(e: PointerEvent) {
 		wrapperBox = wrapperEl?.getBoundingClientRect() ?? { left: 0, top: 0 };
@@ -42,7 +51,7 @@
 	}
 </script>
 
-<svelte:window on:pointermove={onPointerMove} on:scroll={onScroll} />
+<svelte:window onpointermove={onPointerMove} onscroll={onScroll} />
 
 <svg class={cn('pointer-events-none fixed inset-0', classes?.svg)}>
 	<filter id={filterId} color-interpolation-filters="sRGB">
@@ -74,9 +83,9 @@
 
 <div
 	style:filter="url(#{filterId})"
-	{...$$restProps}
-	class={cn('', classes?.root, $$props.class)}
+	{...rest}
+	class={cn('', classes?.root, className)}
 	bind:this={wrapperEl}
 >
-	<slot />
+	{@render children?.()}
 </div>

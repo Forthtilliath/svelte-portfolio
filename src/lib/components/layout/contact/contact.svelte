@@ -4,7 +4,11 @@
 	import Form, { contactFormSchema } from './form.svelte';
 	import { t } from '$lib/translations';
 
-	export let data: SuperForms.Data<typeof contactFormSchema>;
+	interface Props {
+		data: SuperForms.Data<typeof contactFormSchema>;
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="contact">
