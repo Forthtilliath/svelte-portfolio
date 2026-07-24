@@ -1,18 +1,12 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
+import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [tailwindcss(), sveltekit()],
 	test: {
 		globals: true,
 		environment: 'node'
-	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: "modern-compiler"
-			}
-		}
 	}
 });
