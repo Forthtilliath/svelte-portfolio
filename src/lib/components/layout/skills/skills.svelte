@@ -6,7 +6,7 @@
 	import skills from './skills';
 	import SkillBox from './tilt-box.svelte';
 	import { sortStringsByKey } from '$lib/methods/sort';
-	$: ({ css, frameworks, languages, tools, libraries } = skills);
+	let { css, frameworks, languages, tools, libraries } = $derived(skills);
 </script>
 
 <Section className="flex items-center justify-center flex-col gap-2" id="skills">

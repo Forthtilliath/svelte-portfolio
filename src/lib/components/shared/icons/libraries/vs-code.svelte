@@ -1,11 +1,18 @@
 <script lang="ts">
-	export let size = 24;
-	export let color: string | [string, string, string] = ['#0065a9', '#007acc', '#1f9cf0'];
-	let className: string | undefined = undefined;
-	export { className as class };
+	interface Props {
+		size?: number;
+		color?: string | [string, string, string];
+		class?: string | undefined;
+	}
 
-	$: sizePx = `${size}px`;
-	$: [color1, color2, color3] = Array.isArray(color) ? color : [color, color, color];
+	let {
+		size = 24,
+		color = ['#0065a9', '#007acc', '#1f9cf0'],
+		class: className = undefined
+	}: Props = $props();
+
+	let sizePx = $derived(`${size}px`);
+	let [color1, color2, color3] = $derived(Array.isArray(color) ? color : [color, color, color]);
 </script>
 
 <svg width={sizePx} height={sizePx} viewBox="0 0 32 32" class={className}>

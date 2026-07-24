@@ -1,6 +1,5 @@
 import defaultProject from './default.webp';
 
-
 import preactPageNavigation from './preact-page-navigation.webp';
 import reactDolla from './react-dolla.webp';
 

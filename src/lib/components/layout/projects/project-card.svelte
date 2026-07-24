@@ -8,15 +8,18 @@
 	import { cn } from '$lib/utils';
 	import { t, locale, type Language } from '$lib/translations';
 
-	export let image: Project['image'] = undefined;
-	export let name: Project['name'];
-	export let description: Project['description'];
-	export let repo: Project['repo'];
-	export let tags: Project['tags'];
-	export let url: Project['url'] = undefined;
+	interface Props {
+		image?: Project['image'];
+		name: Project['name'];
+		description: Project['description'];
+		repo: Project['repo'];
+		tags: Project['tags'];
+		url?: Project['url'];
+	}
 
-	let lang: Language;
-	$: lang = $locale as Language;
+	let { image = undefined, name, description, repo, tags, url = undefined }: Props = $props();
+
+	let lang: Language = $derived($locale as Language);
 
 	let aSkeletonWidths = [
 		'w-5/12',
@@ -52,7 +55,7 @@
 			color="app-blue"
 			padding="sm"
 			aria-label={$t('projects.display', { name: name[lang] })}
-			class="mx-auto bg-app-black"
+			class="bg-app-black mx-auto"
 			href={url}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -60,7 +63,7 @@
 			<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
 			</h5>
-			<p class="line-clamp-3 h-[60px] font-normal leading-tight text-gray-700 dark:text-gray-400">
+			<p class="line-clamp-3 h-[60px] leading-tight font-normal text-gray-700 dark:text-gray-400">
 				{description[lang]}
 			</p>
 			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
@@ -73,36 +76,30 @@
 			<Button href={repo} class="w-full" variant="card-link" external>Show repository</Button>
 		</Card>
 	</Shine>
-	<Card
-		img={image}
-		size="xs"
-		color="app-blue"
-		padding="sm"
-		skeleton
-		slot="loading"
-		class="mx-auto bg-app-black"
-	>
-		{@const contentLines = getRandom(3)}
-		{@const tagsLines = getRandom(2)}
-		<!-- Title-->
-		<Skeleton class={cn('h-8', getSkeletonWidth())} />
-		<!-- Content -->
-		{#each { length: contentLines - 1 } as _}
-			<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
-		{/each}
-		<Skeleton class={cn('h-4', getSkeletonWidth())} />
-		{#each { length: 3 - contentLines } as _}
-			<div class="h-4 bg-transparent" />
-		{/each}
-		<!-- Tags -->
-		{#each { length: tagsLines - 1 } as _}
+	{#snippet loading()}
+		<Card img={image} size="xs" color="app-blue" padding="sm" skeleton class="bg-app-black mx-auto">
+			{@const contentLines = getRandom(3)}
+			{@const tagsLines = getRandom(2)}
+			<!-- Title-->
+			<Skeleton class={cn('h-8', getSkeletonWidth())} />
+			<!-- Content -->
+			{#each { length: contentLines - 1 } as _}
+				<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
+			{/each}
 			<Skeleton class={cn('h-4', getSkeletonWidth())} />
-		{/each}
-		<Skeleton class={cn('h-4', getSkeletonWidth())} />
-		{#each { length: 2 - tagsLines } as _}
-			<div class="h-5 bg-transparent" />
-		{/each}
-		<!-- Button -->
-		<Skeleton class={cn('h-9')} />
-	</Card>
+			{#each { length: 3 - contentLines } as _}
+				<div class="h-4 bg-transparent"></div>
+			{/each}
+			<!-- Tags -->
+			{#each { length: tagsLines - 1 } as _}
+				<Skeleton class={cn('h-4', getSkeletonWidth())} />
+			{/each}
+			<Skeleton class={cn('h-4', getSkeletonWidth())} />
+			{#each { length: 2 - tagsLines } as _}
+				<div class="h-5 bg-transparent"></div>
+			{/each}
+			<!-- Button -->
+			<Skeleton class={cn('h-9')} />
+		</Card>
+	{/snippet}
 </WithLoader>

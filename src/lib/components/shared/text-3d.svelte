@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import tinycolor from 'tinycolor2';
 	import { cn } from '$lib/utils';
 
@@ -9,7 +9,7 @@
 		/** Between 1 and 10 */
 		depth: number,
 		primaryShadowColor: string,
-		/** Between 0 and 1 */
+
 		shadowOpacity: number
 	) {
 		if (typeof depth !== 'number' || depth < 1 || depth > 10) {
@@ -54,33 +54,47 @@
 </script>
 
 <script lang="ts">
-	export let className: string = '';
-	export let tag: string = 'p';
-	export let color: string = 'currentColor';
-	export let shadowOptions: {
+	interface Props {
+		/** Between 0 and 1 */
+		className?: string;
+		tag?: string;
 		color?: string;
-		opacity?: number;
-		depth?: number;
-		from?: {
-			luminosity?: number;
-			saturate?: number;
+		shadowOptions: {
+			color?: string;
+			opacity?: number;
+			depth?: number;
+			from?: {
+				luminosity?: number;
+				saturate?: number;
+			};
+			to?: {
+				luminosity?: number;
+				saturate?: number;
+			};
 		};
-		to?: {
-			luminosity?: number;
-			saturate?: number;
-		};
-	};
+		children?: import('svelte').Snippet;
+	}
 
-	$: from_luminosity = shadowOptions?.from?.luminosity ?? -8;
-	$: from_saturate = shadowOptions?.from?.saturate ?? 0;
-	$: to_luminosity = shadowOptions?.to?.luminosity ?? -10;
-	$: to_saturate = shadowOptions?.to?.saturate ?? 20;
+	let {
+		className = '',
+		tag = 'p',
+		color = 'currentColor',
+		shadowOptions,
+		children
+	}: Props = $props();
 
-	$: textShadow = ajustColor(
-		tinycolor(shadowOptions.color).lighten(from_luminosity).saturate(from_saturate).toHslString(),
-		shadowOptions.depth || 8,
-		tinycolor(shadowOptions.color).lighten(to_luminosity).saturate(to_saturate).toHslString(),
-		shadowOptions.opacity || 0.2
+	let from_luminosity = $derived(shadowOptions?.from?.luminosity ?? -8);
+	let from_saturate = $derived(shadowOptions?.from?.saturate ?? 0);
+	let to_luminosity = $derived(shadowOptions?.to?.luminosity ?? -10);
+	let to_saturate = $derived(shadowOptions?.to?.saturate ?? 20);
+
+	let textShadow = $derived(
+		ajustColor(
+			tinycolor(shadowOptions.color).lighten(from_luminosity).saturate(from_saturate).toHslString(),
+			shadowOptions.depth || 8,
+			tinycolor(shadowOptions.color).lighten(to_luminosity).saturate(to_saturate).toHslString(),
+			shadowOptions.opacity || 0.2
+		)
 	);
 </script>
 
@@ -89,7 +103,7 @@
 	style="--text-shadow: {textShadow}; --color: {color}"
 	class={cn('text-3d', className)}
 >
-	<slot />
+	{@render children?.()}
 </svelte:element>
 
 <style lang="scss">

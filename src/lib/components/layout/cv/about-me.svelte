@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let template: 'react' | 'sveltekit' | 'fullstack' | 'resto';
+	interface Props {
+		template: 'react' | 'sveltekit' | 'fullstack' | 'resto';
+	}
+
+	let { template }: Props = $props();
 </script>
 
 <h3 class="aboutme-title">À propos de moi</h3>

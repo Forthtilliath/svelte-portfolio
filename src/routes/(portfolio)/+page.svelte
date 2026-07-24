@@ -8,6 +8,7 @@
 	import Skills from '$lib/components/layout/skills';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 	import Stars from '$lib/components/shared/stars';
+	import type { PageProps } from './$types';
 
 	import img1 from '$lib/assets/separators/1.webp';
 	import img2 from '$lib/assets/separators/2.webp';
@@ -15,7 +16,7 @@
 	import img4 from '$lib/assets/separators/4.webp';
 	import img5 from '$lib/assets/separators/5.avif';
 
-	export let data;
+	let { data }: PageProps = $props();
 </script>
 
 <Header />

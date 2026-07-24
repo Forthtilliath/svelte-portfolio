@@ -21,11 +21,7 @@
 			</p>
 		</main>
 		<div class="flex-1 md:max-w-[min(500px,50%)]">
-			<img
-				src={me}
-				alt={$t('about.image-alt')}
-				class="h-fit w-full rounded-xl object-scale-down"
-			/>
+			<img src={me} alt={$t('about.image-alt')} class="h-fit w-full rounded-xl object-scale-down" />
 		</div>
 	</article>
 </Section>

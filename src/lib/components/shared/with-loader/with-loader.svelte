@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	interface Props {
+		children?: import('svelte').Snippet;
+		loading?: import('svelte').Snippet;
+		loadingText?: import('svelte').Snippet;
+	}
 
-	let loaded = false;
+	let { children, loading, loadingText }: Props = $props();
+
+	let loaded = $state(false);
 
 	onMount(() => {
 		loaded = true;
@@ -10,17 +17,28 @@
 </script>
 
 {#if loaded}
-	<slot />
+	{@render children?.()}
 {:else}
-	<slot name="loading">
+	{#if loading}{@render loading()}{:else}
 		<div class="absolute inset-0 grid place-content-center" transition:fade>
 			<h1 class="text-xl">
-				<slot name="loadingText">Loading...</slot>
+				{#if loadingText}{@render loadingText()}{:else}Loading...{/if}
 			</h1>
-			<div class="loader" />
+			<div class="loader"></div>
 		</div>
-	</slot>
+	{/if}
 {/if}
+
+<!-- @component
+Add a spinner to your app with this component until the page is fully loaded.
+
+@example
+```svelte
+<WithLoader>
+  <MySlider />
+</WithLoader>
+```
+-->
 
 <style>
 	/* spinner from https://projects.lukehaas.me/css-loaders/ */
@@ -127,14 +145,3 @@
 		}
 	}
 </style>
-
-<!-- @component
-Add a spinner to your app with this component until the page is fully loaded.
-
-@example
-```svelte
-<WithLoader>
-  <MySlider />
-</WithLoader>
-```
--->

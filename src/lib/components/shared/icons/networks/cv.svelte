@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let size = 24;
-	export let color: string = '#45B39C';
+	interface Props {
+		size?: number;
+		color?: string;
+	}
 
-	$: sizePx = `${size}px`;
+	let { size = 24, color = '#45B39C' }: Props = $props();
+
+	let sizePx = $derived(`${size}px`);
 </script>
 
 <svg width={sizePx} height={sizePx} viewBox="0 0 451.319 451.319">

@@ -1,10 +1,13 @@
 <script lang="ts">
-	export let size = 24;
-	export let color = '#cd6799';
-	let className: string | undefined = undefined;
-	export { className as class };
-	
-	$: sizePx = `${size}px`;
+	interface Props {
+		size?: number;
+		color?: string;
+		class?: string | undefined;
+	}
+
+	let { size = 24, color = '#cd6799', class: className = undefined }: Props = $props();
+
+	let sizePx = $derived(`${size}px`);
 </script>
 
 <svg width={sizePx} height={sizePx} viewBox="0 0 32 32" fill={color} class={className}>

@@ -7,7 +7,7 @@ declare module 'forth-flip-words' {
 			classNames?: {
 				wrapper?: string;
 				face?: string | [string, string, string, string];
-			}
+			};
 		};
 
 		type OptionsWithDelay = {

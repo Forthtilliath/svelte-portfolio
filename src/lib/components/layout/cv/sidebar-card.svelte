@@ -1,9 +1,18 @@
-<article class="sidebar-card" {...$$restProps}>
-	<slot />
+<script lang="ts">
+	interface Props {
+		children?: import('svelte').Snippet;
+		[key: string]: any;
+	}
+
+	let { children, ...rest }: Props = $props();
+</script>
+
+<article class="sidebar-card" {...rest}>
+	{@render children?.()}
 </article>
 
 <style lang="scss">
-  .sidebar-card {
-    margin-top: var(--sidebar-spacing);
-  }
+	.sidebar-card {
+		margin-top: var(--sidebar-spacing);
+	}
 </style>

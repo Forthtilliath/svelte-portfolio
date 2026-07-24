@@ -1,4 +1,4 @@
-import type { ComponentType } from 'svelte';
+import type { Component } from 'svelte';
 
 // https://icon-icons.com/
 // https://seeklogo.com/
@@ -35,12 +35,12 @@ import Pnpm from '$lib/components/shared/icons/libraries/pnpm.svelte';
 
 export type Skill = {
 	name: string;
-	icon: ComponentType;
+	icon: Component<any>;
 	color?: string;
 };
 
 export type Technology = (typeof skills)[keyof typeof skills][number]['name'];
-export type Framework = typeof skills.frameworks[number]['name'];
+export type Framework = (typeof skills.frameworks)[number]['name'];
 
 const skills = {
 	frameworks: [

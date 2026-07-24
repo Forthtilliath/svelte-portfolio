@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let template: 'dev' | 'resto';
+	interface Props {
+		template: 'dev' | 'resto';
+	}
+
+	let { template }: Props = $props();
 </script>
 
 <div class="training">
@@ -126,7 +130,7 @@
 		text-align: end;
 		padding-inline: 0.75rem;
 
-		&:has(span) {
+		&:has(:global(span)) {
 			display: flex;
 			flex-direction: column;
 
