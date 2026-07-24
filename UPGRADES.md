@@ -5,7 +5,14 @@ Le projet n'avait pas été touché depuis ~2 ans. Cette page résume la mise à
 ## Résumé sécurité
 
 - **Avant** : `bun audit` remontait **71 vulnérabilités** (2 critiques, 31 hautes, 30 modérées, 8 faibles) — c'est très probablement l'origine des notifications GitHub.
-- **Après** : **8 vulnérabilités** restantes (0 critique, 4 hautes, 3 modérées, 1 faible), toutes situées dans des dépendances transitives profondes d'outils de dev (`eslint`, `vite`, `vitest`, `svelte-check`, `sass`) ou dans un adaptateur `class-validator` de `sveltekit-superforms` qu'on n'utilise pas (on utilise l'adaptateur `zod4`). Aucune n'est corrigeable aujourd'hui : ce sont les dernières versions disponibles en amont, il faut attendre une release upstream. À revérifier périodiquement via `bun audit`.
+- **Après la mise à jour majeure** : 8 vulnérabilités restantes, toutes dans des dépendances transitives profondes.
+- **Après le passage en `overrides`** (`package.json`) : **2 vulnérabilités** restantes (1 haute, 1 modérée), les deux sur le même paquet `picomatch`. `cookie`, `yaml`, `flatted` et `validator` ont été forcés vers leur premier patch corrigé (`overrides` dans `package.json` — bun ne supporte pas les `resolutions` npm/pnpm, seulement `overrides` à plat) :
+  - `cookie` 0.6.0 → 0.7.2 (dépendance directe de `@sveltejs/kit`)
+  - `yaml` 1.10.2 → 1.10.3
+  - `flatted` 3.3.3 → 3.4.3
+  - `validator` 13.15.15 → 13.15.35
+  - Toutes restent sur la même ligne majeure que ce que le paquet parent attend (pas de saut de version majeure forcé), et le site a été revérifié en conditions réelles (build de prod + navigation + formulaire de contact) après application.
+- **`picomatch` reste vulnérable** (`sass › @parcel/watcher › micromatch › picomatch@2.3.1`, il faudrait ≥2.3.2) et ne peut pas être corrigé proprement : il existe aussi en version 4.x ailleurs dans l'arbre (`vite`, `vitest`, `@sveltejs/adapter-vercel`...), et bun ne supporte pas les overrides scopés/imbriqués (`"micromatch": { "picomatch": "..." }` — testé, ignoré avec un avertissement). Forcer `picomatch` globalement casserait Vite/Vitest (breaking change v2→v4). Risque réel très faible : c'est uniquement le watcher de fichiers de `sass` en dev, jamais exécuté en production. À corriger automatiquement le jour où `sass`/`@parcel/watcher` bump leur dépendance, ou si bun ajoute le support des overrides imbriqués.
 - Vulnérabilités critiques corrigées qui touchaient du code de **production** (pas seulement des outils de dev) : `nodemailer` (envoi d'email du formulaire de contact), `sveltekit-superforms`/`formsnap` (pollution de prototype dans le parsing de formulaire), `devalue`/`cookie` (chaîne `@sveltejs/kit`).
 
 ## Ce qui a été mis à jour (versions majeures)
