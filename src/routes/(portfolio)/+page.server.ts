@@ -2,6 +2,7 @@ import { SECRET_EMAIL_ACCOUNT } from '$env/static/private';
 import { contactFormSchema } from '$lib/components/layout/contact/form.svelte';
 import { handleCatchErrorWithCallback } from '$lib/methods/handleCatchError';
 import { sendEmail } from '$lib/methods/sendMail';
+import { isRateLimited } from '$lib/server/rate-limit';
 import transporter from '$lib/server/setupEmail.js';
 import { fail } from '@sveltejs/kit';
 import type Mail from 'nodemailer/lib/mailer';
@@ -16,12 +17,19 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions = {
-	sendMessage: async ({ request }) => {
+	sendMessage: async ({ request, getClientAddress }) => {
 		const form = await superValidate(request, zod4(contactFormSchema));
 
 		if (!form.valid) {
 			return fail(400, {
 				form
+			});
+		}
+
+		if (isRateLimited(getClientAddress())) {
+			return fail(429, {
+				form,
+				message: 'Too many messages sent. Please try again later.'
 			});
 		}
 
