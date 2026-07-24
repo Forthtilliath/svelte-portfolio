@@ -1,35 +1,42 @@
 <script lang="ts">
-	import { Pagination as PaginationPrimitive } from "bits-ui";
-	import { type Props, buttonVariants } from "$lib/components/ui/button/index.js";
-	import { cn } from "$lib/utils.js";
-
-	type $$Props = PaginationPrimitive.PageProps &
-		Props & {
-			isActive: boolean;
-		};
-
-	type $$Events = PaginationPrimitive.PageEvents;
-
-	let className: $$Props["class"] = undefined;
-	export let page: $$Props["page"];
-	export let size: $$Props["size"] = "icon";
-	export let isActive: $$Props["isActive"] = false;
-
-	export { className as class };
+	import { Pagination as PaginationPrimitive } from 'bits-ui';
+	import { cn } from '$lib/utils.js';
+	import { buttonVariants, type ButtonSize } from '$lib/components/ui/button/index.js';
+	let {
+		ref = $bindable(null),
+		class: className,
+		size = 'icon',
+		isActive,
+		page,
+		children,
+		...restProps
+	}: PaginationPrimitive.PageProps & {
+		size?: ButtonSize;
+		isActive: boolean;
+	} = $props();
 </script>
 
+{#snippet Fallback()}
+	{page.value}
+{/snippet}
+
 <PaginationPrimitive.Page
-	bind:page
+	bind:ref
+	{page}
+	aria-current={isActive ? 'page' : undefined}
+	data-slot="pagination-link"
+	data-active={isActive}
+	data-size={size}
 	class={cn(
-		buttonVariants({
-			variant: isActive ? "outline" : "ghost",
-			size,
-		}),
-		isActive && "border-slate-400",
+		buttonVariants({ size, variant: isActive ? 'outline' : 'ghost' }),
+		'cn-pagination-link',
 		className
 	)}
-	{...$$restProps}
-	on:click
+	{...restProps}
 >
-	<slot>{page.value}</slot>
+	{#if children}
+		{@render children?.()}
+	{:else}
+		{@render Fallback()}
+	{/if}
 </PaginationPrimitive.Page>

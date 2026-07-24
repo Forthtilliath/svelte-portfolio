@@ -1,27 +1,31 @@
 <script lang="ts">
-	import { Pagination as PaginationPrimitive } from "bits-ui";
-	import ChevronLeft from "svelte-radix/ChevronLeft.svelte";
-	import { Button } from "$lib/components/ui/button/index.js";
-	import { cn } from "$lib/utils.js";
+	import { Pagination as PaginationPrimitive } from 'bits-ui';
+	import ChevronLeftIcon from '@lucide/svelte/icons/chevron-left';
+	import { cn } from '$lib/utils.js';
+	import { buttonVariants } from '../button/index.js';
 
-	type $$Props = PaginationPrimitive.PrevButtonProps;
-	type $$Events = PaginationPrimitive.PrevButtonEvents;
-
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let {
+		ref = $bindable(null),
+		class: className,
+		children,
+		...restProps
+	}: PaginationPrimitive.PrevButtonProps = $props();
 </script>
 
-<PaginationPrimitive.PrevButton asChild let:builder>
-	<Button
-		variant="ghost"
-		class={cn("gap-1 pl-2.5", className)}
-		builders={[builder]}
-		on:click
-		{...$$restProps}
-	>
-		<slot>
-			<ChevronLeft class="h-4 w-4" />
-			<span>Previous</span>
-		</slot>
-	</Button>
+{#snippet Fallback()}
+	<ChevronLeftIcon class={cn('size-4', className)} />
+	<span>Previous</span>
+{/snippet}
+
+<PaginationPrimitive.PrevButton
+	bind:ref
+	aria-label="Go to previous page"
+	class={cn(buttonVariants({ variant: 'ghost' }), 'pl-1.5!', className)}
+	{...restProps}
+>
+	{#if children}
+		{@render children?.()}
+	{:else}
+		{@render Fallback()}
+	{/if}
 </PaginationPrimitive.PrevButton>
