@@ -1,19 +1,25 @@
 <script lang="ts">
-	import DotsHorizontal from "svelte-radix/DotsHorizontal.svelte";
-	import type { HTMLAttributes } from "svelte/elements";
-	import { cn } from "$lib/utils.js";
+	import type { HTMLAttributes } from 'svelte/elements';
+	import { cn, type WithElementRef, type WithoutChildren } from '$lib/utils.js';
+	import MoreHorizontalIcon from '@lucide/svelte/icons/more-horizontal';
 
-	type $$Props = HTMLAttributes<HTMLSpanElement>;
-
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let {
+		ref = $bindable(null),
+		class: className,
+		...restProps
+	}: WithoutChildren<WithElementRef<HTMLAttributes<HTMLSpanElement>>> = $props();
 </script>
 
 <span
-	aria-hidden
-	class={cn("flex h-9 w-9 items-center justify-center", className)}
-	{...$$restProps}
+	bind:this={ref}
+	aria-hidden="true"
+	data-slot="pagination-ellipsis"
+	class={cn(
+		"flex size-8 items-center items-center justify-center justify-center [&_svg:not([class*='size-'])]:size-4",
+		className
+	)}
+	{...restProps}
 >
-	<DotsHorizontal class="h-4 w-4" />
+	<MoreHorizontalIcon />
 	<span class="sr-only">More pages</span>
 </span>
