@@ -69,6 +69,7 @@
 </script>
 
 {#if href}
+	<!-- eslint-disable svelte/no-navigation-without-resolve -- generic passthrough href, can be internal or external; resolve() is the caller's responsibility -->
 	<a
 		bind:this={ref}
 		data-slot="button"
@@ -82,6 +83,7 @@
 	>
 		{@render children?.()}
 	</a>
+	<!-- eslint-enable svelte/no-navigation-without-resolve -->
 {:else}
 	<button
 		bind:this={ref}
