@@ -83,7 +83,7 @@
 				<Button
 					type="button"
 					variant="outline"
-					class="shrink-0"
+					class="shrink-0 cursor-pointer"
 					onclick={() => (dialogOpen = true)}
 				>
 					{$t('projects.readMore')}
@@ -114,7 +114,9 @@
 			<Dialog.Footer>
 				<Dialog.Close>
 					{#snippet child({ props })}
-						<Button {...props} variant="outline">{$t('projects.close')}</Button>
+						<Button {...props} variant="outline" class="cursor-pointer"
+							>{$t('projects.close')}</Button
+						>
 					{/snippet}
 				</Dialog.Close>
 				<Button href={repo} variant="card-link" external>{$t('projects.repo')}</Button>
