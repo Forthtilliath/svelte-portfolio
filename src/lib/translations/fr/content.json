@@ -40,7 +40,10 @@
 		"name": "Votre nom",
 		"email": "Votre email",
 		"message": "Votre message",
-		"submit": "Envoyer"
+		"submit": "Envoyer",
+		"success": "Message envoyé ! Je vous répondrai bientôt.",
+		"rateLimited": "Trop de messages envoyés. Réessayez plus tard.",
+		"error": "Une erreur est survenue. Merci de réessayer."
 	},
 	"ui": {
 		"previous": "Précédente",
