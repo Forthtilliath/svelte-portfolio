@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { resolve } from '$app/paths';
 	import '$lib/styles/cv/index.scss';
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -19,7 +20,7 @@
 	<menu role="navigation" aria-label="Menu de navigation entre les CV">
 		<li>
 			<a
-				href="/cv/fullstack"
+				href={resolve('/cv/fullstack')}
 				class:active={$page.url.pathname === '/cv/fullstack'}
 				data-sveltekit-preload-data="off"
 				>Développeur Full-stack
@@ -27,7 +28,7 @@
 		</li>
 		<li>
 			<a
-				href="/cv/react"
+				href={resolve('/cv/react')}
 				class:active={$page.url.pathname === '/cv/react'}
 				data-sveltekit-preload-data="off"
 				>Développeur React
@@ -35,7 +36,7 @@
 		</li>
 		<li>
 			<a
-				href="/cv/sveltekit"
+				href={resolve('/cv/sveltekit')}
 				class:active={$page.url.pathname === '/cv/sveltekit'}
 				data-sveltekit-preload-data="off"
 				>Développeur SvelteKit
@@ -43,7 +44,7 @@
 		</li>
 		<li>
 			<a
-				href="/cv/restauration"
+				href={resolve('/cv/restauration')}
 				class:active={$page.url.pathname === '/cv/restauration'}
 				data-sveltekit-preload-data="off"
 				>Restauration

@@ -6,6 +6,7 @@
 	let { filename }: Props = $props();
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -- static asset download (static/cv/*.pdf), not a SvelteKit route -->
 <a
 	class="btn-print"
 	href="/cv/{filename}.pdf"
@@ -13,6 +14,7 @@
 	rel="noopener noreferrer"
 	download="cv-vincent-lisita-{filename}.pdf"
 >
+	<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		shape-rendering="geometricPrecision"

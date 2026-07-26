@@ -6,6 +6,7 @@
 	import logo from '$lib/assets/logo.png';
 
 	import { t } from '$lib/translations';
+	import { resolve } from '$app/paths';
 </script>
 
 <footer>
@@ -13,7 +14,7 @@
 		<div class="container mx-auto flex flex-col items-center px-5 py-6 sm:flex-row">
 			<a
 				class="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start dark:text-slate-50"
-				href="/"
+				href={resolve('/')}
 			>
 				<img src={logo} alt="Logo" class="h-8 w-8" />
 				<span class="ml-3 text-xl">{$t('meta.title')}</span>
@@ -30,7 +31,7 @@
 			<span class="mt-4 inline-flex justify-center sm:mt-0 sm:ml-auto sm:justify-start">
 				<a
 					class="ml-3 flex w-9 items-center justify-center text-gray-500"
-					href="/cv"
+					href={resolve('/cv')}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
