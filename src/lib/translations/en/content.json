@@ -34,7 +34,9 @@
 	"projects": {
 		"title": "My Projects",
 		"radio-description": "Click to filter projects",
-		"display": "Open the project: {{name}}"
+		"display": "Open the project: {{name}}",
+		"readMore": "Read more",
+		"repo": "Show repository"
 	},
 	"contact": {
 		"title": "Contact me",

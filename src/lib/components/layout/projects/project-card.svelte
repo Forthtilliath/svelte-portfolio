@@ -2,6 +2,7 @@
 	import WithLoader from '$lib/components/shared/with-loader/with-loader.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Card from '$lib/components/flowbite/card.svelte';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import type { Project } from './projects';
 	import Shine from '$lib/components/shared/shine.svelte';
 	import { Skeleton } from '$lib/components/ui/skeleton';
@@ -20,6 +21,7 @@
 	let { image = undefined, name, description, repo, tags, url = undefined }: Props = $props();
 
 	let lang: Language = $derived($locale as Language);
+	let dialogOpen = $state(false);
 
 	let aSkeletonWidths = [
 		'w-5/12',
@@ -73,7 +75,35 @@
 					</span>
 				{/each}
 			</div>
-			<Button href={repo} class="w-full" variant="card-link" external>Show repository</Button>
+			<div class="flex gap-2">
+				<Dialog.Root bind:open={dialogOpen}>
+					<Dialog.Trigger>
+						{#snippet child({ props })}
+							<Button
+								{...props}
+								variant="outline"
+								class="shrink-0"
+								onclick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									dialogOpen = true;
+								}}
+							>
+								{$t('projects.readMore')}
+							</Button>
+						{/snippet}
+					</Dialog.Trigger>
+					<Dialog.Content>
+						<Dialog.Header>
+							<Dialog.Title>{name[lang]}</Dialog.Title>
+						</Dialog.Header>
+						<Dialog.Description>{description[lang]}</Dialog.Description>
+					</Dialog.Content>
+				</Dialog.Root>
+				<Button href={repo} class="flex-1" variant="card-link" external
+					>{$t('projects.repo')}</Button
+				>
+			</div>
 		</Card>
 	</Shine>
 	{#snippet loading()}
