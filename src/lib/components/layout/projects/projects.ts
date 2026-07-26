@@ -135,6 +135,16 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/7wonders-assistant'
 	},
 	{
+		name: { fr: 'Meeplog', en: 'Meeplog' },
+		description: {
+			fr: 'Blog perso sur les jeux de société (chroniques, retours de partie), développé en full-stack avec AdonisJS : auth, connexion GitHub, articles en markdown.',
+			en: 'Personal blog about board games (reviews, session reports), built full-stack with AdonisJS: auth, GitHub login, markdown articles.'
+		},
+		image: projectImages.meeplog,
+		tags: ['AdonisJS', 'Bootstrap', 'Typescript'],
+		repo: ENDPOINT_GITHUB + '/meeplog'
+	},
+	{
 		name: { fr: 'Portfolio', en: 'Portfolio' },
 		description: {
 			fr: 'Portfolio présentant mes projets et mes compétences',

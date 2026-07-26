@@ -15,6 +15,8 @@ import solidjsSpotube from './solidjs-spotube.webp';
 import solidjsOriflamme from './solidjs-oriflamme.webp';
 import solidjsPlaygroundsOrganizer from './solidjs-playgrounds-organizer.webp';
 
+import meeplog from './meeplog.webp';
+
 export {
 	defaultProject,
 	//
@@ -34,7 +36,9 @@ export {
 	//
 	solidjsSpotube,
 	solidjsOriflamme,
-	solidjsPlaygroundsOrganizer
+	solidjsPlaygroundsOrganizer,
+	//
+	meeplog
 };
 
 // 1657x932
