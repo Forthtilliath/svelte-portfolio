@@ -6,17 +6,12 @@
 	import projects from './projects';
 	import FrameworksGroup from './frameworks-group.svelte';
 	import Pagination from '$lib/components/shared/pagination.svelte';
-	import { derived, writable } from 'svelte/store';
 	import { t } from '$lib/translations';
+	import { filterProjectsByFrameworks } from './filter-projects';
 
-	let filterFrameworks = writable<Framework[]>([]);
+	let filterFrameworks = $state<Framework[]>([]);
 
-	let filteredProjects = derived([filterFrameworks], ([$filterFrameworks]) => {
-		return projects.filter(
-			(project) =>
-				$filterFrameworks.length === 0 || $filterFrameworks.some((f) => project.tags.includes(f))
-		);
-	});
+	let filteredProjects = $derived(filterProjectsByFrameworks(projects, filterFrameworks));
 </script>
 
 <Section className="flex items-center justify-start flex-col" id="projects">
@@ -24,10 +19,10 @@
 
 	<div class="pb-4">
 		<p class="p-3 text-center text-slate-200">{$t('projects.radio-description')}</p>
-		<FrameworksGroup bind:value={$filterFrameworks} />
+		<FrameworksGroup bind:value={filterFrameworks} />
 	</div>
 
-	<Pagination data={$filteredProjects} perPage={6} siblingCount={2}>
+	<Pagination data={filteredProjects} perPage={6} siblingCount={2}>
 		{#snippet card({ itemData })}
 			<article class="mx-auto w-full">
 				<ProjectCard {...itemData} />
