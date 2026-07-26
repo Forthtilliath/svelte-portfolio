@@ -2,6 +2,7 @@
 	import type { Component } from 'svelte';
 
 	interface Props {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any -- see Skill['icon'] in skills.ts
 		icon: Component<any>;
 		name: string;
 		color?: string | undefined;

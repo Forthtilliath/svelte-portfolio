@@ -16,13 +16,14 @@
 		border?: boolean;
 		shadow?: boolean;
 		node?: HTMLElement | undefined;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any -- svelte-tilt's own .d.ts has an inconsistent update() signature (requires full TiltSettings while accepting Partial), no sound non-any type satisfies both `tilt` and a no-op action here
 		use?: Action<HTMLElement, any>;
 		options?: object;
 		class?: string;
 		role?: string;
 		tilted?: boolean;
 		children?: Snippet;
-		[key: string]: any;
+		[key: string]: unknown;
 	}
 
 	let {
@@ -123,6 +124,7 @@
 		)
 	);
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- see `use` prop above
 	let tiltAction: Action<HTMLElement, any> = $derived(tilted ? tilt : () => {});
 </script>
 

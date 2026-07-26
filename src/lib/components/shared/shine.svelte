@@ -19,7 +19,7 @@
 		classes?: { root?: string; svg?: string };
 		class?: string;
 		children?: Snippet;
-		[key: string]: any;
+		[key: string]: unknown;
 	}
 
 	let {

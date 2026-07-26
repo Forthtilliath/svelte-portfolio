@@ -35,6 +35,7 @@ import Pnpm from '$lib/components/shared/icons/libraries/pnpm.svelte';
 
 export type Skill = {
 	name: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- icon components have genuinely different Props shapes (some `color` is a tuple, some non-optional); only ever rendered via the common subset in SkillIcon
 	icon: Component<any>;
 	color?: string;
 };
