@@ -11,7 +11,7 @@
 		placeholder?: string;
 		value: string;
 		multiline?: boolean;
-		[key: string]: any;
+		[key: string]: unknown;
 	};
 
 	let {
