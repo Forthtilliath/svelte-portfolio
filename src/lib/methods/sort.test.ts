@@ -3,11 +3,7 @@ import { sortStrings, sortStringsByKey } from './sort';
 
 describe('sortStrings', () => {
 	it('sorts strings alphabetically', () => {
-		expect(['banana', 'apple', 'cherry'].sort(sortStrings)).toEqual([
-			'apple',
-			'banana',
-			'cherry'
-		]);
+		expect(['banana', 'apple', 'cherry'].sort(sortStrings)).toEqual(['apple', 'banana', 'cherry']);
 	});
 
 	it('is locale-aware for accented characters', () => {
