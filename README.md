@@ -1,5 +1,7 @@
 # Portfolio — Vincent LISITA
 
+![License](https://img.shields.io/github/license/forthtilliath/vincent-lisita-portfolio?style=for-the-badge) [![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev/) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge) [![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
+
 Portfolio personnel de Vincent LISITA, développeur front-end. Présente ses compétences, ses projets, et propose plusieurs versions de CV ciblées par stack technique.
 
 **🔗 Live:** [vincent-lisita.vercel.app](https://vincent-lisita.vercel.app/)
