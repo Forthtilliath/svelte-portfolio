@@ -2,6 +2,7 @@
 	import '../../app.css';
 	import '../../global.css';
 	import { t } from '$lib/translations';
+	import { Toaster } from '$lib/components/ui/sonner';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -33,3 +34,5 @@
 </svelte:head>
 
 {@render children?.()}
+
+<Toaster />

@@ -41,7 +41,10 @@
 		"name": "Your name",
 		"email": "Your e-mail",
 		"message": "Your message",
-		"submit": "Send"
+		"submit": "Send",
+		"success": "Message sent! I'll get back to you soon.",
+		"rateLimited": "Too many messages sent. Please try again later.",
+		"error": "Something went wrong. Please try again."
 	},
 	"ui": {
 		"previous": "Previous",

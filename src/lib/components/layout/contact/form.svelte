@@ -17,6 +17,7 @@
 	import { zod4Client } from 'sveltekit-superforms/adapters';
 	import Field from './field.svelte';
 	import { t } from '$lib/translations';
+	import { toast } from 'svelte-sonner';
 
 	interface Props {
 		data: SuperForms.Data<typeof contactFormSchema>;
@@ -25,7 +26,15 @@
 	let { data }: Props = $props();
 
 	const form = superForm(data, {
-		validators: zod4Client(contactFormSchema)
+		validators: zod4Client(contactFormSchema),
+		resetForm: true,
+		onResult({ result }) {
+			if (result.type === 'success') {
+				toast.success($t('contact.success'));
+			} else if (result.type === 'failure' && result.status !== 400) {
+				toast.error(result.status === 429 ? $t('contact.rateLimited') : $t('contact.error'));
+			}
+		}
 	});
 
 	const { form: formData, enhance } = form;
