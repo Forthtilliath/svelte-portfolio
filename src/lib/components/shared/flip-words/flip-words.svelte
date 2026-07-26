@@ -45,7 +45,7 @@ You can display 4 words with a letter per dice.
 ```
 -->
 <div class={cn('flip-wrapper', className)}>
-	{#each transposedWords as letters, nth}
+	{#each transposedWords as letters, nth (nth)}
 		<FlipDice {letters} {size} {nth} {...options} />
 	{/each}
 </div>
