@@ -102,15 +102,15 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/oriflamme'
 	},
 	{
-		name: { fr: 'Navigation Page', en: 'Page Navigation' },
+		name: { fr: 'Preact TOC', en: 'Preact TOC' },
 		description: {
-			fr: 'Système de navigation dynamique avec Preact et Tailwind CSS.',
-			en: 'Dynamic Navigation System with Preact and Tailwind CSS'
+			fr: 'Hook headless pour Preact qui génère un sommaire avec scrollspy, publié sur npm sous @forthtilliath/preact-toc.',
+			en: 'Headless Preact hook that generates a scrollspy table of contents, published on npm as @forthtilliath/preact-toc.'
 		},
 		image: projectImages.preactPageNavigation,
-		tags: ['React', 'Tailwind', 'Typescript'],
-		url: 'https://forth-spotube.netlify.app/',
-		repo: ENDPOINT_GITHUB + '/preact-page-navigation'
+		tags: ['Preact', 'Tailwind', 'Typescript'],
+		url: 'https://preact-page-navigation.vercel.app/',
+		repo: ENDPOINT_GITHUB + '/preact-toc'
 	},
 	{
 		name: { fr: 'Organisateur Playgrounds', en: 'Playgrounds Organizer' },
