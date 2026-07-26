@@ -76,36 +76,51 @@
 				{/each}
 			</div>
 			<div class="flex gap-2">
-				<Dialog.Root bind:open={dialogOpen}>
-					<Dialog.Trigger>
-						{#snippet child({ props })}
-							<Button
-								{...props}
-								variant="outline"
-								class="shrink-0"
-								onclick={(e) => {
-									e.preventDefault();
-									e.stopPropagation();
-									dialogOpen = true;
-								}}
-							>
-								{$t('projects.readMore')}
-							</Button>
-						{/snippet}
-					</Dialog.Trigger>
-					<Dialog.Content>
-						<Dialog.Header>
-							<Dialog.Title>{name[lang]}</Dialog.Title>
-						</Dialog.Header>
-						<Dialog.Description>{description[lang]}</Dialog.Description>
-					</Dialog.Content>
-				</Dialog.Root>
+				<Button
+					type="button"
+					variant="outline"
+					class="shrink-0"
+					onclick={(e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						dialogOpen = true;
+					}}
+				>
+					{$t('projects.readMore')}
+				</Button>
 				<Button href={repo} class="flex-1" variant="card-link" external
 					>{$t('projects.repo')}</Button
 				>
 			</div>
 		</Card>
 	</Shine>
+
+	<Dialog.Root bind:open={dialogOpen}>
+		<Dialog.Content class="sm:max-w-lg">
+			{#if image}
+				<img src={image} alt={name[lang]} class="rounded-lg" />
+			{/if}
+			<Dialog.Header>
+				<Dialog.Title>{name[lang]}</Dialog.Title>
+			</Dialog.Header>
+			<Dialog.Description class="text-foreground">{description[lang]}</Dialog.Description>
+			<div class="flex flex-wrap gap-x-2">
+				{#each tags as tag (tag)}
+					<span class="font-serif text-sm">
+						<strong class="text-sky-500">#</strong>{tag}
+					</span>
+				{/each}
+			</div>
+			<Dialog.Footer>
+				<Dialog.Close>
+					{#snippet child({ props })}
+						<Button {...props} variant="outline">{$t('projects.close')}</Button>
+					{/snippet}
+				</Dialog.Close>
+				<Button href={repo} variant="card-link" external>{$t('projects.repo')}</Button>
+			</Dialog.Footer>
+		</Dialog.Content>
+	</Dialog.Root>
 	{#snippet loading()}
 		<Card img={image} size="xs" color="app-blue" padding="sm" skeleton class="bg-app-black mx-auto">
 			{@const contentLines = getRandom(3)}
