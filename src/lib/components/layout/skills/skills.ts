@@ -27,6 +27,7 @@ import Sql from '$lib/components/shared/icons/libraries/sql.svelte';
 
 import AdonisJs from '$lib/components/shared/icons/libraries/adonis-js.svelte';
 import Bootstrap from '$lib/components/shared/icons/libraries/bootstrap.svelte';
+import Preact from '$lib/components/shared/icons/libraries/preact.svelte';
 
 import Git from '$lib/components/shared/icons/libraries/git.svelte';
 import Github from '$lib/components/shared/icons/libraries/github.svelte';
@@ -120,6 +121,10 @@ const skills = {
 		{
 			name: 'Bootstrap',
 			icon: Bootstrap
+		},
+		{
+			name: 'Preact',
+			icon: Preact
 		}
 	],
 	languages: [
