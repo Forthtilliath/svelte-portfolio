@@ -67,7 +67,7 @@ const projects: Project[] = [
 		image: projectImages.solidjsSpotube,
 		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
 		url: 'https://forth-spotube.netlify.app/',
-		repo: ENDPOINT_GITHUB + '/solidjs-ts-lecteur'
+		repo: ENDPOINT_GITHUB + '/spotube'
 	},
 	{
 		name: { fr: 'Code Share', en: 'Code Share' },
