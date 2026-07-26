@@ -16,7 +16,7 @@
 </script>
 
 <ToggleGroup.Root type="multiple" class="h-auto gap-3 sm:gap-5" size="auto" spacing={1} bind:value>
-	{#each skills.frameworks as framework}
+	{#each skills.frameworks as framework (framework.name)}
 		<ToggleGroup.Item
 			value={framework.name}
 			aria-label={`Toggle ${framework.name}`}

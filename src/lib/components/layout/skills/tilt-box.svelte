@@ -24,7 +24,7 @@
 			{title}
 		</h2>
 		<div class="grid grid-cols-[repeat(auto-fill,minmax(7rem,1fr))] gap-4">
-			{#each list as skill}
+			{#each list as skill (skill.name)}
 				<SkillIcon {...skill} {...config} />
 			{/each}
 		</div>

@@ -67,7 +67,7 @@
 				{description[lang]}
 			</p>
 			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
-				{#each tags as tag}
+				{#each tags as tag (tag)}
 					<span class="group font-serif text-sm text-white">
 						<strong class="group-hover:text-sky-500">#</strong>{tag}
 					</span>
@@ -83,19 +83,19 @@
 			<!-- Title-->
 			<Skeleton class={cn('h-8', getSkeletonWidth())} />
 			<!-- Content -->
-			{#each { length: contentLines - 1 } as _}
+			{#each { length: contentLines - 1 } as _, i (i)}
 				<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
 			{/each}
 			<Skeleton class={cn('h-4', getSkeletonWidth())} />
-			{#each { length: 3 - contentLines } as _}
+			{#each { length: 3 - contentLines } as _, i (i)}
 				<div class="h-4 bg-transparent"></div>
 			{/each}
 			<!-- Tags -->
-			{#each { length: tagsLines - 1 } as _}
+			{#each { length: tagsLines - 1 } as _, i (i)}
 				<Skeleton class={cn('h-4', getSkeletonWidth())} />
 			{/each}
 			<Skeleton class={cn('h-4', getSkeletonWidth())} />
-			{#each { length: 2 - tagsLines } as _}
+			{#each { length: 2 - tagsLines } as _, i (i)}
 				<div class="h-5 bg-transparent"></div>
 			{/each}
 			<!-- Button -->
