@@ -51,40 +51,40 @@
 		specularConstant={0.3}
 		specularExponent={200}
 	>
-		<Card
-			img={image}
-			size="xs"
-			color="app-blue"
-			padding="sm"
-			aria-label={$t('projects.display', { name: name[lang] })}
-			class="bg-app-black mx-auto"
-			href={url}
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-				{name[lang]}
-			</h5>
-			<p class="line-clamp-3 h-[60px] leading-tight font-normal text-gray-700 dark:text-gray-400">
-				{description[lang]}
-			</p>
-			<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
-				{#each tags as tag (tag)}
-					<span class="group font-serif text-sm text-white">
-						<strong class="group-hover:text-sky-500">#</strong>{tag}
-					</span>
-				{/each}
-			</div>
-			<div class="flex gap-2">
+		<div class="mx-auto flex max-w-xs flex-col">
+			<Card
+				img={image}
+				size="none"
+				color="app-blue"
+				padding="sm"
+				aria-label={$t('projects.display', { name: name[lang] })}
+				class="bg-app-black rounded-b-none"
+				href={url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					{name[lang]}
+				</h5>
+				<p class="line-clamp-3 h-[60px] leading-tight font-normal text-gray-700 dark:text-gray-400">
+					{description[lang]}
+				</p>
+				<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
+					{#each tags as tag (tag)}
+						<span class="group font-serif text-sm text-white">
+							<strong class="group-hover:text-sky-500">#</strong>{tag}
+						</span>
+					{/each}
+				</div>
+			</Card>
+			<!-- Outside the card's own <a> on purpose: these are real buttons/dialog triggers, not
+			     navigation to the project's live url, and must never sit inside that anchor. -->
+			<div class="bg-app-black ring-app-blue flex gap-2 rounded-b-lg p-4 ring-1">
 				<Button
 					type="button"
 					variant="outline"
 					class="shrink-0"
-					onclick={(e) => {
-						e.preventDefault();
-						e.stopPropagation();
-						dialogOpen = true;
-					}}
+					onclick={() => (dialogOpen = true)}
 				>
 					{$t('projects.readMore')}
 				</Button>
@@ -92,7 +92,7 @@
 					>{$t('projects.repo')}</Button
 				>
 			</div>
-		</Card>
+		</div>
 	</Shine>
 
 	<Dialog.Root bind:open={dialogOpen}>
