@@ -97,7 +97,7 @@ const projects: Project[] = [
 			en: 'The Rotisserie Sandwich House provides an authentic culinary experience with its artisanal grilled meats and gourmet sandwiches, available on order and home delivery through The Brothers Forks.'
 		},
 		image: projectImages.solidjsOriflamme,
-		tags: ['SolidJS', 'CSS Modules', 'SCSS', 'Typescript'],
+		tags: ['SolidJS', 'Tailwind', 'Typescript'],
 		url: 'https://forth-oriflamme.netlify.app/',
 		repo: ENDPOINT_GITHUB + '/solid-ts-restaurant'
 	},
