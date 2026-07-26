@@ -35,7 +35,8 @@
 		"radio-description": "Cliquez pour filtrer les projets",
 		"display": "Ouvrir le projet : {{name}}",
 		"readMore": "Voir plus",
-		"repo": "Voir le repo"
+		"repo": "Voir le repo",
+		"close": "Fermer"
 	},
 	"contact": {
 		"title": "Contactez-moi",
