@@ -25,6 +25,9 @@ import Typescript from '$lib/components/shared/icons/libraries/typescript.svelte
 import GraphQl from '$lib/components/shared/icons/libraries/graph-ql.svelte';
 import Sql from '$lib/components/shared/icons/libraries/sql.svelte';
 
+import AdonisJs from '$lib/components/shared/icons/libraries/adonis-js.svelte';
+import Bootstrap from '$lib/components/shared/icons/libraries/bootstrap.svelte';
+
 import Git from '$lib/components/shared/icons/libraries/git.svelte';
 import Github from '$lib/components/shared/icons/libraries/github.svelte';
 import VsCode from '$lib/components/shared/icons/libraries/vs-code.svelte';
@@ -109,6 +112,14 @@ const skills = {
 		{
 			name: 'Vitest',
 			icon: Vitest
+		},
+		{
+			name: 'AdonisJS',
+			icon: AdonisJs
+		},
+		{
+			name: 'Bootstrap',
+			icon: Bootstrap
 		}
 	],
 	languages: [
