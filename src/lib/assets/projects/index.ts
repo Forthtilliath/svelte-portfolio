@@ -16,6 +16,7 @@ import solidjsOriflamme from './solidjs-oriflamme.webp';
 import solidjsPlaygroundsOrganizer from './solidjs-playgrounds-organizer.webp';
 
 import meeplog from './meeplog.webp';
+import devwind from './devwind.webp';
 
 export {
 	defaultProject,
@@ -38,7 +39,8 @@ export {
 	solidjsOriflamme,
 	solidjsPlaygroundsOrganizer,
 	//
-	meeplog
+	meeplog,
+	devwind
 };
 
 // 1657x932

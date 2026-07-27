@@ -145,6 +145,16 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/meeplog'
 	},
 	{
+		name: { fr: 'DevWind', en: 'DevWind' },
+		description: {
+			fr: "Extension Chrome pour éditer visuellement les classes Tailwind CSS v4 en direct sur n'importe quel site : picker visuel, panneau de classes par catégorie, synthèse CSS live, contrôle de contraste WCAG.",
+			en: 'Chrome extension to visually edit Tailwind CSS v4 classes live on any site: visual picker, categorized class panel, live CSS synthesis, WCAG contrast checking.'
+		},
+		image: projectImages.devwind,
+		tags: ['React', 'Tailwind', 'Typescript', 'Zustand', 'Vite', 'Chrome Extension'],
+		repo: ENDPOINT_GITHUB + '/devwind'
+	},
+	{
 		name: { fr: 'Portfolio', en: 'Portfolio' },
 		description: {
 			fr: 'Portfolio présentant mes projets et mes compétences',
