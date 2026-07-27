@@ -28,6 +28,7 @@ import Sql from '$lib/components/shared/icons/libraries/sql.svelte';
 import AdonisJs from '$lib/components/shared/icons/libraries/adonis-js.svelte';
 import Bootstrap from '$lib/components/shared/icons/libraries/bootstrap.svelte';
 import Preact from '$lib/components/shared/icons/libraries/preact.svelte';
+import ChromeExtension from '$lib/components/shared/icons/libraries/chrome-extension.svelte';
 
 import Git from '$lib/components/shared/icons/libraries/git.svelte';
 import Github from '$lib/components/shared/icons/libraries/github.svelte';
@@ -125,6 +126,10 @@ const skills = {
 		{
 			name: 'Preact',
 			icon: Preact
+		},
+		{
+			name: 'Chrome Extension',
+			icon: ChromeExtension
 		}
 	],
 	languages: [
