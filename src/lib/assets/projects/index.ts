@@ -5,6 +5,7 @@ import reactDolla from './react-dolla.webp';
 
 import nextjsRiotApi from './nextjs-riot-api.webp';
 import nextjsGreenBank from './nextjs-green-bank.webp';
+import nextjsChoeurDeRole from './nextjs-choeur-de-role.webp';
 
 import sveltekitPortfolio from './sveltekit-portfolio.webp';
 import sveltekitAdventOfSvelte from './sveltekit-advent-of-svelte.webp';
@@ -28,6 +29,7 @@ export {
 	//
 	nextjsRiotApi,
 	nextjsGreenBank,
+	nextjsChoeurDeRole,
 	//
 	//
 	sveltekitPortfolio,
