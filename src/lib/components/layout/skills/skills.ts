@@ -37,6 +37,7 @@ import Prisma from '$lib/components/shared/icons/libraries/prisma.svelte';
 import MongoDB from '$lib/components/shared/icons/libraries/mongo-db.svelte';
 import Vite from '$lib/components/shared/icons/libraries/vite.svelte';
 import Pnpm from '$lib/components/shared/icons/libraries/pnpm.svelte';
+import Supabase from '$lib/components/shared/icons/libraries/supabase.svelte';
 
 export type Skill = {
 	name: string;
@@ -174,6 +175,10 @@ const skills = {
 		{
 			name: 'Vite',
 			icon: Vite
+		},
+		{
+			name: 'Supabase',
+			icon: Supabase
 		}
 	]
 } as const satisfies Record<string, Skill[]>;
