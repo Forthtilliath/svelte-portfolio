@@ -10,4 +10,8 @@ node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /.vscode/settings.json
-UPGRADES.md
+
+# Notes de travail personnelles (non partagées) : tous les .md sauf whitelist explicite
+*.md
+!README.md
+!CHANGELOG.md
