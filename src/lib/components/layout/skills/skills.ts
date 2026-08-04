@@ -7,6 +7,7 @@ import React from '$lib/components/shared/icons/libraries/react.svelte';
 import SolidJS from '$lib/components/shared/icons/libraries/solid-js.svelte';
 import Svelte from '$lib/components/shared/icons/libraries/svelte.svelte';
 import NextJS from '$lib/components/shared/icons/libraries/next-js.svelte';
+import ReactNative from '$lib/components/shared/icons/libraries/react-native.svelte';
 
 import CSSModules from '$lib/components/shared/icons/libraries/css-modules.svelte';
 import SCSS from '$lib/components/shared/icons/libraries/sass.svelte';
@@ -29,6 +30,7 @@ import AdonisJs from '$lib/components/shared/icons/libraries/adonis-js.svelte';
 import Bootstrap from '$lib/components/shared/icons/libraries/bootstrap.svelte';
 import Preact from '$lib/components/shared/icons/libraries/preact.svelte';
 import ChromeExtension from '$lib/components/shared/icons/libraries/chrome-extension.svelte';
+import Expo from '$lib/components/shared/icons/libraries/expo.svelte';
 
 import Git from '$lib/components/shared/icons/libraries/git.svelte';
 import Github from '$lib/components/shared/icons/libraries/github.svelte';
@@ -66,6 +68,10 @@ const skills = {
 		{
 			name: 'Sveltekit',
 			icon: Svelte
+		},
+		{
+			name: 'React Native',
+			icon: ReactNative
 		}
 	],
 	css: [
@@ -131,6 +137,10 @@ const skills = {
 		{
 			name: 'Chrome Extension',
 			icon: ChromeExtension
+		},
+		{
+			name: 'Expo',
+			icon: Expo
 		}
 	],
 	languages: [
