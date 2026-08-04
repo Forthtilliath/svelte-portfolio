@@ -100,6 +100,15 @@ const projects: Project[] = [
 		repo: ENDPOINT_GITHUB + '/devwind'
 	},
 	{
+		name: { fr: 'Glucodose', en: 'Glucodose' },
+		description: {
+			fr: "Application mobile qui calcule la dose d'insuline au repas à partir du poids des aliments pesés : gestion des récipients, des aliments/recettes (base Ciqual de l'Anses), historique exportable en PDF/CSV.",
+			en: 'Mobile app that calculates meal insulin dosing from the weighed food: container and food/recipe management (Ciqual/Anses database), history exportable to PDF/CSV.'
+		},
+		tags: ['React Native', 'Expo', 'Typescript'],
+		repo: ENDPOINT_GITHUB + '/glucodose'
+	},
+	{
 		name: { fr: 'Portfolio', en: 'Portfolio' },
 		description: {
 			fr: 'Portfolio présentant mes projets et mes compétences',
