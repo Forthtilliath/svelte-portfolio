@@ -32,7 +32,7 @@
 	</div> -->
 	{:else if template === 'resto'}
 		<div class="content-date">
-			<span>Déc 2025</span>
+			<span>Déc. 2025</span>
 			<span>(en cours)</span>
 		</div>
 		<div class="content-infos">
@@ -98,75 +98,3 @@
 		</div>
 	{/if}
 </div>
-
-<style lang="scss">
-	.training {
-		display: grid;
-		grid-template-columns: var(--contentbar-width) 1fr;
-		grid-template-rows: auto;
-		gap: var(--training-spacing) 0;
-	}
-
-	.content-title {
-		grid-column: span 2;
-
-		font-family: var(--font-header);
-		font-size: 1.6em;
-		font-weight: 600;
-		text-transform: uppercase;
-		margin-top: 0.75rem;
-		padding: 0.25rem 2rem;
-		background: var(--sidebar-bg);
-		background: var(--contentbar-bg);
-	}
-
-	.content-date {
-		font-family: var(--font-header);
-		font-size: 1.2em;
-		font-weight: 600;
-		text-align: end;
-		padding-inline: 0.75rem;
-
-		&:has(:global(span)) {
-			display: flex;
-			flex-direction: column;
-
-			span:nth-child(2) {
-				font-size: 0.8em;
-			}
-		}
-	}
-
-	.infos-title {
-		font-size: 1.6em;
-		color: var(--formation-title-color);
-		padding-inline: 1rem;
-		line-height: 1.2em;
-	}
-
-	.infos-subtitle {
-		font-size: 1.4em;
-		// color: color-mix(in hsl, var(--header-bg-color) 80%, transparent);
-		color: var(--formation-subtitle-color);
-		padding-inline: 1rem;
-		line-height: 1.3rem;
-	}
-
-	.infos-location,
-	.infos-description {
-		font-size: 1.2em;
-		padding-inline: 1rem;
-		color: var(--formation-content-color);
-		// margin-top: -0.2rem;
-	}
-
-	ul.infos-description {
-		padding-top: 0.5rem;
-		li {
-			position: relative;
-			line-height: 1.5em;
-			margin-left: 1rem;
-			// margin-bottom: 0.5rem;
-		}
-	}
-</style>
