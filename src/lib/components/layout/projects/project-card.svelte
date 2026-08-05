@@ -5,6 +5,7 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import type { Project } from './projects';
 	import Shine from '$lib/components/shared/shine.svelte';
+	import ProjectTag from './project-tag.svelte';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import { cn } from '$lib/utils';
 	import { t, locale, type Language } from '$lib/translations';
@@ -69,11 +70,9 @@
 				<p class="line-clamp-3 h-[60px] leading-tight font-normal text-gray-700 dark:text-gray-400">
 					{description[lang]}
 				</p>
-				<div class="line-clamp-2 flex h-12 flex-wrap gap-x-2">
+				<div class="flex h-14 flex-wrap content-start gap-1.5 overflow-hidden">
 					{#each tags as tag (tag)}
-						<span class="group font-serif text-sm text-white">
-							<strong class="group-hover:text-sky-500">#</strong>{tag}
-						</span>
+						<ProjectTag {tag} />
 					{/each}
 				</div>
 			</Card>
@@ -104,11 +103,9 @@
 				<Dialog.Title>{name[lang]}</Dialog.Title>
 			</Dialog.Header>
 			<Dialog.Description class="text-foreground">{description[lang]}</Dialog.Description>
-			<div class="flex flex-wrap gap-x-2">
+			<div class="flex flex-wrap gap-1.5">
 				{#each tags as tag (tag)}
-					<span class="font-serif text-sm">
-						<strong class="text-sky-500">#</strong>{tag}
-					</span>
+					<ProjectTag {tag} />
 				{/each}
 			</div>
 			<Dialog.Footer>
