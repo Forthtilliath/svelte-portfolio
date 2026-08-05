@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SidebarCard from './sidebar-card.svelte';
+	import { interests } from './cv-content';
 </script>
 
 <SidebarCard aria-label="centres d'intérêt">
@@ -7,7 +8,8 @@
 		<span>Centres d'intérêt</span>
 	</header>
 	<ul class="card-content" role="list">
-		<li>🎲 Passionné de jeux de société</li>
-		<li>🎤 Chant dans une chorale</li>
+		{#each interests as item (item.text)}
+			<li>{item.emoji} {item.text}</li>
+		{/each}
 	</ul>
 </SidebarCard>

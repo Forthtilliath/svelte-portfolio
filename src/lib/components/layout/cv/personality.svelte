@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SidebarCard from './sidebar-card.svelte';
+	import { personality } from './cv-content';
 </script>
 
 <SidebarCard aria-label="personnalité">
@@ -7,13 +8,8 @@
 		<span>Personnalité</span>
 	</header>
 	<ul class="card-content" role="list">
-		<li>Adaptabilité</li>
-		<li>Autonomie</li>
-		<li>Curiosité</li>
-		<li>Logique</li>
-		<li>Rigoureux</li>
-		<li>Travail en équipe</li>
-		<li>Patience</li>
-		<li>Ténacité</li>
+		{#each personality as trait (trait)}
+			<li>{trait}</li>
+		{/each}
 	</ul>
 </SidebarCard>
