@@ -9,9 +9,11 @@
 	import { t } from '$lib/translations';
 	import { filterProjectsByFrameworks } from './filter-projects';
 
-	let filterFrameworks = $state<Framework[]>([]);
+	let filterFramework = $state<Framework | ''>('');
 
-	let filteredProjects = $derived(filterProjectsByFrameworks(projects, filterFrameworks));
+	let filteredProjects = $derived(
+		filterProjectsByFrameworks(projects, filterFramework ? [filterFramework] : [])
+	);
 </script>
 
 <Section className="flex items-center justify-start flex-col" id="projects">
@@ -19,7 +21,7 @@
 
 	<div class="pb-4">
 		<p class="p-3 text-center text-slate-200">{$t('projects.radio-description')}</p>
-		<FrameworksGroup bind:value={filterFrameworks} />
+		<FrameworksGroup bind:value={filterFramework} />
 	</div>
 
 	<Pagination data={filteredProjects} perPage={6} siblingCount={2}>

@@ -5,17 +5,17 @@
 	import { skills } from '$lib/components/layout/skills';
 
 	interface Props {
-		value?: string[] | undefined;
+		value?: string | undefined;
 	}
 
-	let { value = $bindable(undefined) }: Props = $props();
+	let { value = $bindable('') }: Props = $props();
 
 	const config = {
 		// size: 48
 	};
 </script>
 
-<ToggleGroup.Root type="multiple" class="h-auto gap-3 sm:gap-5" size="auto" spacing={1} bind:value>
+<ToggleGroup.Root type="single" class="h-auto gap-3 sm:gap-5" size="auto" spacing={1} bind:value>
 	{#each skills.frameworks as framework (framework.name)}
 		<ToggleGroup.Item
 			value={framework.name}
