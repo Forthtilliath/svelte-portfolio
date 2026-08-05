@@ -24,6 +24,13 @@
 	let lang: Language = $derived($locale as Language);
 	let dialogOpen = $state(false);
 
+	// Hard cap on the card so a project with an unusually long tag list can
+	// never overflow its fixed-height tag row; the dialog ("Voir plus") isn't
+	// height-constrained and always shows every tag.
+	const MAX_VISIBLE_TAGS = 7;
+	let visibleTags = $derived(tags.slice(0, MAX_VISIBLE_TAGS));
+	let hiddenTagsCount = $derived(Math.max(0, tags.length - MAX_VISIBLE_TAGS));
+
 	let aSkeletonWidths = [
 		'w-5/12',
 		'w-6/12',
@@ -40,6 +47,15 @@
 	function getRandom(n: number) {
 		return Math.floor(Math.random() * n) + 1;
 	}
+
+	// Computed once per card instance instead of inline in the template, so the
+	// skeleton layout stays stable across re-renders instead of reshuffling
+	// (jittering) every time this component re-renders while still loading.
+	const skeletonContentLines = getRandom(3);
+	const skeletonTagsLines = getRandom(2);
+	const skeletonTitleWidth = getSkeletonWidth();
+	const skeletonContentWidths = Array.from({ length: skeletonContentLines }, getSkeletonWidth);
+	const skeletonTagsWidths = Array.from({ length: skeletonTagsLines }, getSkeletonWidth);
 </script>
 
 <!-- TODO: Bouton pour afficher plus d'infos -->
@@ -71,9 +87,12 @@
 					{description[lang]}
 				</p>
 				<div class="flex h-14 flex-wrap content-start gap-1.5 overflow-hidden">
-					{#each tags as tag (tag)}
+					{#each visibleTags as tag (tag)}
 						<ProjectTag {tag} />
 					{/each}
+					{#if hiddenTagsCount > 0}
+						<ProjectTag tag={`+${hiddenTagsCount}`} />
+					{/if}
 				</div>
 			</Card>
 			<!-- Outside the card's own <a> on purpose: these are real buttons/dialog triggers, not
@@ -122,24 +141,22 @@
 	</Dialog.Root>
 	{#snippet loading()}
 		<Card img={image} size="xs" color="app-blue" padding="sm" skeleton class="bg-app-black mx-auto">
-			{@const contentLines = getRandom(3)}
-			{@const tagsLines = getRandom(2)}
 			<!-- Title-->
-			<Skeleton class={cn('h-8', getSkeletonWidth())} />
+			<Skeleton class={cn('h-8', skeletonTitleWidth)} />
 			<!-- Content -->
-			{#each { length: contentLines - 1 } as _, i (i)}
-				<Skeleton class={cn('h-4 w-full', getSkeletonWidth())} />
+			{#each skeletonContentWidths.slice(0, -1) as width, i (i)}
+				<Skeleton class={cn('h-4 w-full', width)} />
 			{/each}
-			<Skeleton class={cn('h-4', getSkeletonWidth())} />
-			{#each { length: 3 - contentLines } as _, i (i)}
+			<Skeleton class={cn('h-4', skeletonContentWidths.at(-1))} />
+			{#each { length: 3 - skeletonContentLines } as _, i (i)}
 				<div class="h-4 bg-transparent"></div>
 			{/each}
 			<!-- Tags -->
-			{#each { length: tagsLines - 1 } as _, i (i)}
-				<Skeleton class={cn('h-4', getSkeletonWidth())} />
+			{#each skeletonTagsWidths.slice(0, -1) as width, i (i)}
+				<Skeleton class={cn('h-4', width)} />
 			{/each}
-			<Skeleton class={cn('h-4', getSkeletonWidth())} />
-			{#each { length: 2 - tagsLines } as _, i (i)}
+			<Skeleton class={cn('h-4', skeletonTagsWidths.at(-1))} />
+			{#each { length: 2 - skeletonTagsLines } as _, i (i)}
 				<div class="h-5 bg-transparent"></div>
 			{/each}
 			<!-- Button -->
