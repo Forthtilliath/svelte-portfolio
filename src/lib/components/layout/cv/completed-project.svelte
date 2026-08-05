@@ -1,12 +1,4 @@
-<script lang="ts">
-	interface Props {
-		restauration?: boolean;
-	}
-
-	let { restauration = false }: Props = $props();
-</script>
-
-<div class="training" class:restauration>
+<div class="training">
 	<h2 class="content-title">Projets réalisés</h2>
 
 	<div class="content-date">2023</div>
@@ -51,61 +43,3 @@
 		</ul>
 	</div>
 </div>
-
-<style lang="scss">
-	.training {
-		display: grid;
-		grid-template-columns: var(--contentbar-width) 1fr;
-		grid-template-rows: auto;
-		gap: 0.75rem 0;
-	}
-
-	.content-title {
-		grid-column: span 2;
-
-		font-family: var(--font-header);
-		font-size: 1.6em;
-		font-weight: 600;
-		text-transform: uppercase;
-		margin-top: 0.75rem;
-		padding: 0.25rem 2rem;
-		background: var(--sidebar-bg);
-		background: var(--contentbar-bg);
-	}
-
-	.content-date {
-		font-family: var(--font-header);
-		font-size: 1.2em;
-		font-weight: 600;
-		text-align: end;
-		padding-inline: 0.75rem;
-	}
-
-	.infos-title {
-		font-size: 1.6em;
-		color: var(--formation-title-color);
-		padding-inline: 1rem;
-		line-height: 1.2em;
-	}
-
-	.infos-description {
-		font-size: 1.2em;
-		padding-inline: 1rem;
-		color: var(--formation-content-color);
-		// margin-top: -0.2rem;
-
-		:where(:global(.restauration)) & > li {
-			margin-top: 0.15rem;
-		}
-	}
-
-	ul.infos-description {
-		padding-top: 0.5rem;
-		li {
-			position: relative;
-			line-height: 1.5em;
-			margin-left: 1rem;
-			// margin-bottom: 0.5rem;
-		}
-	}
-</style>
