@@ -31,6 +31,13 @@
 			</a>
 		</li>
 	</ul>
+	<!-- URLs en clair : les QR codes et le texte des liens (href non extrait)
+	     sont invisibles pour un robot de lecture de CV en texte brut. -->
+	<ul class="card-content social-urls" role="list">
+		<li>vincent-lisita.vercel.app</li>
+		<li>linkedin.com/in/vincent-lisita</li>
+		<li>github.com/Forthtilliath</li>
+	</ul>
 </SidebarCard>
 
 <style lang="scss">
@@ -105,6 +112,19 @@
 			text-align: center;
 			width: 100%;
 			display: block;
+		}
+	}
+
+	.social-urls {
+		padding-top: 0.05rem;
+		li {
+			font-size: 0.55em;
+			line-height: 1em;
+			word-break: break-all;
+			/* Présent pour les robots de lecture de CV (texte brut), invisible
+			   pour un humain : même couleur que le fond, non sélectionnable. */
+			color: var(--sidebar-bg);
+			user-select: none;
 		}
 	}
 </style>
