@@ -43,4 +43,22 @@ describe('filterProjectsByFrameworks', () => {
 		filterProjectsByFrameworks(allProjects, ['React']);
 		expect(allProjects).toEqual(copy);
 	});
+
+	it('returns an empty array when there are no projects', () => {
+		expect(filterProjectsByFrameworks([], ['React'])).toEqual([]);
+	});
+
+	it('excludes a project with no tags as soon as a framework is selected', () => {
+		const untagged = makeProject('untagged-project', []);
+		expect(filterProjectsByFrameworks([untagged], ['React'])).toEqual([]);
+	});
+
+	it('includes a project with no tags when no framework is selected', () => {
+		const untagged = makeProject('untagged-project', []);
+		expect(filterProjectsByFrameworks([untagged], [])).toEqual([untagged]);
+	});
+
+	it('is unaffected by duplicate frameworks in the filter list', () => {
+		expect(filterProjectsByFrameworks(allProjects, ['React', 'React'])).toEqual([react, both]);
+	});
 });
