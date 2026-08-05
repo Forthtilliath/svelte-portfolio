@@ -11,7 +11,7 @@
 	let [color1, color2] = $derived(Array.isArray(color) ? color : [color, color]);
 </script>
 
-<svg style:width={sizePx} style:height={sizePx} viewBox="0 0 256 256" class={className}>
+<svg width={sizePx} height={sizePx} viewBox="0 0 256 256" class={className}>
 	<defs>
 		<circle id="next-path-1" cx="128" cy="128" r="128" />
 		<linearGradient
