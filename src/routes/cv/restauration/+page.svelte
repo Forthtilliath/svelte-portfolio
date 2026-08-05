@@ -68,24 +68,14 @@
 
 		--header-bg-color: var(--color-3);
 		--header-text-color: var(--color-white);
-		--header-height: 200px;
 		--header-top: 130px;
 
 		--sidebar-bg: var(--color-2);
-		--sidebar-width: 230px;
-		--sidebar-left: 50px;
-
 		--sidebar-line-color: var(--color-3);
 		--sidebar-spacing: 1rem;
-		--sidebar-content-spacing: 0.25rem;
 		--sidebar-title-fontsize: 1.8em;
 
-		--photo-width: 190px;
-		--socials-ratio: 1/1;
-
 		--contentbar-bg: var(--color-1);
-		--contentbar-width: 110px;
-
 		--li-style-color: var(--color-3);
 
 		--training-spacing: 1rem;

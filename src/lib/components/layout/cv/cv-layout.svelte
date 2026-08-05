@@ -40,6 +40,17 @@
 		background: white;
 
 		position: relative;
+
+		/* Defaults shared by every theme (fullstack/react/sveltekit/restauration).
+		   Each page's :global(.<template>) rule only needs to override colors
+		   and the handful of values that actually differ (see restauration). */
+		--header-height: 200px;
+		--sidebar-width: 230px;
+		--sidebar-left: 50px;
+		--sidebar-content-spacing: 0.25rem;
+		--photo-width: 190px;
+		--socials-ratio: 1/1;
+		--contentbar-width: 110px;
 	}
 
 	@media print {
