@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SidebarCard from './sidebar-card.svelte';
+	import { languages } from './cv-content';
 </script>
 
 <SidebarCard aria-label="langues">
@@ -7,7 +8,8 @@
 		<span>Langues</span>
 	</header>
 	<ul class="card-content" role="list">
-		<li>Français - Courant</li>
-		<li>Anglais - Intermédiaire</li>
+		{#each languages as lang (lang.name)}
+			<li>{lang.name} - {lang.level}</li>
+		{/each}
 	</ul>
 </SidebarCard>

@@ -1,42 +1,29 @@
 <script lang="ts">
 	import SidebarCard from './sidebar-card.svelte';
+	import { socials } from './cv-content';
 </script>
 
 <SidebarCard aria-label="réseaux sociaux">
-	<!-- Socials links -->
 	<header class="card-title">
 		<span>Réseaux Sociaux</span>
 	</header>
 	<ul class="card-content card-socials" role="list">
-		<li class="card-social">
-			<a href="https://vincent-lisita.vercel.app" target="_blank" rel="noopener noreferrer">
-				<img src="/qrcode_pf.png" alt="qrcode portfolio" />
-				<span>Portfolio</span>
-			</a>
-		</li>
-		<li class="card-social social-linkedin">
-			<a
-				href="https://www.linkedin.com/in/vincent-lisita/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<img src="/qrcode_ln.png" alt="qrcode linkedin" />
-				<span>Linkedin</span>
-			</a>
-		</li>
-		<li class="card-social">
-			<a href="https://github.com/Forthtilliath" target="_blank" rel="noopener noreferrer">
-				<img src="/qrcode_gh.png" alt="qrcode github" />
-				<span>Github</span>
-			</a>
-		</li>
+		{#each socials as social (social.key)}
+			<li class="card-social" class:social-linkedin={social.key === 'linkedin'}>
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- external URL, not a SvelteKit route -->
+				<a href={social.href} target="_blank" rel="noopener noreferrer">
+					<img src={social.qrSrc} alt={social.qrAlt} />
+					<span>{social.label}</span>
+				</a>
+			</li>
+		{/each}
 	</ul>
 	<!-- URLs en clair : les QR codes et le texte des liens (href non extrait)
 	     sont invisibles pour un robot de lecture de CV en texte brut. -->
 	<ul class="card-content social-urls" role="list">
-		<li>vincent-lisita.vercel.app</li>
-		<li>linkedin.com/in/vincent-lisita</li>
-		<li>github.com/Forthtilliath</li>
+		{#each socials as social (social.key)}
+			<li>{social.displayUrl}</li>
+		{/each}
 	</ul>
 </SidebarCard>
 
