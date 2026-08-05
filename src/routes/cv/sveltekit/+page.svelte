@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import AboutMe from '$lib/components/layout/cv/about-me.svelte';
 	import BtnPrint from '$lib/components/layout/cv/btn-print.svelte';
+	import BtnTextVersion from '$lib/components/layout/cv/btn-text-version.svelte';
 	import CompletedProject from '$lib/components/layout/cv/completed-project.svelte';
 	import CvLayout from '$lib/components/layout/cv/cv-layout.svelte';
 	import Informations from '$lib/components/layout/cv/informations.svelte';
@@ -63,6 +65,7 @@
 	{/snippet}
 </CvLayout>
 <BtnPrint filename="sveltekit" />
+<BtnTextVersion href={resolve('/cv/sveltekit/texte')} />
 
 <style lang="scss">
 	:global(.sveltekit) {

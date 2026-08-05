@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import AboutMe from '$lib/components/layout/cv/about-me.svelte';
 	import BtnPrint from '$lib/components/layout/cv/btn-print.svelte';
+	import BtnTextVersion from '$lib/components/layout/cv/btn-text-version.svelte';
 	import CvLayout from '$lib/components/layout/cv/cv-layout.svelte';
 	import Informations from '$lib/components/layout/cv/informations.svelte';
 	import Interests from '$lib/components/layout/cv/interests.svelte';
@@ -55,6 +57,7 @@
 	{/snippet}
 </CvLayout>
 <BtnPrint filename="restauration" />
+<BtnTextVersion href={resolve('/cv/restauration/texte')} />
 
 <!-- Add button with link to pdf version -->
 <style lang="scss">
