@@ -52,7 +52,7 @@
 			<menu
 				id="primary-menu"
 				class={[
-					'font-poppins m-0 list-none',
+					'm-0 list-none',
 					'md:static md:flex md:flex-1 md:flex-row md:items-center md:justify-end md:gap-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none',
 					mobileOpen
 						? 'bg-app-black/95 absolute inset-x-0 top-full flex flex-col gap-y-4 border-t border-white/10 p-6 backdrop-blur-sm'

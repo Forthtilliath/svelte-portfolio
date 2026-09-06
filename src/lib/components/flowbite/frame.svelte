@@ -62,9 +62,9 @@
 		navbar: 'bg-white dark:bg-gray-900',
 		navbarUl: 'bg-gray-50 dark:bg-gray-800',
 		form: 'bg-gray-50 dark:bg-gray-700',
-		primary: 'bg-primary-50 dark:bg-gray-800 ',
+		primary: 'bg-primary dark:bg-gray-800 ',
 		orange: 'bg-orange-50 dark:bg-orange-800',
-		'app-blue': 'bg-app-blue-dark',
+		'app-blue': 'bg-app-blue',
 		none: ''
 	};
 
@@ -84,7 +84,7 @@
 		navbar: 'text-gray-700 dark:text-gray-200',
 		navbarUl: 'text-gray-700 dark:text-gray-400',
 		form: 'text-gray-900 dark:text-white',
-		primary: 'text-primary-800 dark:text-primary-400',
+		primary: 'text-primary dark:text-primary',
 		orange: 'text-orange-800 dark:text-orange-400',
 		'app-blue': 'text-app-blue',
 		none: ''
@@ -106,7 +106,7 @@
 		navbar: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
 		navbarUl: 'ring-gray-100 dark:ring-gray-700 divide-gray-100 dark:divide-gray-700',
 		form: 'ring-gray-300 dark:ring-gray-700 divide-gray-300 dark:divide-gray-700',
-		primary: 'ring-primary-500 dark:ring-primary-200  divide-primary-500 dark:divide-primary-200 ',
+		primary: 'ring-primary dark:ring-primary divide-primary dark:divide-primary',
 		orange: 'ring-orange-300 dark:ring-orange-800 divide-orange-300 dark:divide-orange-800',
 		'app-blue': 'ring-app-blue divide-app-blue',
 		none: ''
