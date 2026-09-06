@@ -42,7 +42,7 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<form method="POST" action="?/sendMessage" use:enhance class="w-[400px] max-w-full space-y-4">
+<form method="POST" action="?/sendMessage" use:enhance class="w-100 max-w-full space-y-4">
 	<Field
 		{form}
 		name="name"
@@ -63,7 +63,7 @@
 		label={$t('contact.message')}
 		bind:value={$formData.message}
 		multiline
-		class="max-h-[200px]"
+		class="max-h-50"
 	/>
 
 	<Form.Button class="mt-4">{$t('contact.submit')}</Form.Button>

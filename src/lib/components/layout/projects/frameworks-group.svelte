@@ -20,10 +20,10 @@
 		<ToggleGroup.Item
 			value={framework.name}
 			aria-label={`Toggle ${framework.name}`}
-			class="h-14 w-14 border p-0 hover:border-white sm:h-28 sm:w-28"
+			class="size-14 border p-0 hover:border-white sm:size-28"
 		>
 			<Shine>
-				<SkillIcon {...framework} {...config} class="h-6 w-6 sm:h-12 sm:w-12" />
+				<SkillIcon {...framework} {...config} class="size-6 sm:size-12" />
 			</Shine>
 		</ToggleGroup.Item>
 	{/each}
