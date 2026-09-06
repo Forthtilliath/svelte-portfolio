@@ -7,6 +7,10 @@
 
 	import { t } from '$lib/translations';
 	import { resolve } from '$app/paths';
+
+	const startYear = 2024;
+	const currentYear = new Date().getFullYear();
+	const copyrightYears = currentYear > startYear ? `${startYear}–${currentYear}` : `${startYear}`;
 </script>
 
 <footer>
@@ -20,7 +24,7 @@
 				<span class="ml-3 text-xl">{$t('meta.title')}</span>
 			</a>
 			<p class="mt-4 text-sm text-gray-500 sm:mt-0 sm:ml-6 dark:text-slate-400">
-				© 2024 —
+				© {copyrightYears} —
 				<a
 					href="https://github.com/Forthtilliath"
 					rel="noopener noreferrer"
