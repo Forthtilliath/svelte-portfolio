@@ -4,17 +4,11 @@
 	import Text3d from '$lib/components/shared/text-3d.svelte';
 	import FlipWords from '$lib/components/shared/flip-words/flip-words.svelte';
 	import { t } from '$lib/translations';
-	import { onMount } from 'svelte';
 
 	let clientWidth: number = $state(0);
 
 	let diceWidth: number = $derived(Math.min(100, (clientWidth - 100) / 7));
 	let depthMax: number = $derived(getDepth(clientWidth));
-	let loaded: boolean = $state(false);
-
-	onMount(() => {
-		loaded = true;
-	});
 
 	function getDepth(width: number): number {
 		if (width < 640) return 4;
@@ -45,8 +39,12 @@
 		{$t('hero.job')}
 	</Text3d>
 
-	{#if loaded}
-		<div class="relative mt-8 w-full" bind:clientWidth>
+	<div
+		class="relative mt-8 w-full"
+		style:height={diceWidth > 0 ? `${diceWidth}px` : undefined}
+		bind:clientWidth
+	>
+		{#if diceWidth > 0}
 			<FlipWords
 				words={['react', 'next.js', 'solidjs', 'svelte']}
 				size={diceWidth + 'px'}
@@ -58,10 +56,9 @@
 					classNames: {
 						face: 'border-2 border-white',
 						wrapper: 'absolute left-1/2 -translate-x-1/2'
-						// TODO: font-size to fix
 					}
 				}}
 			/>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </Section>
