@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../../app.css';
 	import '../../global.css';
-	import { t } from '$lib/translations';
+	import { t, locale } from '$lib/translations';
 	import { Toaster } from '$lib/components/ui/sonner';
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -22,8 +22,8 @@
 	<meta property="og:image" content="https://vincent-lisita.vercel.app/me.jpg" />
 	<meta property="og:url" content="https://vincent-lisita.vercel.app/" />
 	<meta property="og:type" content="website" />
-	<meta property="og:locale" content="fr_FR" />
-	<meta property="og:locale:alternate" content="en_GB" />
+	<meta property="og:locale" content={$locale === 'en' ? 'en_GB' : 'fr_FR'} />
+	<meta property="og:locale:alternate" content={$locale === 'en' ? 'fr_FR' : 'en_GB'} />
 
 	<meta property="twitter:card" content="summary" />
 	<meta property="twitter:domain" content="vincent-lisita.vercel.app" />

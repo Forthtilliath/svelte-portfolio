@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Fr from '$lib/components/shared/icons/flags/fr.svelte';
 	import Gb from '$lib/components/shared/icons/flags/gb.svelte';
-	import { t, locale } from '$lib/translations';
+	import { t, locale, setLocale } from '$lib/translations';
 </script>
 
 <header
@@ -30,12 +30,12 @@
 			</li>
 			<li class="font-poppins flex cursor-pointer text-base font-medium transition">
 				{#if $locale === 'en'}
-					<button class="transition-transform hover:scale-125" onclick={() => ($locale = 'fr')}>
+					<button class="transition-transform hover:scale-125" onclick={() => setLocale('fr')}>
 						<Fr size={36} />
 						<span class="sr-only">{$t('header.language', { lang: $t('header.french') })}</span>
 					</button>
 				{:else}
-					<button class="transition-transform hover:scale-125" onclick={() => ($locale = 'en')}>
+					<button class="transition-transform hover:scale-125" onclick={() => setLocale('en')}>
 						<Gb size={36} />
 						<span class="sr-only">{$t('header.language', { lang: $t('header.english') })}</span>
 					</button>
