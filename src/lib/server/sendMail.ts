@@ -1,5 +1,5 @@
 import type Mail from 'nodemailer/lib/mailer';
-import transporter from '../server/setupEmail';
+import transporter from './setupEmail';
 
 export function sendEmail(message: Mail.Options) {
 	return new Promise((resolve, reject) => {
