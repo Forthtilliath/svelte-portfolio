@@ -1,4 +1,5 @@
 import i18n, { type Parser } from 'sveltekit-i18n';
+import { browser } from '$app/environment';
 import kleur from 'kleur';
 import lang from './lang.json';
 
@@ -36,6 +37,18 @@ export const { t, loading, locales, locale, loadTranslations } = new i18n<Parser
 );
 
 export type Language = 'en' | 'fr';
+
+const LOCALE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+/** Change la langue active et mémorise le choix dans un cookie (survit au reload). */
+export const setLocale = (lang: Language) => {
+	locale.set(lang);
+
+	if (browser) {
+		document.cookie = `locale=${lang};path=/;max-age=${LOCALE_COOKIE_MAX_AGE};samesite=lax`;
+		document.documentElement.lang = lang;
+	}
+};
 
 loading.subscribe(
 	($loading) =>
