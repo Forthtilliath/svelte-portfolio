@@ -25,6 +25,8 @@
 
 	let { data }: Props = $props();
 
+	// superForm ne consomme `data` qu'à l'initialisation (valeur du load), pas de réactivité attendue
+	// svelte-ignore state_referenced_locally
 	const form = superForm(data, {
 		validators: zod4Client(contactFormSchema),
 		resetForm: true,
