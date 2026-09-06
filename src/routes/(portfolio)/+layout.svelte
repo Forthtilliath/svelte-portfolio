@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../../app.css';
-	import '../../global.css';
 	import { t, locale } from '$lib/translations';
 	import { SITE_URL } from '$lib/site';
 	import { Toaster } from '$lib/components/ui/sonner';
