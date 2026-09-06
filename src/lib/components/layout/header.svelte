@@ -1,8 +1,19 @@
 <script lang="ts">
 	import Fr from '$lib/components/shared/icons/flags/fr.svelte';
 	import Gb from '$lib/components/shared/icons/flags/gb.svelte';
+	import MenuIcon from '@lucide/svelte/icons/menu';
+	import XIcon from '@lucide/svelte/icons/x';
 	import { t, locale, setLocale } from '$lib/translations';
+
+	let mobileOpen = $state(false);
+	const close = () => (mobileOpen = false);
 </script>
+
+<svelte:window
+	onkeydown={(event) => {
+		if (event.key === 'Escape') mobileOpen = false;
+	}}
+/>
 
 <a
 	href="#main-content"
@@ -22,29 +33,45 @@
 			{$t('header.title')}
 		</a>
 
-		<nav class="flex-1" aria-label={$t('header.nav')}>
-			<menu class="hidden list-none items-center justify-end gap-x-8 md:flex">
-				<li
-					class="font-poppins hover:text-app-blue cursor-pointer text-base font-medium transition"
-				>
-					<a href="#about">{$t('header.about')}</a>
+		<nav class="flex items-center md:flex-1" aria-label={$t('header.nav')}>
+			<button
+				type="button"
+				class="hover:text-app-blue text-white transition-colors md:hidden"
+				aria-expanded={mobileOpen}
+				aria-controls="primary-menu"
+				onclick={() => (mobileOpen = !mobileOpen)}
+			>
+				<span class="sr-only">{$t('header.nav')}</span>
+				{#if mobileOpen}
+					<XIcon size={28} />
+				{:else}
+					<MenuIcon size={28} />
+				{/if}
+			</button>
+
+			<menu
+				id="primary-menu"
+				class={[
+					'font-poppins m-0 list-none',
+					'md:static md:flex md:flex-1 md:flex-row md:items-center md:justify-end md:gap-x-8 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none',
+					mobileOpen
+						? 'bg-app-black/95 absolute inset-x-0 top-full flex flex-col gap-y-4 border-t border-white/10 p-6 backdrop-blur-sm'
+						: 'hidden'
+				]}
+			>
+				<li class="hover:text-app-blue cursor-pointer text-base font-medium transition">
+					<a href="#about" onclick={close}>{$t('header.about')}</a>
 				</li>
-				<li
-					class="font-poppins hover:text-app-blue cursor-pointer text-base font-medium transition"
-				>
-					<a href="#skills">{$t('header.skills')}</a>
+				<li class="hover:text-app-blue cursor-pointer text-base font-medium transition">
+					<a href="#skills" onclick={close}>{$t('header.skills')}</a>
 				</li>
-				<li
-					class="font-poppins hover:text-app-blue cursor-pointer text-base font-medium transition"
-				>
-					<a href="#projects">{$t('header.projects')}</a>
+				<li class="hover:text-app-blue cursor-pointer text-base font-medium transition">
+					<a href="#projects" onclick={close}>{$t('header.projects')}</a>
 				</li>
-				<li
-					class="font-poppins hover:text-app-blue cursor-pointer text-base font-medium transition"
-				>
-					<a href="#contact">{$t('header.contact')}</a>
+				<li class="hover:text-app-blue cursor-pointer text-base font-medium transition">
+					<a href="#contact" onclick={close}>{$t('header.contact')}</a>
 				</li>
-				<li class="font-poppins flex cursor-pointer text-base font-medium transition">
+				<li class="flex cursor-pointer text-base font-medium transition">
 					{#if $locale === 'en'}
 						<button class="transition-transform hover:scale-125" onclick={() => setLocale('fr')}>
 							<Fr size={36} />
