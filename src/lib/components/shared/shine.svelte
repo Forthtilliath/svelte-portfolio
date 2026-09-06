@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { uniqueId } from '$lib/methods/uniqueId';
 	import { cn } from '$lib/utils';
 	import type { Snippet } from 'svelte';
 
@@ -35,7 +34,10 @@
 		...rest
 	}: Props = $props();
 
-	const filterId = uniqueId('filter-');
+	// Per-instance id that stays identical between SSR and hydration — a module-level
+	// counter would drift on a long-lived server and mismatch the client.
+	const instanceId = $props.id();
+	const filterId = `shine-filter-${instanceId}`;
 
 	let mouse = $state({ x: 0, y: 0 });
 	let wrapperBox = $state({ left: 0, top: 0 });
