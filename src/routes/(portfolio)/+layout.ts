@@ -1,8 +1,9 @@
 import { loadTranslations } from '$lib/translations';
+import type { LayoutLoad } from './$types';
 
-export const load = async () => {
-	const initialLocale = 'fr'; // get from cookie / url / fetch from server...
-	await loadTranslations(initialLocale);
+export const load: LayoutLoad = async ({ parent }) => {
+	const { locale } = await parent();
+	await loadTranslations(locale);
 
 	return {};
 };

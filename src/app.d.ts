@@ -1,12 +1,15 @@
 // See https://kit.svelte.dev/docs/types#app
 
 import type { Infer, Schema, SuperValidated } from 'sveltekit-superforms';
+import type { Language } from '$lib/translations';
 
 // for information about these interfaces
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			locale: Language;
+		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
