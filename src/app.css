@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin '../tailwind-extends/anim-stars-plugin.ts';
 
 @custom-variant dark (&:is(.dark *));
 
