@@ -1,5 +1,11 @@
 {
 	"svg.preview.background": "editor",
 	"i18n-ally.localesPaths": ["src/lib/translations"],
-	"i18n-ally.keystyle": "nested"
+	"i18n-ally.keystyle": "nested",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"css.lint.unknownAtRules": "ignore",
+	"scss.lint.unknownAtRules": "ignore",
+	"tailwindCSS.classAttributes": ["class", "className", "classNames", "class:list"]
 }
