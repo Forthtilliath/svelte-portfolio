@@ -82,11 +82,11 @@ const projects: Project[] = [
 	{
 		name: { fr: 'Chœur de Rôle', en: 'Chœur de Rôle' },
 		description: {
-			fr: "Site d'une chorale fictive à Angers : vitrine publique, espace choristes (trombinoscope, carte, répertoire, sondages) et back-office complet. Développé avec Next.js et Supabase (auth, DB, RLS, storage).",
-			en: 'Website for a fictional choir in Angers: public showcase, member area (member directory, map, song library, polls) and full admin back-office. Built with Next.js and Supabase (auth, DB, RLS, storage).'
+			fr: "Site d'une chorale fictive à Angers mêlant chant choral et jeux de société : vitrine publique (accueil éditable par blocs, concerts, galerie photos/vidéos), espace choristes sécurisé en 2FA (trombinoscope, carte, répertoire, sondages, tâches de bureau) et back-office d'administration complet. Développé avec Next.js et Supabase (auth, Postgres, RLS, storage).",
+			en: 'Website for a fictional choir in Angers blending choral singing and board games: public showcase (block-editable homepage, concerts, photo/video gallery), 2FA-secured member area (member directory, map, song library, polls, committee tasks) and full admin back-office. Built with Next.js and Supabase (auth, Postgres, RLS, storage).'
 		},
 		image: projectImages.nextjsChoeurDeRole,
-		tags: ['Next.js', 'Tailwind', 'Typescript', 'Supabase', 'Zod'],
+		tags: ['Next.js', 'Tailwind', 'Typescript', 'Supabase', 'Zod', 'Vitest'],
 		repo: ENDPOINT_GITHUB + '/choeur-de-role'
 	},
 	{
