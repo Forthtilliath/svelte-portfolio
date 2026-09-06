@@ -2,6 +2,7 @@
 	"name": "portfolio",
 	"version": "0.0.1",
 	"private": true,
+	"packageManager": "bun@1.4.0",
 	"engines": {
 		"node": ">=22"
 	},
@@ -16,16 +17,23 @@
 		"cv:pdf": "node scripts/generate-cv-pdfs.js",
 		"og:image": "node scripts/generate-og-image.js",
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"test:e2e": "playwright test",
+		"test:all": "vitest run && playwright test"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@internationalized/date": "^3.12.2",
 		"@lucide/svelte": "^1.26.0",
+		"@playwright/test": "^1.63.0",
+		"@sveltejs/adapter-node": "^5.5.7",
 		"@sveltejs/adapter-vercel": "^6.3.4",
 		"@sveltejs/kit": "^2.70.1",
 		"@sveltejs/vite-plugin-svelte": "^7.2.0",
 		"@tailwindcss/vite": "^4.3.3",
+		"@testing-library/jest-dom": "^7.0.1",
+		"@testing-library/svelte": "^5.4.2",
+		"@testing-library/user-event": "^14.6.7",
 		"@types/nodemailer": "^8.0.1",
 		"@typescript-eslint/eslint-plugin": "^8.65.0",
 		"@typescript-eslint/parser": "^8.65.0",
@@ -33,6 +41,7 @@
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.22.0",
 		"globals": "^17.7.0",
+		"jsdom": "^30.0.1",
 		"prettier": "^3.9.6",
 		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.1",
