@@ -50,8 +50,12 @@ export const setLocale = (lang: Language) => {
 	}
 };
 
-loading.subscribe(
-	($loading) =>
-		$loading &&
-		console.log(kleur.yellow().bold('[i18n] ') + 'Loading translations for the main instance...')
-);
+// Log serveur uniquement : `kleur` colore avec des séquences ANSI, illisibles
+// dans la console du navigateur, et ce message n'a pas d'intérêt côté client.
+if (!browser) {
+	loading.subscribe(
+		($loading) =>
+			$loading &&
+			console.log(kleur.yellow().bold('[i18n] ') + 'Loading translations for the main instance...')
+	);
+}
