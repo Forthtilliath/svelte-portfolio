@@ -38,6 +38,7 @@
 		"title": "Mes Projets",
 		"radio-description": "Cliquez pour filtrer les projets",
 		"display": "Ouvrir le projet : {{name}}",
+		"imageAlt": "Aperçu du projet {{name}}",
 		"readMore": "Voir plus",
 		"live": "Voir en ligne",
 		"repo": "Voir le repo",
