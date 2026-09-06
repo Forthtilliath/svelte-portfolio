@@ -11,6 +11,12 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /.vscode/settings.json
 
+# Playwright
+/test-results
+/playwright-report
+/blob-report
+/playwright/.cache
+
 # Notes de travail personnelles (non partagées) : tous les .md sauf whitelist explicite
 *.md
 !README.md
