@@ -46,6 +46,8 @@ bun run dev
 | `SECRET_EMAIL_ACCOUNT`  | Adresse email utilisée pour l'envoi via le formulaire de contact |
 | `SECRET_EMAIL_PASSWORD` | Mot de passe d'application associé                               |
 
+> Le compte Gmail utilisé doit avoir la validation en deux étapes (2FA) activée. `SECRET_EMAIL_PASSWORD` n'est **pas** le mot de passe du compte mais un [mot de passe d'application](https://myaccount.google.com/apppasswords) généré dédié (16 caractères).
+
 ### Scripts disponibles
 
 | Commande          | Description                           |
