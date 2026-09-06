@@ -83,7 +83,7 @@
 				<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 					{name[lang]}
 				</h5>
-				<p class="line-clamp-3 h-[60px] leading-tight font-normal text-gray-700 dark:text-gray-400">
+				<p class="line-clamp-3 h-15 leading-tight font-normal text-gray-700 dark:text-gray-400">
 					{description[lang]}
 				</p>
 				<div class="flex h-14 flex-wrap content-start gap-1.5 overflow-hidden">
