@@ -40,7 +40,7 @@
 				<Pagination.Content>
 					<Pagination.Item>
 						<Pagination.PrevButton>
-							<ChevronLeft class="h-4 w-4" />
+							<ChevronLeft class="size-4" />
 							<span class="hidden sm:block">{$t('ui.previous')}</span>
 						</Pagination.PrevButton>
 					</Pagination.Item>
@@ -60,7 +60,7 @@
 					<Pagination.Item>
 						<Pagination.NextButton>
 							<span class="hidden sm:block">{$t('ui.next')}</span>
-							<ChevronRight class="h-4 w-4" />
+							<ChevronRight class="size-4" />
 						</Pagination.NextButton>
 					</Pagination.Item>
 				</Pagination.Content>

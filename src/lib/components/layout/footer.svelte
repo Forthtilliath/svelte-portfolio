@@ -20,7 +20,7 @@
 				class="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start dark:text-slate-50"
 				href={resolve('/')}
 			>
-				<img src={logo} alt="Logo" class="h-8 w-8" />
+				<img src={logo} alt="Logo" class="size-8" />
 				<span class="ml-3 text-xl">{$t('meta.title')}</span>
 			</a>
 			<p class="mt-4 text-sm text-gray-500 sm:mt-0 sm:ml-6 dark:text-slate-400">
