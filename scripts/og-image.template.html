@@ -1,0 +1,115 @@
+<!doctype html>
+<!--
+	Gabarit de l'image de partage (Open Graph / Twitter Card), 1200x630.
+	Rendu en PNG par scripts/generate-og-image.js → static/og-image.png.
+	Édite le texte / les couleurs ici puis relance `bun run og:image`.
+-->
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				width: 1200px;
+				height: 630px;
+				font-family: 'Inter', system-ui, sans-serif;
+				overflow: hidden;
+			}
+
+			.card {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				gap: 64px;
+				padding: 80px;
+				background: radial-gradient(circle at 20% 0%, #1e293b 0%, #0f172a 55%, #020617 100%);
+				color: #f8fafc;
+			}
+
+			.content {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+
+			.eyebrow {
+				font-size: 24px;
+				font-weight: 600;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+				color: #38bdf8;
+			}
+
+			h1 {
+				font-size: 76px;
+				font-weight: 800;
+				line-height: 1.05;
+			}
+
+			p {
+				font-size: 28px;
+				line-height: 1.45;
+				color: #cbd5e1;
+				max-width: 620px;
+			}
+
+			.stack {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px;
+				margin-top: 8px;
+			}
+
+			.stack span {
+				font-size: 20px;
+				font-weight: 600;
+				padding: 8px 18px;
+				border-radius: 999px;
+				background: rgba(56, 189, 248, 0.12);
+				border: 1px solid rgba(56, 189, 248, 0.35);
+				color: #e0f2fe;
+			}
+
+			.photo {
+				width: 320px;
+				height: 320px;
+				flex-shrink: 0;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 6px solid rgba(148, 163, 184, 0.4);
+				box-shadow: 0 30px 60px rgba(2, 6, 23, 0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<div class="content">
+				<div class="eyebrow">Portfolio</div>
+				<h1>Vincent LISITA</h1>
+				<p>
+					Développeur front-end &mdash; React, Next.js, SvelteKit et SolidJS. TypeScript et
+					TailwindCSS pour des interfaces web modernes.
+				</p>
+				<div class="stack">
+					<span>React</span>
+					<span>Next.js</span>
+					<span>SvelteKit</span>
+					<span>SolidJS</span>
+					<span>TypeScript</span>
+					<span>TailwindCSS</span>
+				</div>
+			</div>
+			<img class="photo" src="../static/me.jpg" alt="Vincent LISITA" />
+		</div>
+	</body>
+</html>

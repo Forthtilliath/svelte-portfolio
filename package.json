@@ -14,6 +14,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"cv:pdf": "node scripts/generate-cv-pdfs.js",
+		"og:image": "node scripts/generate-og-image.js",
 		"test": "vitest run",
 		"test:watch": "vitest"
 	},
