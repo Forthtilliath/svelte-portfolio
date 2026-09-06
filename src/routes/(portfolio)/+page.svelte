@@ -21,7 +21,7 @@
 
 <Header />
 
-<main class="relative mt-20">
+<main id="main-content" class="relative mt-20">
 	<Hero />
 	<SectionSeparator img={img1} filter={50} />
 	<About />

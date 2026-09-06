@@ -11,6 +11,8 @@
 		"skills": "Skills",
 		"projects": "Projects",
 		"contact": "Contact",
+		"nav": "Main navigation",
+		"skipToContent": "Skip to content",
 		"language": "Set language to {{lang}}",
 		"french": "French",
 		"english": "English"
