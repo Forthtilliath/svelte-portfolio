@@ -85,12 +85,11 @@ jobs:
 
   audit:
     runs-on: ubuntu-latest
-    # Advisory only: transitive CVEs shouldn't block a PR, but we want them visible.
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version-file: package.json
       - run: bun install --frozen-lockfile
-      - run: bun audit
+      # Advisory only: transitive CVEs are surfaced in the log but don't block a PR.
+      - run: bun audit || true
