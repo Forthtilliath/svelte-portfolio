@@ -60,7 +60,12 @@
 	const lightY = $derived(pointer.y + pointer.scrollY - base.top);
 </script>
 
-<svg class={cn('pointer-events-none fixed inset-0', classes?.svg)}>
+<!-- Filter definition only — a zero-size, non-painting node. It used to be a
+     full-screen `position: fixed` SVG stacked once per instance. -->
+<svg
+	class={cn('pointer-events-none absolute h-0 w-0 overflow-hidden', classes?.svg)}
+	aria-hidden="true"
+>
 	<filter id={filterId} color-interpolation-filters="sRGB">
 		<feGaussianBlur in="SourceAlpha" stdDeviation={depth} />
 
