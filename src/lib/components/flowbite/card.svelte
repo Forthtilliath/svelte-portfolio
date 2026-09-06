@@ -89,9 +89,9 @@
 	{#if skeleton}
 		<Skeleton class={imgClass} />
 	{:else if img}
-		<img class={imgClass} src={img} alt="Project Overview" />
+		<img class={imgClass} src={img} alt="Project Overview" width="1280" height="720" />
 	{:else}
-		<img class={imgClass} src={defaultProject} alt="Project Overview" />
+		<img class={imgClass} src={defaultProject} alt="Project Overview" width="1280" height="720" />
 	{/if}
 	<div class={cn('border-t-app-blue border-t', innerPadding)}>
 		{@render children?.()}
