@@ -135,6 +135,9 @@
 						>
 					{/snippet}
 				</Dialog.Close>
+				{#if url}
+					<Button href={url} variant="outline" external>{$t('projects.live')}</Button>
+				{/if}
 				<Button href={repo} variant="card-link" external>{$t('projects.repo')}</Button>
 			</Dialog.Footer>
 		</Dialog.Content>

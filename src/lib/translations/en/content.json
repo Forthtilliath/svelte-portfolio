@@ -36,6 +36,7 @@
 		"radio-description": "Click to filter projects",
 		"display": "Open the project: {{name}}",
 		"readMore": "Read more",
+		"live": "View live",
 		"repo": "Show repository",
 		"close": "Close"
 	},
