@@ -11,7 +11,9 @@
 		"skills": "Skills",
 		"projects": "Projects",
 		"contact": "Contact",
-		"language": "Set language to {{lang}}"
+		"language": "Set language to {{lang}}",
+		"french": "French",
+		"english": "English"
 	},
 	"hero": {
 		"name": "Hi, I'm",

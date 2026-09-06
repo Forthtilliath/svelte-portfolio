@@ -10,7 +10,9 @@
 		"skills": "Compétences",
 		"projects": "Projets",
 		"contact": "Me Contacter",
-		"language": "Change la langue en {{lang}}"
+		"language": "Change la langue en {{lang}}",
+		"french": "français",
+		"english": "anglais"
 	},
 	"hero": {
 		"name": "Salut, je suis",
