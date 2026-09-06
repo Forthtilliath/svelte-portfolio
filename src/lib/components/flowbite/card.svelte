@@ -49,7 +49,7 @@
 		sm: 'max-w-sm',
 		md: 'max-w-xl',
 		lg: 'max-w-2xl',
-		xl: 'max-w-screen-xl'
+		xl: 'max-w-7xl'
 	};
 
 	let innerPadding = $derived(cn('space-y-2', paddings[padding]));
