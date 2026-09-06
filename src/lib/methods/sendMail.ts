@@ -5,7 +5,7 @@ export function sendEmail(message: Mail.Options) {
 	return new Promise((resolve, reject) => {
 		transporter.sendMail(message, (err, info) => {
 			if (err) {
-				reject(err);
+				return reject(err);
 			}
 			resolve(info);
 		});
