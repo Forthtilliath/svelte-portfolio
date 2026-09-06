@@ -39,6 +39,7 @@
 	<div class="mx-auto flex max-w-xs flex-col">
 		<Card
 			img={image}
+			imgAlt={$t('projects.imageAlt', { name: name[lang] })}
 			size="none"
 			color="app-blue"
 			padding="sm"

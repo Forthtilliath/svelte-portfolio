@@ -13,6 +13,7 @@
 		horizontal?: boolean;
 		reverse?: boolean;
 		img?: string;
+		imgAlt?: string;
 		padding?: SizeType | 'none';
 		size?: SizeType | 'none';
 		skeleton?: boolean;
@@ -26,6 +27,7 @@
 		horizontal = false,
 		reverse = false,
 		img = undefined,
+		imgAlt = '',
 		padding = 'lg',
 		size = 'sm',
 		skeleton = false,
@@ -89,9 +91,9 @@
 	{#if skeleton}
 		<Skeleton class={imgClass} />
 	{:else if img}
-		<img class={imgClass} src={img} alt="Project Overview" width="1280" height="720" />
+		<img class={imgClass} src={img} alt={imgAlt} width="1280" height="720" />
 	{:else}
-		<img class={imgClass} src={defaultProject} alt="Project Overview" width="1280" height="720" />
+		<img class={imgClass} src={defaultProject} alt={imgAlt} width="1280" height="720" />
 	{/if}
 	<div class={cn('border-t-app-blue border-t', innerPadding)}>
 		{@render children?.()}
