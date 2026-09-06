@@ -29,8 +29,6 @@
 	let hiddenTagsCount = $derived(Math.max(0, tags.length - MAX_VISIBLE_TAGS));
 </script>
 
-<!-- TODO: Bouton pour afficher plus d'infos -->
-
 <Shine
 	depth={2}
 	lightRadius={300}
