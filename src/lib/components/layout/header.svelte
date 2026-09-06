@@ -32,12 +32,12 @@
 				{#if $locale === 'en'}
 					<button class="transition-transform hover:scale-125" onclick={() => ($locale = 'fr')}>
 						<Fr size={36} />
-						<span class="sr-only">{$t('header.language', { lang: 'french' })}</span>
+						<span class="sr-only">{$t('header.language', { lang: $t('header.french') })}</span>
 					</button>
 				{:else}
 					<button class="transition-transform hover:scale-125" onclick={() => ($locale = 'en')}>
 						<Gb size={36} />
-						<span class="sr-only">{$t('header.language', { lang: 'anglais' })}</span>
+						<span class="sr-only">{$t('header.language', { lang: $t('header.english') })}</span>
 					</button>
 				{/if}
 			</li>
