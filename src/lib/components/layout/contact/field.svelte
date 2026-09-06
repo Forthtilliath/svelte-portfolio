@@ -28,7 +28,7 @@
 <Form.Field {form} {name} class="space-y-1">
 	<Form.FormControl>
 		{#snippet children({ props })}
-			<Form.Label class="data-[fs-error]:text-red-500">{label}</Form.Label>
+			<Form.Label class="data-fs-error:text-red-500">{label}</Form.Label>
 			{#if multiline}
 				<Textarea {...props} {placeholder} {name} {...rest} bind:value />
 			{:else}
