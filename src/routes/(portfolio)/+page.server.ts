@@ -3,12 +3,19 @@ import { contactFormSchema } from '$lib/components/layout/contact/form.svelte';
 import { handleCatchErrorWithCallback } from '$lib/methods/handleCatchError';
 import { sendEmail } from '$lib/methods/sendMail';
 import { isRateLimited } from '$lib/server/rate-limit';
-import transporter from '$lib/server/setupEmail.js';
 import { fail } from '@sveltejs/kit';
 import type Mail from 'nodemailer/lib/mailer';
 import { superValidate } from 'sveltekit-superforms';
 import { zod4 } from 'sveltekit-superforms/adapters';
 import type { PageServerLoad } from './$types';
+
+const escapeHtml = (value: string) =>
+	value
+		.replaceAll('&', '&amp;')
+		.replaceAll('<', '&lt;')
+		.replaceAll('>', '&gt;')
+		.replaceAll('"', '&quot;')
+		.replaceAll("'", '&#39;');
 
 export const load: PageServerLoad = async () => {
 	return {
@@ -41,26 +48,12 @@ export const actions = {
 			subject: `💻 Portfolio : Formulaire de contact de ${name}`,
 			text: message,
 			html: /*html*/ `
-				<p>Nom : ${name}</p>
-				<p>Email : ${email}</p>
+				<p>Nom : ${escapeHtml(name)}</p>
+				<p>Email : ${escapeHtml(email)}</p>
 				<hr />
-				<p>${message}</p>
+				<p>${escapeHtml(message)}</p>
 			`
 		};
-
-		// return sendEmail(newMessage)
-		// 	.then(() => ({
-		// 		status: 200,
-		// 		message: 'Message sent',
-		// 		form
-		// 	}))
-		// 	.catch((error) =>
-		// 		handleCatchErrorWithCallback(error, () => ({
-		// 			status: 500,
-		// 			message: error,
-		// 			form
-		// 		}))
-		// );
 
 		return sendEmail(newMessage)
 			.then(() => ({
@@ -68,56 +61,12 @@ export const actions = {
 				message: 'Message sent',
 				form
 			}))
-			.catch(
-				handleCatchErrorWithCallback((error: string) => ({
+			.catch((error) =>
+				handleCatchErrorWithCallback(error)((message) => ({
 					status: 500,
-					message: error,
+					message,
 					form
 				}))
 			);
-	},
-	sendEmail: async ({ request }) => {
-		try {
-			const formData = await request.formData();
-
-			const email = formData.get('email');
-			const name = formData.get('name');
-
-			if (!email || !name) {
-				return {
-					status: 400
-				};
-			}
-
-			const html = `<h2>${name}</h2><p>${email}</p>`;
-
-			const newMessage: Mail.Options = {
-				from: email as string,
-				to: SECRET_EMAIL_ACCOUNT,
-				subject: '🏢 Message from Portfolio',
-				text: 'Message from Portfolio',
-				html
-			};
-
-			const sendEmail = (message: typeof newMessage) => {
-				return new Promise((resolve, reject) => {
-					transporter.sendMail(message, (err, info) => {
-						if (err) {
-							reject(err);
-						}
-						resolve(info);
-					});
-				});
-			};
-
-			await sendEmail(newMessage);
-
-			return {
-				status: 200,
-				message: 'Message sent'
-			};
-		} catch (error) {
-			console.log(error);
-		}
 	}
 };
