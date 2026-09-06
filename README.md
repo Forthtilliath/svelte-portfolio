@@ -1,6 +1,6 @@
 # Portfolio — Vincent LISITA
 
-![License](https://img.shields.io/github/license/forthtilliath/vincent-lisita-portfolio?style=for-the-badge) [![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev/) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge) [![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
+![License](https://img.shields.io/github/license/forthtilliath/vincent-lisita-portfolio?style=for-the-badge) [![CI](https://img.shields.io/github/actions/workflow/status/forthtilliath/vincent-lisita-portfolio/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/forthtilliath/vincent-lisita-portfolio/actions/workflows/ci.yml) [![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)](https://kit.svelte.dev/) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge) [![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
 
 Mon portfolio de développeur front-end. J'y présente mes compétences et mes projets, avec plusieurs versions de CV ciblées par stack technique.
 
@@ -50,15 +50,24 @@ bun run dev
 
 ### Scripts disponibles
 
-| Commande          | Description                           |
-| ----------------- | ------------------------------------- |
-| `bun run dev`     | Serveur de développement              |
-| `bun run build`   | Build de production                   |
-| `bun run preview` | Prévisualise le build de production   |
-| `bun run check`   | Vérification des types (svelte-check) |
-| `bun run lint`    | Lint (Prettier + ESLint)              |
-| `bun run format`  | Formate le code (Prettier)            |
-| `bun run test`    | Lance les tests (Vitest)              |
+| Commande           | Description                           |
+| ------------------ | ------------------------------------- |
+| `bun run dev`      | Serveur de développement              |
+| `bun run build`    | Build de production                   |
+| `bun run preview`  | Prévisualise le build de production   |
+| `bun run check`    | Vérification des types (svelte-check) |
+| `bun run lint`     | Lint (Prettier + ESLint)              |
+| `bun run format`   | Formate le code (Prettier)            |
+| `bun run test`     | Tests unitaires + composants (Vitest) |
+| `bun run test:e2e` | Tests end-to-end (Playwright)         |
+| `bun run test:all` | Vitest puis Playwright                |
+
+## Tests
+
+- **Vitest** — deux projets (`vite.config.ts`) : `server` (logique pure, `*.test.ts`) et
+  `client` (composants dans jsdom via `@testing-library/svelte`, `*.svelte.test.ts`).
+- **Playwright** — smoke tests dans `e2e/`, exécutés contre un build de production servi
+  par `adapter-node`. Première exécution : `bunx playwright install chromium`.
 
 ## Licence
 
