@@ -84,7 +84,14 @@
 <Dialog.Root bind:open={dialogOpen}>
 	<Dialog.Content class="sm:max-w-lg">
 		{#if image}
-			<img src={image} alt={name[lang]} class="rounded-lg" />
+			<img
+				src={image}
+				alt={name[lang]}
+				width="1280"
+				height="720"
+				loading="lazy"
+				class="aspect-video w-full rounded-lg object-cover"
+			/>
 		{/if}
 		<Dialog.Header>
 			<Dialog.Title>{name[lang]}</Dialog.Title>
