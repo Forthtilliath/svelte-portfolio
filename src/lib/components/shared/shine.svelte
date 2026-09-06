@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 	import type { Snippet } from 'svelte';
+	import { pointer, viewport, subscribeShine } from './shine-pointer.svelte';
 
 	interface Props {
 		/** Color of light */
@@ -39,21 +40,25 @@
 	const instanceId = $props.id();
 	const filterId = `shine-filter-${instanceId}`;
 
-	let mouse = $state({ x: 0, y: 0 });
-	let wrapperBox = $state({ left: 0, top: 0 });
 	let wrapperEl: HTMLDivElement | null = $state(null);
 
-	function onPointerMove(e: PointerEvent) {
-		wrapperBox = wrapperEl?.getBoundingClientRect() ?? { left: 0, top: 0 };
-		mouse = { x: e.clientX, y: e.clientY };
-	}
+	// Wrapper position in the page. Measured once on mount and only re-measured on
+	// resize; scrolling is tracked by arithmetic on the shared scroll offset, so
+	// there is no per-frame getBoundingClientRect().
+	let base = $state({ left: 0, top: 0 });
 
-	function onScroll() {
-		wrapperBox = wrapperEl?.getBoundingClientRect() ?? { left: 0, top: 0 };
-	}
+	$effect(() => subscribeShine());
+
+	$effect(() => {
+		const _epoch = viewport.epoch; // depend on resize → re-measure
+		if (!wrapperEl) return;
+		const rect = wrapperEl.getBoundingClientRect();
+		base = { left: rect.left + window.scrollX, top: rect.top + window.scrollY };
+	});
+
+	const lightX = $derived(pointer.x + pointer.scrollX - base.left);
+	const lightY = $derived(pointer.y + pointer.scrollY - base.top);
 </script>
-
-<svelte:window onpointermove={onPointerMove} onscroll={onScroll} />
 
 <svg class={cn('pointer-events-none fixed inset-0', classes?.svg)}>
 	<filter id={filterId} color-interpolation-filters="sRGB">
@@ -66,7 +71,7 @@
 			{specularExponent}
 			lighting-color={lightColor}
 		>
-			<fePointLight x={mouse.x - wrapperBox.left} y={mouse.y - wrapperBox.top} z={lightRadius} />
+			<fePointLight x={lightX} y={lightY} z={lightRadius} />
 		</feSpecularLighting>
 
 		<feComposite result="reflections" in="light-source" in2="SourceAlpha" operator="in" />
