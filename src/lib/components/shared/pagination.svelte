@@ -18,7 +18,7 @@
 	let listEl = $state<HTMLElement | null>(null);
 
 	// Hauteur du header fixe + une petite marge, pour ne pas masquer le contenu ciblé.
-	const HEADER_OFFSET = 88;
+	const HEADER_OFFSET = 70;
 
 	$effect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-expressions -- read `data` only to track it as an $effect dependency
