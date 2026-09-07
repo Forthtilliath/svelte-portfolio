@@ -10,15 +10,20 @@
 
 	let { showAfter = 600 }: Props = $props();
 
-	let visible = $state(false);
+	let pastThreshold = $state(false);
+	let footerInView = $state(false);
 	let launching = $state(false);
+
+	// Keep the rocket up while it launches, but otherwise stay clear of the footer
+	// so it never sits on top of the social links.
+	let visible = $derived(launching || (pastThreshold && !footerInView));
 
 	onMount(() => {
 		let frame = 0;
 
 		const read = () => {
 			frame = 0;
-			if (!launching) visible = window.scrollY > showAfter;
+			pastThreshold = window.scrollY > showAfter;
 		};
 		const onScroll = () => {
 			if (frame === 0) frame = requestAnimationFrame(read);
@@ -27,8 +32,17 @@
 		read();
 		window.addEventListener('scroll', onScroll, { passive: true });
 
+		const footer = document.querySelector('footer');
+		const observer = footer
+			? new IntersectionObserver(([entry]) => (footerInView = entry.isIntersecting), {
+					rootMargin: '0px 0px 80px 0px'
+				})
+			: null;
+		observer?.observe(footer as Element);
+
 		return () => {
 			window.removeEventListener('scroll', onScroll);
+			observer?.disconnect();
 			if (frame !== 0) cancelAnimationFrame(frame);
 		};
 	});
@@ -42,18 +56,14 @@
 
 		if (prefersReducedMotion()) {
 			window.scrollTo({ top: 0, behavior: 'auto' });
-			visible = false;
 			return;
 		}
 
 		launching = true;
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 
-		// Let the rocket clear the viewport, then reset it out of sight.
-		window.setTimeout(() => {
-			launching = false;
-			visible = window.scrollY > showAfter;
-		}, 850);
+		// Let the rocket clear the viewport before it can reappear.
+		window.setTimeout(() => (launching = false), 850);
 	}
 </script>
 
