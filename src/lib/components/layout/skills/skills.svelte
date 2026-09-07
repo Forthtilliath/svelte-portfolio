@@ -9,12 +9,12 @@
 	let { css, frameworks, languages, tools, libraries } = $derived(skills);
 </script>
 
-<Section className="flex items-center justify-center flex-col gap-2" id="skills">
+<Section className="flex items-center justify-center flex-col" id="skills">
 	<SectionTitle>
 		{$t('skills.title')}
 	</SectionTitle>
 
-	<div class="mt-4 grid w-full gap-4 md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))]">
+	<div class="grid w-full gap-4 md:grid-cols-[repeat(auto-fit,minmax(26rem,1fr))]">
 		<SkillBox
 			title={$t('skills.frameworks')}
 			list={frameworks.toSorted(sortStringsByKey('name'))}
