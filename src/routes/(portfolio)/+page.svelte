@@ -6,6 +6,7 @@
 	import Hero from '$lib/components/layout/hero';
 	import Projects from '$lib/components/layout/projects';
 	import Skills from '$lib/components/layout/skills';
+	import BackToTop from '$lib/components/shared/back-to-top';
 	import SectionSeparator from '$lib/components/shared/section-separator.svelte';
 	import Stars from '$lib/components/shared/stars';
 	import type { PageProps } from './$types';
@@ -36,3 +37,4 @@
 </main>
 
 <Stars />
+<BackToTop />
