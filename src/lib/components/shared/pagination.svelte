@@ -15,22 +15,35 @@
 	let { perPage, siblingCount, data = [], onChange = () => {}, card }: Props = $props();
 
 	let page = $state(1);
+	let listEl = $state<HTMLElement | null>(null);
 
 	$effect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-expressions -- read `data` only to track it as an $effect dependency
 		data;
 		page = 1;
 	});
+
+	function handlePageChange(nextPage: number) {
+		listEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		onChange(nextPage);
+	}
 </script>
 
-<Pagination.Root count={data.length} {perPage} {siblingCount} bind:page onPageChange={onChange}>
+<Pagination.Root
+	count={data.length}
+	{perPage}
+	{siblingCount}
+	bind:page
+	onPageChange={handlePageChange}
+>
 	{#snippet children({ pages, currentPage })}
 		{#if currentPage}
 			{@const pageData = currentPage
 				? data.slice((currentPage - 1) * perPage, currentPage * perPage)
 				: data}
 			<main
-				class="smd:grid-cols-projects max-xs:m-auto mb-4 grid w-full grid-cols-1 justify-center justify-items-center gap-4"
+				bind:this={listEl}
+				class="smd:grid-cols-projects max-xs:m-auto mb-4 grid w-full scroll-mt-24 grid-cols-1 justify-center justify-items-center gap-4"
 			>
 				{#each pageData as itemData, i (i)}
 					{@render card?.({ itemData })}
