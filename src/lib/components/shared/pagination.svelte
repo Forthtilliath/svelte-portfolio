@@ -17,6 +17,9 @@
 	let page = $state(1);
 	let listEl = $state<HTMLElement | null>(null);
 
+	// Hauteur du header fixe + une petite marge, pour ne pas masquer le contenu ciblé.
+	const HEADER_OFFSET = 88;
+
 	$effect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-expressions -- read `data` only to track it as an $effect dependency
 		data;
@@ -24,8 +27,15 @@
 	});
 
 	function handlePageChange(nextPage: number) {
-		listEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		onChange(nextPage);
+
+		// Remonte jusqu'au haut de la section (titre + filtres compris), pas seulement
+		// au haut de la grille, sinon les boutons radio restent cachés par le header.
+		const target = listEl?.closest('section') ?? listEl;
+		if (target) {
+			const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+			window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+		}
 	}
 </script>
 
@@ -43,7 +53,7 @@
 				: data}
 			<main
 				bind:this={listEl}
-				class="smd:grid-cols-projects max-xs:m-auto mb-4 grid w-full scroll-mt-24 grid-cols-1 justify-center justify-items-center gap-4"
+				class="smd:grid-cols-projects max-xs:m-auto mb-4 grid w-full grid-cols-1 justify-center justify-items-center gap-4"
 			>
 				{#each pageData as itemData, i (i)}
 					{@render card?.({ itemData })}
