@@ -44,6 +44,8 @@ if (!Element.prototype.animate) {
 	);
 }
 Element.prototype.scrollIntoView ??= vi.fn();
+// jsdom's `window.scrollTo` only logs a "Not implemented" error; stub it out.
+window.scrollTo = vi.fn() as unknown as typeof window.scrollTo;
 window.HTMLElement.prototype.hasPointerCapture ??= vi.fn(() => false);
 window.HTMLElement.prototype.setPointerCapture ??= vi.fn();
 window.HTMLElement.prototype.releasePointerCapture ??= vi.fn();
