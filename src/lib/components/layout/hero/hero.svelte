@@ -18,7 +18,7 @@
 </script>
 
 <Section className="flex items-center justify-center flex-col" id="hero">
-	<SectionTitle className="text-white text-center">
+	<SectionTitle className="text-white text-center mb-6">
 		<span class="text-4xl md:text-5xl">{$t('hero.name')}</span>
 		<Text3d
 			tag="span"

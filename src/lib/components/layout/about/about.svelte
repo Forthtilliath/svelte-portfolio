@@ -5,7 +5,7 @@
 	import me from '$lib/assets/me.webp';
 </script>
 
-<Section className="flex items-center justify-center flex-col gap-6" id="about">
+<Section className="flex items-center justify-center flex-col" id="about">
 	<SectionTitle>
 		{$t('about.title')}
 	</SectionTitle>
