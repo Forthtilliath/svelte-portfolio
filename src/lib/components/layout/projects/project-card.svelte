@@ -11,12 +11,21 @@
 		image?: Project['image'];
 		name: Project['name'];
 		description: Project['description'];
-		repo: Project['repo'];
+		repo?: Project['repo'];
 		tags: Project['tags'];
 		url?: Project['url'];
+		status: Project['status'];
 	}
 
-	let { image = undefined, name, description, repo, tags, url = undefined }: Props = $props();
+	let {
+		image = undefined,
+		name,
+		description,
+		repo = undefined,
+		tags,
+		url = undefined,
+		status
+	}: Props = $props();
 
 	let lang: Language = $derived($locale as Language);
 	let dialogOpen = $state(false);
@@ -27,6 +36,12 @@
 	const MAX_VISIBLE_TAGS = 7;
 	let visibleTags = $derived(tags.slice(0, MAX_VISIBLE_TAGS));
 	let hiddenTagsCount = $derived(Math.max(0, tags.length - MAX_VISIBLE_TAGS));
+
+	const statusClass: Record<Project['status'], string> = {
+		done: 'bg-emerald-500/15 text-emerald-300 ring-emerald-500/30',
+		wip: 'bg-amber-500/15 text-amber-300 ring-amber-500/30',
+		planned: 'bg-slate-500/20 text-slate-300 ring-slate-500/40'
+	};
 </script>
 
 <Shine
@@ -36,18 +51,21 @@
 	specularConstant={0.3}
 	specularExponent={200}
 >
-	<div class="mx-auto flex max-w-xs flex-col">
+	<div class="relative mx-auto flex max-w-xs flex-col">
+		<span
+			class="absolute top-2 right-2 z-10 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 backdrop-blur-sm {statusClass[
+				status
+			]}"
+		>
+			{$t(`projects.status.${status}`)}
+		</span>
 		<Card
 			img={image}
 			imgAlt={$t('projects.imageAlt', { name: name[lang] })}
 			size="none"
 			color="app-blue"
 			padding="sm"
-			aria-label={$t('projects.display', { name: name[lang] })}
-			class="bg-app-black rounded-b-none"
-			href={url}
-			target="_blank"
-			rel="noopener noreferrer"
+			class="bg-app-black relative rounded-b-none hover:bg-gray-100 dark:hover:bg-white/5"
 		>
 			<h5 class="line-clamp-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{name[lang]}
@@ -63,19 +81,32 @@
 					<ProjectTag tag={`+${hiddenTagsCount}`} />
 				{/if}
 			</div>
+			<!-- Full-card click target: opens the detail dialog. Kept as an overlay
+			     button so the card surface never navigates away on its own; the
+			     live-site link now lives only inside that dialog ("Voir en ligne"). -->
+			<button
+				type="button"
+				class="focus-visible:ring-app-blue absolute inset-0 z-1 cursor-pointer rounded-t-lg focus-visible:ring-2 focus-visible:outline-none"
+				aria-label={$t('projects.display', { name: name[lang] })}
+				onclick={() => (dialogOpen = true)}
+			></button>
 		</Card>
-		<!-- Outside the card's own <a> on purpose: these are real buttons/dialog triggers, not
-		     navigation to the project's live url, and must never sit inside that anchor. -->
+		<!-- Sits below the card, outside its overlay button: the repo link is a real
+		     anchor and must stay clickable in its own right. -->
 		<div class="bg-app-black ring-app-blue flex gap-2 rounded-b-lg p-4 ring-1">
 			<Button
 				type="button"
 				variant="outline"
-				class="shrink-0 cursor-pointer"
+				class="shrink-0 cursor-pointer {repo ? '' : 'flex-1'}"
 				onclick={() => (dialogOpen = true)}
 			>
 				{$t('projects.readMore')}
 			</Button>
-			<Button href={repo} class="flex-1" variant="card-link" external>{$t('projects.repo')}</Button>
+			{#if repo}
+				<Button href={repo} class="flex-1" variant="card-link" external
+					>{$t('projects.repo')}</Button
+				>
+			{/if}
 		</div>
 	</div>
 </Shine>
@@ -111,7 +142,9 @@
 			{#if url}
 				<Button href={url} variant="outline" external>{$t('projects.live')}</Button>
 			{/if}
-			<Button href={repo} variant="card-link" external>{$t('projects.repo')}</Button>
+			{#if repo}
+				<Button href={repo} variant="card-link" external>{$t('projects.repo')}</Button>
+			{/if}
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
